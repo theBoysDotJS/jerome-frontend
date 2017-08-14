@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MessageBubble from '../MessageBubble';
 var Infinite = require(react-infinite);
 
-class chatbox extends Component {
+class Chatbox extends Component {
   render() {
     return (
       <div className="chatbox">

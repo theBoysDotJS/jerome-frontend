@@ -2,7 +2,7 @@ import React from 'react';
 import superagent from 'superagent';
 
 var API_HOST = "http://localhost:3000/signup"
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
@@ -44,3 +44,5 @@ export default class SignUp extends React.Component {
 		);
 	}
 }
+
+export default SignUp;

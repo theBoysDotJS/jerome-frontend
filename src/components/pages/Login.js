@@ -3,7 +3,7 @@ import React from 'react';
 //https://www.npmjs.com/package/react-facebook-login
 import FacebookLogin from 'react-facebook-login';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super();
   }
@@ -31,3 +31,5 @@ export default class Login extends React.Component {
     )
   }
 }
+
+export default Login;
