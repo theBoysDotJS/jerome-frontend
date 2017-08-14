@@ -12,4 +12,4 @@ class avatar extends Component {
   }
 }
 
-export default App;
+export default Avatar;

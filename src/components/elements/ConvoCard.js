@@ -31,6 +31,8 @@ class ConvoCard extends React.Component {
 	}
 }
 
+export default ConvoCard;
+
 /*
 These are optional flags that we can add to give context to the chatroom
 
