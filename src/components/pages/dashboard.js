@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react';
+var Infinite = require(react-infinite);
+import ConvoCard from "../ConvoCard";
+import NavBar from "../NavBar";
 
-export default class Dashboard extends React.Component {
+class Dashboard extends Component {
   render() {
-    return <div>home</div>
+    return (
+      <div className="Dashboard">
+        <NavBar/>
+        <Infinite displayBottomUpwards className="dashboard--cards">
+        {/*array of <ConvoCard>*/}
+        </Infinite>
+      </div>
+    );
   }
 }
+
+export default Dashboard;
