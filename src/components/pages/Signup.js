@@ -1,7 +1,7 @@
 import React from 'react';
-import superagent from 'superagent';
+import api from '../../api.js'
 
-var API_HOST = "http://localhost:3000/signup"
+
 class SignUp extends React.Component {
 	constructor(props) {
 		super();
@@ -10,37 +10,56 @@ class SignUp extends React.Component {
 		};
 	}
 
-	requestSignup = (username, password, email) => (superagent.post(API_HOST).send({username, password, email}))
-
 	_handleSignup = (e) => {
 
 		e.preventDefault();
-		this.requestSignup(this.refs.username.value, this.refs.password.value, this.refs.email.value).then(res => {
-			console.log(res)
-		})
+
+		let signupObj = {
+			username: this.refs.username.value,
+			email: this.refs.email.value,
+			password: this.refs.password.value,
+			language: this.refs.language.value,
+			firstName: this.refs.firstName.value,
+			lastName: this.refs.lastName.value
+		}
+
+		//sends request object to src/api.js with form values for signup
+		api.requestSignup(signupObj)
+			.then(res => {
+				//figure out what we're doing here
+				console.log(res)
+			})
 	}
+
 	render() {
 
 		return (
-			<div>
-				<h1>
-					Sign Up</h1>
-				<form onSubmit={this._handleSignup}>
-					EMAIL:<br></br>
-					<input type="text" name="EMAIL" ref="email"/>
-					<br></br>
-					PASSWORD:
-					<br></br>
-					<input type="password" ref="password"/>
-					<br></br>
-					USERNAME:
-					<br></br>
-					<input type="text" ref="username"/>
-					<br></br>
+			<section className="sign-up">
+				<h1>Sign Up</h1>
+				<form className="sign-up--form" onSubmit={e => this._handleSignup(e)}>
+
+					<label>firstName:</label>
+					<input type="text" name="firstName" ref="firstName"/>
+
+					<label>lastName:</label>
+					<input type="text" name="lastName" ref="lastName"/>
+
+					<label>E-mail:</label>
+					<input type="text" name="email" ref="email"/>
+
+					<label>Password:</label>
+					<input type="password" name="password" ref="password"/>
+
+					<label>Username:</label>
+					<input type="text" name="username" ref="username"/>
+
+					<label>Language:</label>
+					<input type="text" name="language" ref="language"/>
+
 					<button type="submit">Sign Up</button>
-					<p>{this.state.error}</p>
+					<p className="sign-up--error">{this.state.error}</p>
 				</form>
-			</div>
+			</section>
 		);
 	}
 }
