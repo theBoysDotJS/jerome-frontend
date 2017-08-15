@@ -5,7 +5,7 @@ class Avatar extends Component {
   render() {
     return (
       <div className="avatar">
-      	<img alt="avatar" href="avatarURL"/>
+      	<img className="avatar--image" alt="#" src="http://unsplash.it/48/48"/>
       </div>
     );
   }
