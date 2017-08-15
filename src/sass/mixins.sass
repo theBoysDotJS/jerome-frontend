@@ -1,0 +1,7 @@
+=flex($dir, $align)
+	display: flex
+	flex-flow: $dir
+	@if $dir == row
+		justify-content: $align
+	@if $dir == column
+		align-items: $align
