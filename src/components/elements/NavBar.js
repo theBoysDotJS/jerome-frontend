@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Avatar from '../avatar';
+import Avatar from '../assets/Avatar.js';
 
-class chatbox extends Component {
+class ChatBox extends Component {
   render() {
     return (
-      <nav className="NavBar">
+      <nav className="nav-bar">
         <img className="navbar--logo" href="logo"/>
         <h1>HELLO WORLD</h1>
         <p>username</p>

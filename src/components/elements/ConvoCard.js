@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Avatar from '../assets/Avatar.js'
 
 class ConvoCard extends React.Component {
 	constructor(props) {
@@ -16,7 +17,7 @@ class ConvoCard extends React.Component {
 					<ul>
 						{this.state.usersInChat.map(user => {
 							return(
-								<Avatar image={}/>
+								<Avatar image=""/>
 							)
 						})}
 					</ul>
