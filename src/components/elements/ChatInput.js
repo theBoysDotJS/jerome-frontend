@@ -10,7 +10,17 @@ class ChatInput extends Component {
       user: ""
     }
     this._handleSend = this._handleSend.bind(this);
+    this._handleInput = this._handleInput.bind(this);
   }
+
+  _handleInput(e){
+    e.preventDefault();
+    this.setState({
+      currentInput: e.target.value
+    })
+    console.log(this.state.currentInput);
+  }
+
   _handleSend(e){
     e.preventDefault();
     var formData = {
@@ -23,10 +33,11 @@ class ChatInput extends Component {
     console.log(formData);
     socket.emit("chat", formData)
   }
+
   render() {
     return (
       <div className="ChatInput">
-        <textarea>write something</textarea>
+        <textarea onInput={this._handleInput} value={this.state.currentInput}>write something</textarea>
         <button onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );
