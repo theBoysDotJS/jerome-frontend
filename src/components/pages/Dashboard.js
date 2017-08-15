@@ -8,12 +8,14 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
 
+ 
       </div>
     );
   }
 }
 
 export default Dashboard;
+
 
 	//SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE
 
