@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 // var md5 = require('md5');
 
 class Avatar extends Component {
@@ -15,4 +16,5 @@ class Avatar extends Component {
 export default Avatar;
 
 
-// `https://www.gravatar.com/avatar/${hash}?d=wavatar`
+// URL
+//`https://www.gravatar.com/avatar/${hash}?d=wavatar`

@@ -1,7 +1,13 @@
-=flex($dir, $align)
+=flex($dir)
 	display: flex
 	flex-flow: $dir
-	@if $dir == row
-		justify-content: $align
-	@if $dir == column
-		align-items: $align
+	// @if $dir == row nowrap || row
+	// justify-content: $align
+	// @if $dir == column || column nowrap
+	// align-items: $align
+
+=centerer
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)

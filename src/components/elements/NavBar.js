@@ -5,10 +5,12 @@ class ChatBox extends Component {
   render() {
     return (
       <nav className="nav-bar">
-        <img className="navbar--logo" href="logo"/>
-        <h1>HELLO WORLD</h1>
-        <p>username</p>
-        <Avatar />
+        <img className="navbar--logo" src="http://unsplash.it/300/100"/>
+        <h1>PAGE TITLE</h1>
+		<div className="nav-bar--user-card">
+	        <p>username</p>
+	        <Avatar />
+		</div>
         <img href="icon"/>
       </nav>
     );

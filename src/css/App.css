@@ -147,4 +147,47 @@ table {
 td, th {
   padding: 0; }
 
+.App {
+  width: 100vw; }
+  .App .nav-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px #333 solid; }
+    .App .nav-bar .nav-bar--user-card {
+      width: 12%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center; }
+      .App .nav-bar .nav-bar--user-card .avatar {
+        width: 48px;
+        height: 48px; }
+
+.App .login,
+.App .sign-up {
+  width: 100%; }
+  .App .login .login--form,
+  .App .login .sign-up--form,
+  .App .sign-up .login--form,
+  .App .sign-up .sign-up--form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between; }
+
+.App .avatar .avatar--image {
+  max-width: 100%;
+  border: 2px #333 solid;
+  border-radius: 50%; }
+
 /*# sourceMappingURL=App.css.map */

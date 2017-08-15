@@ -1,3 +1,52 @@
 @import '../global.sass'
 @import '../mixins.sass'
 @import '../normalize.sass'
+
+//APP + NAV STYLES
+.App
+	width: 100vw
+
+	.nav-bar
+		width: 100%
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		+flex(row nowrap)
+		justify-content: space-between
+		align-items: center
+		border-bottom: 2px $black solid
+
+		.nav-bar--user-card
+			width: 12%
+			+flex(row nowrap)
+			justify-content: space-between
+			align-items: center
+
+			.avatar
+				width: 48px
+				height: 48px
+
+
+//LOGIN + SIGNUP STYLES
+
+.App
+	.login,
+	.sign-up
+		width: 100%
+
+		.login--form,
+		.sign-up--form
+			+centerer
+			+flex(column nowrap)
+			justify-content: space-between
+
+//AVATAR STYLES
+
+.App
+	.avatar
+
+		.avatar--image
+			max-width: 100%
+			border: 2px $black solid
+			border-radius: 50%
