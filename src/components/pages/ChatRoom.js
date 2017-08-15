@@ -4,16 +4,22 @@ import React from 'react';
 import ChatBox from '../elements/ChatBox.js';
 import ChatInput from '../elements/ChatInput.js';
 
+
 class ChatRoom extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			users: []
+		};
+
 	}
 
 	render() {
 		return (
-			<ChatBox></ChatBox>
-			<ChatInput></ChatInput>
+			<div>
+				<ChatBox users={this.state.users}></ChatBox>
+				<ChatInput users={this.state.users}></ChatInput>
+			</div>
 		);
 	}
 }
