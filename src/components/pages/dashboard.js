@@ -8,8 +8,6 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <NavBar/>
-		{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-
       </div>
     );
   }
@@ -17,7 +15,8 @@ class Dashboard extends Component {
 
 export default Dashboard;
 
-		//
-        // <Infinite useWindowAsScrollContainer containerHeight={90} displayBottomUpwards className="dashboard--cards">
-        // {/*array of <ConvoCard>*/}
-        // </Infinite>
+	//SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE
+
+    // <Infinite useWindowAsScrollContainer containerHeight={90} displayBottomUpwards className="dashboard--cards">
+    // {/*array of <ConvoCard>*/}
+    // </Infinite>

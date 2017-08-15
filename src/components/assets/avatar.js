@@ -13,5 +13,5 @@ class Avatar extends Component {
 
 export default Avatar;
 
-
-// `https://www.gravatar.com/avatar/${hash}?d=wavatar`
+// URL
+//`https://www.gravatar.com/avatar/${hash}?d=wavatar`
