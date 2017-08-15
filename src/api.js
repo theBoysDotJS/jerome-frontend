@@ -5,7 +5,7 @@ class Api {
 
 	requestSignup = (userInfo) => (
 		superagent
-			.post(API_HOST)
+			.post(`${API_HOST}/users`)
 			.send(
 				{username: userInfo.username,
 				 password: userInfo.password,
@@ -18,8 +18,14 @@ class Api {
 
 	requestLogin = (username, password) => (
 		superagent
-			.post(API_HOST)
+			.post(`${API_HOST}/sessions`)
 			.send({username, password})
+	)
+
+	getAllConvos = (token) => (
+		superagent
+			.get(`${API_HOST}/conversation`)
+			.set('authentication', token)
 	)
 }
 

@@ -7,7 +7,7 @@ class Avatar extends Component {
     // var url = `https://www.gravatar.com/avatar/${md5(this.props.user.email)}?d=wavatar`
     return (
       <div className="avatar">
-      	<img alt="avatar" src={this.props.user.avatarUrl}/>
+      	<img className="avatar--image" alt="avatar" src="http://www.unsplash.it/48"/>
       </div>
     );
   }
