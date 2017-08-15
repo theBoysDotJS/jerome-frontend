@@ -35,7 +35,6 @@ class SignUp extends React.Component {
 
 		return (
 			<section className="sign-up">
-				<h1>Sign Up</h1>
 				<form className="sign-up--form" onSubmit={e => this._handleSignup(e)}>
 
 					<label>firstName:</label>
@@ -57,6 +56,7 @@ class SignUp extends React.Component {
 					<input type="text" name="language" ref="language"/>
 
 					<button type="submit">Sign Up</button>
+					<p>Already have an account? <a href="/login">Login Here</a> </p>
 					<p className="sign-up--error">{this.state.error}</p>
 				</form>
 			</section>
