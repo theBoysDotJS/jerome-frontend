@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // var md5 = require('md5');
 
-class Avatar extends Component {
+class Avatar extends React.Component {
   render() {
     // var url = `https://www.gravatar.com/avatar/${md5(this.props.user.email)}?d=wavatar`
     return (
