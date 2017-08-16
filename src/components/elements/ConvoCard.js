@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from '../assets/Avatar.js'
 
 class ConvoCard extends React.Component {

@@ -10,7 +10,7 @@ class Login extends React.Component {
 	}
 
 	_handleLogin = (e) => {
-		e.preventDefault
+		e.preventDefault();
 
 		api.requestLogin(this.refs.email.value, this.refs.password.value)
 			.then(res => {
