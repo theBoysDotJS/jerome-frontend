@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
-const io = require("socket.io-client");
-const socket = io('http://1758bd6e.ngrok.io');
+import Socket from '../../socketHandle.js'
 
 class ChatInput extends Component {
   constructor(){
     super()
     this.state = {
-      currentInput: "",
+      currentInput: "Hamburger",
       user: ""
     }
-    this._handleSend = this._handleSend.bind(this);
   }
-  _handleSend(e){
+  _handleSend = (e) => {
     e.preventDefault();
     var formData = {
-      text: this.state.currentInput,
+      text: this.refs.textarea.value,
       user: 10,
       convoId: 12,
       type: "text"
-
     }
+
     console.log(formData);
-    socket.emit("chat", formData)
+    Socket.sendMessage(formData);
   }
   render() {
     return (
       <div className="ChatInput">
-        <textarea>write something</textarea>
+        <textarea ref='textarea'>write something</textarea>
         <button onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );
