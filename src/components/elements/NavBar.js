@@ -32,9 +32,11 @@ class ChatBox extends Component {
   render() {
     return (
       <nav className="nav-bar">
+
 		<Link to={"/"} className="nav-bar--logo" >
 	      <img src="http://unsplash.it/300/100"/>
 		</Link>
+
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 			<div>

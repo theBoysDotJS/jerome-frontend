@@ -218,6 +218,15 @@ td, th {
       padding: 10% 0 5% 0; }
       .App .dashboard .convo-card .convo-card--header h3 {
         margin-left: 5%; }
+      .App .dashboard .convo-card .convo-card--header .convo-card--avatars {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 30%; }
+        .App .dashboard .convo-card .convo-card--header .convo-card--avatars .avatar {
+          width: 16px;
+          height: 16px; }
     .App .dashboard .convo-card .convo-card--snippet {
       width: 80%;
       text-align: left;

@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react';
 import Avatar from '../assets/Avatar.js';
 import {Link} from 'react-router';
+
 
 class ConvoCard extends React.Component {
 	constructor(props) {
@@ -15,10 +17,10 @@ class ConvoCard extends React.Component {
 			<Link to={`/conversation/${this.props.convoId}`} className="convo-card">
 				<div className="convo-card--header">
 					<h3>{this.props.name}</h3>
-					<ul>
-						{this.state.usersInChat.map(user => {
+					<ul className="convo-card--avatars">
+						{this.props.users.map(user => {
 							return(
-								<Avatar image="{this.props.avatar}"/>
+								<Avatar image="{user.avatarUrl}"/>
 							)
 						})}
 					</ul>

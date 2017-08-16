@@ -8,9 +8,7 @@ class ChatBox extends Component {
       <div className="chatbox">
 	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
         <Infinite useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
-          <div className="one"/>
-          <div className="two"/>
-          <div className="three"/>
+			<MessageBubble />
         </Infinite>
       </div>
     );
