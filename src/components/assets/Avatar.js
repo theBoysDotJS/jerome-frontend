@@ -4,12 +4,9 @@ import React from 'react';
 
 class Avatar extends React.Component {
   render() {
-    // var url = `https://www.gravatar.com/avatar/${md5(this.props.user.email)}?d=wavatar`
     return (
       <div className="avatar">
-
-      	<img className="avatar--image" alt="avatar" src="http://www.unsplash.it/48"/>
-
+      	<img className="avatar--image" alt="avatar" src={this.props.user.avatarUrl}/>
       </div>
     );
   }

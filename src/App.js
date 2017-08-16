@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from "./components/elements/NavBar.js"
 // import './App.css';
-
+import Socket from './socketHandle'
 class App extends Component {
   render() {
     return (
@@ -12,5 +12,5 @@ class App extends Component {
     );
   }
 }
-
+// Socket.receiveMessage();
 export default App;
