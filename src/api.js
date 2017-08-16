@@ -24,9 +24,9 @@ class Api {
 
 	getAllConvos = (token) => (
 		superagent
-			.get(`${API_HOST}/conversation`)
+			.get(`${API_HOST}/conversation/`)
 			.set('authentication', token)
 	)
 }
 
-export default Api;
+export default new Api();

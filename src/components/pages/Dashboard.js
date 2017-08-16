@@ -1,50 +1,46 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Infinite from 'react-infinite';
 import ConvoCard from "../elements/ConvoCard.js";
 import NavBar from "../elements/NavBar.js";
-import api from "../../api.js"
-
+import Api from "../../api.js"
 
 class Dashboard extends Component {
-  constructor() {
-	  super();
-	  this.state = {
-		  cardInfo: []
-	  };
-  }
+	constructor() {
+		super();
+		this.state = {
+			cardInfo: []
+		};
+	}
 
-  componentDidMount() {
-	  this._fetchConvos();
-  }
+	componentDidMount() {
+		this._fetchConvos();
+	}
 
-  _fetchConvos = () => {
-	 api.getAllConvos(localStorage.token) //may need to be document.cookie
-	 	.then(res => res.json())
-		.then(cardData => {
+	_fetchConvos = () => {
+		Api.getAllConvos(localStorage.token). //may need to be document.cookie
+		then(res => res.body).then(cardData => {
+			console.log(cardData, 'this is card data')
 			this.setState({
-				cardInfo: cardData
+				cardInfo: cardData[0]
 			})
 		})
-  }
+	}
 
-  render() {
-	let convos = this.state.cardInfo
-    return (
-      <div className="dashboard">
-		    <Infinite useWindowAsScrollContainer containerHeight={90} displayBottomUpwards className="dashboard--cards">
-		     {convos.map(c => {
-				 <ConvoCard
-				 	avatars={this.state.cardInfo.users.AvatarUrl}
-					name={this.state.cardInfo.name}
-					message={this.state.cardInfo.messages} />
-			 })}
-		    </Infinite>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="dashboard">
+				{this.state.cardInfo.map(c => {
+					console.log(c, 'this is c');
+					return (<ConvoCard avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
+				})}
+			</div>
+		);
+	}
 }
 
 export default Dashboard;
 
+// <Infinite useWindowAsScrollContainer containerHeight={90} elementHeight={400} displayBottomUpwards className="dashboard--cards">
+// </Infinite>
 
-	//SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE
+//SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE

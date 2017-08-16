@@ -12,19 +12,20 @@ class ConvoCard extends React.Component {
 	render() {
 		return(
 			<section className="convo-card">
+				<h3>TESTING WHERE R U </h3>
 				<div className="convo-card--header">
-					<h3>Chat Name</h3>
+					<h3>{this.props.name}</h3>
 					<ul>
 						{this.state.usersInChat.map(user => {
 							return(
-								<Avatar image=""/>
+								<Avatar image="{this.props.avatar}"/>
 							)
 						})}
 					</ul>
 				</div>
 				<div className="convo-card--snippet">
-					{this.state.messageSnippet.map(message => {
-						return(<p><strong>{message.handle}:</strong>{message.text}</p>)
+					{this.props.message.map(message => {
+						return(<p><strong>{message.author}:</strong>{message.text}</p>)
 					})}
 				</div>
 			</section>
@@ -34,10 +35,9 @@ class ConvoCard extends React.Component {
 
 export default ConvoCard;
 
+
 /*
 These are optional flags that we can add to give context to the chatroom
-
-
 <div className="flags">
 	<div className="flag-1"></div>
 	<div className="flag-2"></div>
