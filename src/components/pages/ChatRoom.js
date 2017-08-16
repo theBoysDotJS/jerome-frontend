@@ -11,12 +11,11 @@ class ChatRoom extends React.Component {
 		this.state = {
 			users: []
 		};
-
 	}
 
 	render() {
 		return (
-			<div>
+			<div className="chat-room">
 				<ChatBox users={this.state.users}></ChatBox>
 				<ChatInput users={this.state.users}></ChatInput>
 			</div>

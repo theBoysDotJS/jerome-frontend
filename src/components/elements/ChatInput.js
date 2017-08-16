@@ -5,8 +5,8 @@ class ChatInput extends Component {
 
   render() {
     return (
-      <div className="ChatInput">
-        <textarea>write something</textarea>
+      <div className="chat-input">
+        <textarea placeholder="Write something..."></textarea>
         <button>SEND</button>
       </div>
     );

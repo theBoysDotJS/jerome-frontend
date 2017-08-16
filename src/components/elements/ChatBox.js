@@ -5,7 +5,7 @@ import Infinite from 'react-infinite';
 class ChatBox extends Component {
   render() {
     return (
-      <div className="chatbox">
+      <div className="chat-box">
 	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
         <Infinite useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
 			<MessageBubble />

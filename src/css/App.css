@@ -175,10 +175,11 @@ td, th {
 .App .login,
 .App .sign-up {
   width: 100%; }
-  .App .login .login--form,
-  .App .login .sign-up--form,
-  .App .sign-up .login--form,
-  .App .sign-up .sign-up--form {
+  .App .login .signup,
+  .App .sign-up .signup {
+    margin-top: 15%; }
+  .App .login .form,
+  .App .sign-up .form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -186,6 +187,57 @@ td, th {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between; }
+    .App .login .form .form--container,
+    .App .sign-up .form .form--container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+    .App .login .form input,
+    .App .sign-up .form input {
+      border: 1px solid #333;
+      background: #f2f2f2;
+      font-size: 2rem;
+      margin-bottom: 2%;
+      padding: 1% 3%;
+      position: relative; }
+      .App .login .form input:focus::-webkit-input-placeholder,
+      .App .sign-up .form input:focus::-webkit-input-placeholder {
+        color: transparent; }
+      .App .login .form input:focus,
+      .App .sign-up .form input:focus {
+        outline: none; }
+    .App .login .form .form--button-container,
+    .App .sign-up .form .form--button-container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      padding: 0;
+      margin: 0; }
+      .App .login .form .form--button-container p,
+      .App .sign-up .form .form--button-container p {
+        margin-bottom: 5%; }
+      .App .login .form .form--button-container .form--button,
+      .App .sign-up .form .form--button-container .form--button {
+        width: 100%;
+        font-size: 1.4em;
+        padding: 0.5em 0.7em;
+        background: #f2f2f2;
+        border: 1px solid #333;
+        margin: 3% 0;
+        text-align: center; }
+      .App .login .form .form--button-container #fb,
+      .App .sign-up .form .form--button-container #fb {
+        width: 20%;
+        font-size: 16px;
+        text-transform: capitalize; }
+    .App .login .form .disclaimer,
+    .App .sign-up .form .disclaimer {
+      text-align: center; }
+      .App .login .form .disclaimer a,
+      .App .sign-up .form .disclaimer a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #333; }
 
 .App .avatar .avatar--image {
   max-width: 100%;
@@ -233,5 +285,35 @@ td, th {
       padding-left: 10px; }
       .App .dashboard .convo-card .convo-card--snippet strong {
         margin-right: 10px; }
+
+.App .chat-room .chat-input {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+  border-top: 1px solid #333;
+  padding: 1% 0; }
+  .App .chat-room .chat-input textarea {
+    width: 80%;
+    border: none;
+    resize: none; }
+    .App .chat-room .chat-input textarea:focus {
+      outline: none; }
+      .App .chat-room .chat-input textarea:focus::-webkit-input-placeholder {
+        color: transparent; }
+  .App .chat-room .chat-input button {
+    text-decoration: none;
+    background: none;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 25px;
+    line-height: 32px;
+    height: auto;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid #333; }
 
 /*# sourceMappingURL=App.css.map */
