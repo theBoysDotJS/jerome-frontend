@@ -9,10 +9,19 @@ class ChatInput extends Component {
       user: ""
     }
   }
+
+  _handleInput = (e) => {
+    e.preventDefault();
+    this.setState({
+      currentInput: e.target.value
+    })
+    console.log(this.state.currentInput);
+  }
+
   _handleSend = (e) => {
     e.preventDefault();
     var formData = {
-      text: this.refs.textarea.value,
+      text: this.state.currentInput,
       user: 10,
       convoId: 12,
       type: "text"
@@ -21,10 +30,11 @@ class ChatInput extends Component {
     console.log(formData);
     Socket.sendMessage(formData);
   }
+
   render() {
     return (
       <div className="ChatInput">
-        <textarea ref='textarea'>write something</textarea>
+        <textarea onInput={this._handleInput} value={this.state.currentInput}>write something</textarea>
         <button onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );

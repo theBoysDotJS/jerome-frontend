@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import MessageBubble from '../assets/MessageBubble';
 import Infinite from 'react-infinite';
+import Api from '../../api'
+const io = require("socket.io-client");
+const socket = io('http://1758bd6e.ngrok.io');
 
 class ChatBox extends Component {
   constructor(){
@@ -10,9 +13,26 @@ class ChatBox extends Component {
     }
     this.displayMessage = this.displayMessage.bind(this);
   }
+  componentDidMount(){
+    Api.getMessages(this.props.id)
+      .then(data => {
+        this.setState({
+          messages: data
+        })
+      })
+  }
   displayMessage(curVal){
   return (<MessageBubble user={curVal.user} text={curVal.text}/>);
       }
+    receiveMessage(){
+    io.on('chat', data =>{
+      let messages = this.state.messages;
+      messages.push(data.text)
+      this.setState({
+        messages: messages
+      })
+    })
+  }
   render() {
 
     return (

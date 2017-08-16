@@ -21,6 +21,12 @@ class Api {
 			.post(API_HOST)
 			.send({username, password})
 	)
+
+	getMessages = (convoId) => (
+		superagent
+			.get(`${API_HOST}/conversation/${convoId}`)
+	)
 }
+
 
 export default Api;
