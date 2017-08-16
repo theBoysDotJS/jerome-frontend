@@ -31,13 +31,13 @@ class ChatBox extends Component {
   render() {
     return (
       <nav className="nav-bar">
-        <img className="nav-bar--logo" src="http://unsplash.it/300/100" alt="some kind of thing"/>
+        <img className="nav-bar--logo" src="logo.svg" alt="some kind of thing"/>
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 	        <p>{this.state.username}</p>
 	        <Avatar image={this.state.avatar}/>
+			{/*<svg></svg>*/}
 		</div>
-        <i className="">Settings Icon</i>
       </nav>
     );
   }

@@ -13,9 +13,11 @@
 		left: 0
 		right: 0
 		+flex(row nowrap)
-		justify-content: space-between
+		justify-content: space-around
 		align-items: center
 		border-bottom: 2px $black solid
+		background: $white
+		z-index: 20
 
 		.nav-bar--user-card
 			width: 12%
@@ -55,14 +57,15 @@
 	.dashboard
 		width: 100%
 		+flex(row wrap)
-		+centerer
+		margin-top: 10%
 		justify-content: space-around
-		align-content: center
+		align-items: center
 
 		.convo-card
-			width: 30%
+			width: 25%
+			margin: 2%
 			background: lightgray
-			box-shadow: -15px 15px 0px 0px $black
+			box-shadow: -15px 15px 0px 0px lighten($black, 5%)
 			position: relative
 			+flex(column nowrap)
 			justify-content: center
@@ -93,3 +96,6 @@
 				text-align: left
 				padding: 10% 0
 				padding-left: 10px
+
+				strong
+					margin-right: 10px
