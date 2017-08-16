@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from '../assets/Avatar.js'
 
 class ConvoCard extends React.Component {
@@ -13,18 +13,18 @@ class ConvoCard extends React.Component {
 		return(
 			<section className="convo-card">
 				<div className="convo-card--header">
-					<h3>Chat Name</h3>
-					<ul>
-						{this.state.usersInChat.map(user => {
+					<h3>{this.props.name}</h3>
+					<ul className="convo-card--avatars">
+						{this.props.users.map(user => {
 							return(
-								<Avatar image=""/>
+								<Avatar image="{user.avatarUrl}"/>
 							)
 						})}
 					</ul>
 				</div>
 				<div className="convo-card--snippet">
-					{this.state.messageSnippet.map(message => {
-						return(<p><strong>{message.handle}:</strong>{message.text}</p>)
+					{this.props.message.map(message => {
+						return(<p><strong>{message.author}:</strong>{message.text}</p>)
 					})}
 				</div>
 			</section>
@@ -34,10 +34,9 @@ class ConvoCard extends React.Component {
 
 export default ConvoCard;
 
+
 /*
 These are optional flags that we can add to give context to the chatroom
-
-
 <div className="flags">
 	<div className="flag-1"></div>
 	<div className="flag-2"></div>

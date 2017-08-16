@@ -15,7 +15,6 @@ const routes = (
         <Route path="/signup" component={Signup}/>
         <Route path="/login" component={Login}/>
         <Route path="/conversation/:id" component={ChatRoom}/>
-        <Route path="/dashboard" component={Dashboard}/>
       </Route>
     </Router>
 );

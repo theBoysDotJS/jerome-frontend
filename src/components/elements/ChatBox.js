@@ -54,7 +54,6 @@ class ChatBox extends Component {
 
     return (
       <div className="chatbox">
-	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
         <Infinite id="messages" useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
           {this.displayMessages()}
         </Infinite>

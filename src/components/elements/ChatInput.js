@@ -30,7 +30,6 @@ class ChatInput extends Component {
     console.log(formData);
     Socket.sendMessage(formData);
   }
-
   render() {
     return (
       <div className="ChatInput">
