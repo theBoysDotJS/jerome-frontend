@@ -12,7 +12,6 @@ class ConvoCard extends React.Component {
 	render() {
 		return(
 			<section className="convo-card">
-				<h3>TESTING WHERE R U </h3>
 				<div className="convo-card--header">
 					<h3>{this.props.name}</h3>
 					<ul>

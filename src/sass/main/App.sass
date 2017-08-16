@@ -51,6 +51,34 @@
 			border: 2px $black solid
 			border-radius: 50%
 
-.convo-card
-	background: red
-	color: $black
+.App
+	.dashboard
+		width: 100%
+		+flex(row wrap)
+		+centerer
+		justify-content: space-around
+		align-content: center
+
+		.convo-card
+			width: 30%
+			background: lightgray
+			box-shadow: -15px 15px 0px 0px $black
+			position: relative
+			+flex(column nowrap)
+			justify-content: center
+			align-content: center
+
+			.convo-card--header
+				background: red
+				align-self: flex-start
+				width: 100%
+				padding: 10% 0 5% 0
+
+				h3
+					margin-left: 5%
+
+			.convo-card--snippet
+				width: 80%
+				text-align: left
+				padding: 10% 0
+				padding-left: 10px

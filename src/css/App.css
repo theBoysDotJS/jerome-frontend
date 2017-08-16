@@ -190,4 +190,36 @@ td, th {
   border: 2px #333 solid;
   border-radius: 50%; }
 
+.App .dashboard {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-around;
+  align-content: center; }
+  .App .dashboard .convo-card {
+    width: 30%;
+    background: lightgray;
+    box-shadow: -15px 15px 0px 0px #333;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center; }
+    .App .dashboard .convo-card .convo-card--header {
+      background: red;
+      align-self: flex-start;
+      width: 100%;
+      padding: 10% 0 5% 0; }
+      .App .dashboard .convo-card .convo-card--header h3 {
+        margin-left: 5%; }
+    .App .dashboard .convo-card .convo-card--snippet {
+      width: 80%;
+      text-align: left;
+      padding: 10% 0;
+      padding-left: 10px; }
+
 /*# sourceMappingURL=App.css.map */
