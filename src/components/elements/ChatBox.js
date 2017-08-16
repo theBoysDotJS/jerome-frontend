@@ -10,7 +10,7 @@ class ChatBox extends Component {
   constructor(){
     super()
     this.state = {
-      messages: [{user:'mike', text:'hello my dudes', id: 13}]
+      messages: []
     }
 
 }
