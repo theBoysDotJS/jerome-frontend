@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Avatar from '../assets/Avatar.js';
-import Api from '../../api.js'
+import Api from '../../api.js';
+import {Link} from 'react-router';
 
 class ChatBox extends Component {
   constructor() {
@@ -31,10 +32,15 @@ class ChatBox extends Component {
   render() {
     return (
       <nav className="nav-bar">
-        <img className="nav-bar--logo" src="http://unsplash.it/300/100"/>
+		<Link to={"/"} className="nav-bar--logo" >
+	      <img src="http://unsplash.it/300/100"/>
+		</Link>
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
-	        <p>{this.state.username}</p>
+			<div>
+		        <p>{this.state.username}</p>
+				<a href="/">Dashboard</a>
+			</div>
 	        <Avatar image={this.state.avatar}/>
 		</div>
         <i className="">Settings Icon</i>

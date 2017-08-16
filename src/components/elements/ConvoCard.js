@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Avatar from '../assets/Avatar.js'
+import Avatar from '../assets/Avatar.js';
+import {Link} from 'react-router';
 
 class ConvoCard extends React.Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ class ConvoCard extends React.Component {
 	//This component renders a square card with information about the chatroom that it links to
 	render() {
 		return(
-			<section className="convo-card">
+			<Link to={`/conversation/${this.props.convoId}`} className="convo-card">
 				<div className="convo-card--header">
 					<h3>{this.props.name}</h3>
 					<ul>
@@ -27,7 +28,7 @@ class ConvoCard extends React.Component {
 						return(<p><strong>{message.author}:</strong>{message.text}</p>)
 					})}
 				</div>
-			</section>
+			</Link>
 		);
 	}
 }

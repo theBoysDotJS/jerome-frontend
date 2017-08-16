@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../api.js'
+import { browserHistory } from 'react-router'
 
 //https://www.npmjs.com/package/react-facebook-login
 import FacebookLogin from 'react-facebook-login';
@@ -10,12 +11,15 @@ class Login extends React.Component {
 	}
 
 	_handleLogin = (e) => {
-		e.preventDefault
+		e.preventDefault();
 
 		api.requestLogin(this.refs.email.value, this.refs.password.value)
 			.then(res => {
-				//get token from response
+				res = true
 				console.log(res)
+				if(res === true) {
+					browserHistory.push('/')
+				}
 			})
 	}
 

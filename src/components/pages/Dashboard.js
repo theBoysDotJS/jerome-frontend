@@ -31,7 +31,7 @@ class Dashboard extends Component {
 			<div className="dashboard">
 				{this.state.cardInfo.map(c => {
 					console.log(c, 'this is c');
-					return (<ConvoCard avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
+					return (<ConvoCard convoId={c.id} avatar={c.users.avatarUrl} name={c.name} message={c.messages} handle={c.handle}/>);
 				})}
 			</div>
 		);
