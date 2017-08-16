@@ -29,12 +29,10 @@ class Dashboard extends Component {
 		return (
 			<div className="dashboard">
 
-				<Infinite useWindowAsScrollContainer containerHeight={90} elementHeight={400} displayBottomUpwards className="dashboard--cards">
-					{this.state.cardInfo.map(c => {
-						console.log(c, 'this is c');
-						return (<ConvoCard avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
-					})}
-				</Infinite>
+				{this.state.cardInfo.map(c => {
+					console.log(c, 'this is c');
+					return (<ConvoCard convoId={c.id} avatar={c.users.avatarUrl} name={c.name} message={c.messages} handle={c.handle}/>);
+				})}
 
 			</div>
 		);
