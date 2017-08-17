@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../api.js'
+import { browserHistory } from 'react-router'
 
 
 class SignUp extends React.Component {
@@ -28,6 +29,12 @@ class SignUp extends React.Component {
 			.then(res => {
 				//figure out what we're doing here
 				console.log(res)
+			})
+			.then(res => {
+				res = true
+				if(res === true) {
+					browserHistory.push('/login')
+				}
 			})
 	}
 

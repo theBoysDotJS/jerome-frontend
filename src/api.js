@@ -25,6 +25,13 @@ class Api {
 			.send({username, password})
 	)
 
+
+	getMessages = (convoId) => (
+		superagent
+			.get(`${API_HOST}/conversation/${convoId}`)
+	)
+}
+
 	//requests logout for user
 	deleteSession = (token) => (
 		superagent

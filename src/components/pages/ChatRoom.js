@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {component} from 'react';
 
 //import components
 import ChatBox from '../elements/ChatBox.js';
@@ -15,8 +15,9 @@ class ChatRoom extends React.Component {
 
 	render() {
 		return (
+
 			<div className="chat-room">
-				<ChatBox users={this.state.users}></ChatBox>
+				<ChatBox  id={this.props.params.id} users={this.state.users}></ChatBox>
 				<ChatInput users={this.state.users}></ChatInput>
 			</div>
 		);
