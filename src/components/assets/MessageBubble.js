@@ -5,9 +5,15 @@ class MessageBubble extends React.Component {
 	render() {
 
 		return(
-			<div classname={this.props.user === localStorage.user ? "mine" : "yours"} id="message-bubble">
-				<p>{this.props.text}</p>
-				<Avatar image="http://unsplash.it/48/48" />
+			<div className='message-container'>
+				<div className='message-bubble'>
+					<div className={this.props.user === localStorage.user ? "message-bubble--mine" : "message-bubble--yours"} id="message-bubble">
+						<div classname="relativeBox">
+							<p>{this.props.text}</p>
+						</div>
+						<Avatar className="message-bubble--avatar" image="http://unsplash.it/32/32" />
+					</div>
+				</div>
 			</div>
 		);
 	}
