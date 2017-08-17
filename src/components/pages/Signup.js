@@ -42,27 +42,22 @@ class SignUp extends React.Component {
 
 		return (
 			<section className="sign-up">
-				<form className="sign-up--form" onSubmit={e => this._handleSignup(e)}>
+				<form className="form sign-up--form" onSubmit={e => this._handleSignup(e)}>
+					<div  className="form--container">
+						<input placeholder="First Name" type="text" name="firstName" ref="firstName"/>
+						<input placeholder="Last Name" type="text" name="lastName" ref="lastName"/>
+					</div>
 
-					<label>firstName:</label>
-					<input type="text" name="firstName" ref="firstName"/>
+					<div className="form--container">
+						<input placeholder="Password" type="password" name="password" ref="password"/>
+						<input placeholder="Username" type="text" name="username" ref="username"/>
+					</div>
+					<input placeholder="E-mail" type="text" name="email" ref="email"/>
 
-					<label>lastName:</label>
-					<input type="text" name="lastName" ref="lastName"/>
-
-					<label>E-mail:</label>
-					<input type="text" name="email" ref="email"/>
-
-					<label>Password:</label>
-					<input type="password" name="password" ref="password"/>
-
-					<label>Username:</label>
-					<input type="text" name="username" ref="username"/>
-
-					<label>Language:</label>
-					<input type="text" name="language" ref="language"/>
-
-					<button type="submit">Sign Up</button>
+					<input placeholder="Language" type="text" name="language" ref="language"/>
+					<div className="form--button-container">
+						<button className="form--button" type="submit">Sign Up</button>
+					</div>
 					<p>Already have an account? <a href="/login">Login Here</a> </p>
 					<p className="sign-up--error">{this.state.error}</p>
 				</form>

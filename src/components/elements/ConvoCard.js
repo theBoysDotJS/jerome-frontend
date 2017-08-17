@@ -27,7 +27,7 @@ class ConvoCard extends React.Component {
 				</div>
 				<div className="convo-card--snippet">
 					{this.props.message.map(message => {
-						return(<p><strong>{message.author}:</strong>{message.text}</p>)
+						return(<p><strong>{message.author}:</strong>{message.message}</p>)
 					})}
 				</div>
 			</Link>

@@ -13,9 +13,11 @@
 		left: 0
 		right: 0
 		+flex(row nowrap)
-		justify-content: space-between
+		justify-content: space-around
 		align-items: center
 		border-bottom: 2px $black solid
+		background: $white
+		z-index: 20
 
 		.nav-bar--user-card
 			width: 12%
@@ -38,11 +40,64 @@
 	.sign-up
 		width: 100%
 
-		.login--form,
-		.sign-up--form
+		.signup
+			margin-top: 15%
+
+		.form
 			+centerer
 			+flex(column nowrap)
 			justify-content: space-between
+
+			.form--container
+				+flex(row nowrap)
+				justify-content: space-between
+
+			input
+				border: 1px solid $black
+				background: $white
+				font-size: 2rem
+				margin-bottom: 2%
+				padding: 1% 3%
+				position: relative
+
+				&:focus::-webkit-input-placeholder
+					color: transparent
+
+				&:focus
+					outline: none
+
+			.form--button-container
+				+flex(row nowrap)
+				justify-content: space-around
+				padding: 0
+				margin: 0
+
+				p
+					margin-bottom: 5%
+
+
+				.form--button
+					width: 100%
+					font-size: 1.4em
+					padding: 0.5em 0.7em
+					background: $white
+					border: 1px solid $black
+					margin: 3% 0
+					text-align: center
+
+
+				#fb
+					width: 20%
+					font-size: 16px
+					text-transform: capitalize
+
+			.disclaimer
+				text-align: center
+
+				a
+					text-decoration: none
+					font-weight: bold
+					color: $black
 
 //AVATAR STYLES
 
@@ -58,21 +113,23 @@
 	.dashboard
 		width: 100%
 		+flex(row wrap)
-		+centerer
+		margin-top: 10%
 		justify-content: space-around
-		align-content: center
+		align-items: center
 
 		.convo-card
-			width: 30%
+			width: 25%
+			margin: 2%
 			background: lightgray
-			box-shadow: -15px 15px 0px 0px $black
+			box-shadow: -15px 15px 0px 0px lighten($black, 5%)
 			position: relative
 			+flex(column nowrap)
 			justify-content: center
 			align-content: center
 
 			.convo-card--header
-				background: red
+				background: $black
+				color: $white
 				align-self: flex-start
 				width: 100%
 				padding: 10% 0 5% 0
@@ -95,6 +152,7 @@
 				text-align: left
 				padding: 10% 0
 				padding-left: 10px
+
 
 //MESSAGE BUBBLE STYLES
 
@@ -120,3 +178,42 @@
 					border-width: 1px
 					border-radius: 10px
 					color: #333
+
+				strong
+					margin-right: 10px
+
+.App
+	.chat-room
+		.chat-input
+			position: fixed
+			bottom: 0
+			+flex(row nowrap)
+			justify-content: space-around
+			width: 100%
+			border-top: 1px solid $black
+			padding: 1% 0
+
+			textarea
+				width: 80%
+				border: none
+				resize: none
+
+				&:focus
+					outline: none
+
+					&::-webkit-input-placeholder
+						color: transparent
+
+			button
+				text-decoration: none
+				background: none
+				color: $black
+				font-size: 12px
+				font-weight: bold
+				padding: 0 25px
+				line-height: 32px
+				height: auto
+				text-align: center
+				border-radius: 50px
+				border: 1px solid $black
+

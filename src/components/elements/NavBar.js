@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Api from '../../api.js';
 import {Link} from 'react-router';
@@ -33,8 +34,8 @@ class ChatBox extends Component {
     return (
       <nav className="nav-bar">
 
-		<Link to={"/"} className="nav-bar--logo" >
-	      <img src="http://unsplash.it/300/100"/>
+	  	<Link to={'/'}>
+        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
 		</Link>
 
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
@@ -44,8 +45,8 @@ class ChatBox extends Component {
 				<a href="/">Dashboard</a>
 			</div>
 	        <Avatar image={this.state.avatar}/>
+			{/*<svg></svg>*/}
 		</div>
-        <i className="">Settings Icon</i>
       </nav>
     );
   }
