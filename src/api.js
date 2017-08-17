@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import API_HOST from './config.js'
+import API_HOST from './.config.js'
 
 class Api {
 	//AUTH REQUESTS
