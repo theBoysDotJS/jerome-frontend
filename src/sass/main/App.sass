@@ -153,6 +153,32 @@
 				padding: 10% 0
 				padding-left: 10px
 
+
+//MESSAGE BUBBLE STYLES
+
+.App
+	.message-container
+		display: flex
+		flex-flow: column
+		.message-bubble--yours
+			.message-bubble--flexbox
+				display: flex
+				flex-flow: row nowrap
+				justify-content: flex-start
+				align-items: center
+				margin-left: 3px
+
+				p
+					display: inline-block
+					word-wrap: break-word
+					max-width: 50ch
+					margin: 2.5% 2px
+					padding: 0.5em 0.75em
+					border-style: solid
+					border-width: 1px
+					border-radius: 10px
+					color: #333
+
 				strong
 					margin-right: 10px
 
@@ -190,3 +216,4 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
+
