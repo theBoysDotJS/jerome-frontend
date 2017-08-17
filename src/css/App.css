@@ -173,6 +173,17 @@ td, th {
       .App .nav-bar .nav-bar--user-card .avatar {
         width: 48px;
         height: 48px; }
+  .App #settings {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    background: #f2f2f2;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center; }
 
 .App .login,
 .App .sign-up {

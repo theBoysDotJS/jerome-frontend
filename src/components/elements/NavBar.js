@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router'
 import Avatar from '../assets/Avatar.js';
+import Settings from "./Settings.js"
 import Api from '../../api.js';
 
 class ChatBox extends Component {
   constructor() {
 	  super();
-	  this.state = {}
+	  this.state = {
+		  settingsOpen: false
+	  }
   }
 
   _getUser = () => {
@@ -19,6 +22,14 @@ class ChatBox extends Component {
 				avatar: user.avatarUrl
 			})
 		})
+  }
+
+  toggleSettings = (e) => {
+	  e.preventDefault();
+
+	  this.setState({
+		  settingsOpen: !this.state.settingsOpen
+	  })
   }
 
   componentDidMount() {
@@ -40,11 +51,11 @@ class ChatBox extends Component {
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 			<div>
-		        <p>{this.state.username}</p>
+		        <p onClick={this.toggleSettings}>{this.state.username}</p>
 				<a href="/">Dashboard</a>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-			{/*<svg></svg>*/}
+			{!!this.state.settingsOpen ? <Settings close={this.toggleSettings}/> : null}
 		</div>
       </nav>
     );
