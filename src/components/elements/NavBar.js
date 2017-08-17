@@ -3,7 +3,6 @@ import {Link} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Api from '../../api.js';
 
-
 class ChatBox extends Component {
   constructor() {
 	  super();

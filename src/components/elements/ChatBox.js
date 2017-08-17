@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MessageBubble from '../assets/MessageBubble';
 import Infinite from 'react-infinite';
 import Api from '../../api';
-import Socket from '../../socketHandle';
 import {socket} from '../../socketHandle';
 import ReactDOM from 'react-dom';
 import Anime from '../../animate.js';
@@ -16,6 +15,7 @@ class ChatBox extends Component {
 
 }
   componentDidMount(){
+	console.log('mounted')
     socket.on('chat', data => {
       console.log(data, 'thedata')
       this.setState({
@@ -24,8 +24,8 @@ class ChatBox extends Component {
     })
     // var newMsg = [ ...this.state.messages, data];
     console.log(this.state.messages, "these messages")
-}
-)
+	}
+	)
     Api.getMessages(this.props.id)
       .then(data => {
         this.setState({
@@ -59,7 +59,6 @@ class ChatBox extends Component {
 	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
         <Infinite useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
 			    {this.displayMessages()}
-
         </Infinite>
       </div>
     );
