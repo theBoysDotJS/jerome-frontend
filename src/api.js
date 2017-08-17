@@ -30,7 +30,7 @@ class Api {
 		superagent
 			.get(`${API_HOST}/conversation/${convoId}`)
 	)
-}
+
 
 	//requests logout for user
 	deleteSession = (token) => (
