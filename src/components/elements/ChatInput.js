@@ -32,9 +32,11 @@ class ChatInput extends Component {
   }
   render() {
     return (
-      <div className="ChatInput">
-        <textarea onInput={this._handleInput} value={this.state.currentInput}>write something</textarea>
+
+       <div className="chat-input">
+        <textarea placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></textarea>
         <button onClick={e => this._handleSend(e)}>SEND</button>
+
       </div>
     );
   }

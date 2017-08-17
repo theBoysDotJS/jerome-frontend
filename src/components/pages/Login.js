@@ -26,18 +26,21 @@ class Login extends React.Component {
 	render() {
 		return (
 			<div className="login">
-				<form className="login--form">
-					<input type="text" ref="email"/>
-					<input type="password" ref="password"/>
-					<div id="fb">
-						login with facebook:
-						<FacebookLogin
-						appId="1311437462287493"
-						autoLoad={true}
-						fields="name,email,picture"/>
+				<form className="form login--form">
+
+					<input placeholder="e-mail" type="text" ref="email"/>
+
+					<input placeholder="password" type="password" ref="password"/>
+					<div className="form--button-container">
+						<a className="form--button" onClick={e => this._handleLogin(e)}>login</a>
+						{/*<div id="fb">
+							<FacebookLogin
+							appId="1311437462287493"
+							autoLoad={true}
+							fields="name,email,picture"/>
+						</div>*/}
 					</div>
-					<button onClick={e => this._handleLogin(e)}>login</button>
-					<p>Don't have an account? <a href="/signup">Signup here </a> </p>
+					<p className="disclaimer">Don't have an account?<a href="/signup"> Signup here</a></p>
 				</form>
 			</div>
 		)
