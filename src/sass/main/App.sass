@@ -28,6 +28,7 @@
 			a
 				text-align: center
 
+
 			.avatar
 				width: 48px
 				height: 48px
@@ -88,6 +89,7 @@
 					margin-bottom: 5%
 
 
+
 				.form--button
 					width: 100%
 					font-size: 1.4em
@@ -121,6 +123,7 @@
 			border: 2px $black solid
 			border-radius: 50%
 
+
 .App
 	.dashboard
 		width: 100%
@@ -133,12 +136,15 @@
 			width: 25%
 			margin: 2%
 			background: lightgray
-			box-shadow: -15px 15px 0px 0px lighten($black, 5%)
+			box-shadow: -12px 10px 0px 0px lighten($black, 50%)
 			position: relative
 			+flex(column nowrap)
 			justify-content: center
 			align-content: center
-
+			transition: all 0.2s ease-in-out
+			&:hover
+				transform: translate(5px, -5px)
+				box-shadow: -17px 11px 2px 0px lighten($black, 45%)
 			.convo-card--header
 				background: $black
 				color: $white

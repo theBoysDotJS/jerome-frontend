@@ -268,12 +268,16 @@ td, th {
     width: 25%;
     margin: 2%;
     background: lightgray;
-    box-shadow: -15px 15px 0px 0px #404040;
+    box-shadow: -12px 10px 0px 0px #b3b3b3;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-content: center; }
+    align-content: center;
+    transition: all 0.2s ease-in-out; }
+    .App .dashboard .convo-card:hover {
+      transform: translate(5px, -5px);
+      box-shadow: -17px 11px 2px 0px #a6a6a6; }
     .App .dashboard .convo-card .convo-card--header {
       background: #333;
       color: #f2f2f2;

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Avatar from '../assets/Avatar.js';
 import {Link} from 'react-router';
-
+import Anime from '../../animate.js';
 
 class ConvoCard extends React.Component {
 	constructor(props) {
@@ -11,11 +11,14 @@ class ConvoCard extends React.Component {
 			usersInChat: []
 		}
 	}
+	componentDidMount(){
+
+	}
 	//This component renders a square card with information about the chatroom that it links to
 	render() {
 		return(
 			<Link to={`/conversation/${this.props.convoId}`} className="convo-card">
-				<div className="convo-card--header">
+				<div className="convo-card--header" >
 					<h3>{this.props.name}</h3>
 					<ul className="convo-card--avatars">
 						{this.props.users.map(user => {

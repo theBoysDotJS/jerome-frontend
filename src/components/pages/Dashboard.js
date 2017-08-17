@@ -3,6 +3,7 @@ import Infinite from 'react-infinite';
 import ConvoCard from "../elements/ConvoCard.js";
 import Api from "../../api.js"
 
+
 class Dashboard extends Component {
 	constructor() {
 		super();
@@ -32,7 +33,8 @@ class Dashboard extends Component {
 				{this.state.cardInfo.map(c => {
 					console.log(c, 'this is c');
 
-					return (<ConvoCard convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
+					return (<ConvoCard className="convoCard" convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
+
 
 				})}
 
