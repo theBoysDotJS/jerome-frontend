@@ -32,6 +32,18 @@
 				width: 48px
 				height: 48px
 
+	#settings
+		position: fixed
+		top: 0
+		bottom: 0
+		right: 0
+		width: 400px
+		background: $white
+
+		+flex(column nowrap)
+		justify-content: space-around
+		align-items: center
+
 
 //LOGIN + SIGNUP STYLES
 
@@ -160,7 +172,7 @@
 	.message-container
 		display: flex
 		flex-flow: column
-		-webkit-transform: translateX(-200px)  
+		-webkit-transform: translateX(-200px)
 		.message-bubble--yours
 			.message-bubble--flexbox
 				display: flex

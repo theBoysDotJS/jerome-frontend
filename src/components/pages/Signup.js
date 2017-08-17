@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../api.js'
+import LanguageForm from "../assets/LanguageForm.js"
 import { browserHistory } from 'react-router'
 
 
@@ -54,7 +55,7 @@ class SignUp extends React.Component {
 					</div>
 					<input placeholder="E-mail" type="text" name="email" ref="email"/>
 
-					<input placeholder="Language" type="text" name="language" ref="language"/>
+					<LanguageForm />
 					<div className="form--button-container">
 						<button className="form--button" type="submit">Sign Up</button>
 					</div>

@@ -1,31 +1,27 @@
 import React from 'react';
+import LanguageForm from '../assets/LanguageForm.js';
 
 class Settings extends React.Component {
-	constructor() {
-		super();
-		this.state = {}
-	}
-
 	render() {
 		return(
-			<section id="settings">
+			<section id="settings" className={!!this.props.open ? "show" : "hide"} >
 				<ul>
 					<li className="settings--language">
-						<div>
-					{/* Add language select in here */}
-						</div>
+						<p>Change Language</p>
+						<LanguageForm />
 					</li>
 					<li className="settings--notifications">
 						<div>
-					{/* Add sound notification toggle in here */}
+							<p>Notifications</p>
 						</div>
 					</li>
 					<li className="settings--sounds">
 						<div>
-					{/* Add sound slider in here */}
+							<p>Sounds</p>
 						</div>
 					</li>
 				</ul>
+				<p onClick={this.props.close}>Close Settings</p>
 			</section>
 		);
 	}
