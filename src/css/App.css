@@ -236,24 +236,21 @@ td, th {
 .App .message-container {
   display: flex;
   flex-flow: column; }
-  .App .message-container .message-bubble .relativeBox {
-    position: relative;
-    display: inline-block;
-    word-wrap: break-word;
-    max-width: 75ch;
-    margin: 2.5% 5% 2.5% 5%;
-    padding: 0.5em 0.75em;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    color: #333; }
-  .App .message-container .message-bubble .avatar--image {
-    position: absolute;
-    z-index: 19;
-    bottom: -30px; }
-  .App .message-container .message-bubble .message-bubble--mine .avatar--image {
-    right: -30px; }
-  .App .message-container .message-bubble .message-bubble--yours .avatar--image {
-    left: -30px; }
+  .App .message-container .message-bubble--yours .message-bubble--flexbox {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 3px; }
+    .App .message-container .message-bubble--yours .message-bubble--flexbox p {
+      display: inline-block;
+      word-wrap: break-word;
+      max-width: 50ch;
+      margin: 2.5% 2px;
+      padding: 0.5em 0.75em;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      color: #333; }
 
 /*# sourceMappingURL=App.css.map */
