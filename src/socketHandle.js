@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-export const socket = openSocket('http://localhost:3000');
+export const socket = openSocket('http://localhost:8080');
 
 
 class Socket {
