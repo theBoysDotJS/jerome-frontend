@@ -1,7 +1,12 @@
 import React from 'react';
 import Avatar from './Avatar'
+import Anime from '../../animate.js';
+
 class MessageBubble extends React.Component {
 
+componentDidMount(){
+	Anime.messageSlide();
+}
 	render() {
 
 		return(
