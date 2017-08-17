@@ -160,6 +160,7 @@
 	.message-container
 		display: flex
 		flex-flow: column
+		-webkit-transform: translateX(-200px)  
 		.message-bubble--yours
 			.message-bubble--flexbox
 				display: flex
@@ -184,6 +185,9 @@
 
 .App
 	.chat-room
+		.chat-box
+			position: absolute
+			bottom: 60px
 		.chat-input
 			position: fixed
 			bottom: 0
@@ -216,4 +220,3 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
-

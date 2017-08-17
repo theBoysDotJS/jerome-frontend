@@ -4,6 +4,7 @@ import Infinite from 'react-infinite';
 import Api from '../../api';
 import {socket} from '../../socketHandle';
 import ReactDOM from 'react-dom';
+import Anime from '../../animate.js';
 
 class ChatBox extends Component {
   constructor(){
@@ -57,7 +58,7 @@ class ChatBox extends Component {
       <div className="chat-box">
 	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
         <Infinite useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
-			{this.displayMessages()}
+			    {this.displayMessages()}
         </Infinite>
       </div>
     );

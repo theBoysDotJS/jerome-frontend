@@ -1,0 +1,345 @@
+/*! normalize.sass v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden], template {
+  display: none; }
+
+a {
+  background-color: transparent; }
+  a:active, a:hover {
+    outline: 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0; }
+
+pre {
+  overflow: auto; }
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0; }
+
+button {
+  overflow: visible;
+  text-transform: none; }
+
+select {
+  text-transform: none; }
+
+button, html input[type="button"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input {
+  line-height: normal; }
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0; }
+  input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    height: auto; }
+  input[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box; }
+    input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto; }
+
+optgroup {
+  font-weight: bold; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td, th {
+  padding: 0; }
+
+.App {
+  width: 100vw; }
+  .App .nav-bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px #333 solid;
+    background: #f2f2f2;
+    z-index: 20; }
+    .App .nav-bar .nav-bar--user-card {
+      width: 12%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center; }
+      .App .nav-bar .nav-bar--user-card a {
+        text-align: center; }
+      .App .nav-bar .nav-bar--user-card .avatar {
+        width: 48px;
+        height: 48px; }
+
+.App .login,
+.App .sign-up {
+  width: 100%; }
+  .App .login .signup,
+  .App .sign-up .signup {
+    margin-top: 15%; }
+  .App .login .form,
+  .App .sign-up .form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between; }
+    .App .login .form .form--container,
+    .App .sign-up .form .form--container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between; }
+    .App .login .form input,
+    .App .sign-up .form input {
+      border: 1px solid #333;
+      background: #f2f2f2;
+      font-size: 2rem;
+      margin-bottom: 2%;
+      padding: 1% 3%;
+      position: relative; }
+      .App .login .form input:focus::-webkit-input-placeholder,
+      .App .sign-up .form input:focus::-webkit-input-placeholder {
+        color: transparent; }
+      .App .login .form input:focus,
+      .App .sign-up .form input:focus {
+        outline: none; }
+    .App .login .form .form--button-container,
+    .App .sign-up .form .form--button-container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      padding: 0;
+      margin: 0; }
+      .App .login .form .form--button-container p,
+      .App .sign-up .form .form--button-container p {
+        margin-bottom: 5%; }
+      .App .login .form .form--button-container .form--button,
+      .App .sign-up .form .form--button-container .form--button {
+        width: 100%;
+        font-size: 1.4em;
+        padding: 0.5em 0.7em;
+        background: #f2f2f2;
+        border: 1px solid #333;
+        margin: 3% 0;
+        text-align: center; }
+      .App .login .form .form--button-container #fb,
+      .App .sign-up .form .form--button-container #fb {
+        width: 20%;
+        font-size: 16px;
+        text-transform: capitalize; }
+    .App .login .form .disclaimer,
+    .App .sign-up .form .disclaimer {
+      text-align: center; }
+      .App .login .form .disclaimer a,
+      .App .sign-up .form .disclaimer a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #333; }
+
+.App .avatar .avatar--image {
+  max-width: 100%;
+  border: 2px #333 solid;
+  border-radius: 50%; }
+
+.App .dashboard {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 10%;
+  justify-content: space-around;
+  align-items: center; }
+  .App .dashboard .convo-card {
+    width: 25%;
+    margin: 2%;
+    background: lightgray;
+    box-shadow: -15px 15px 0px 0px #404040;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: center; }
+    .App .dashboard .convo-card .convo-card--header {
+      background: #333;
+      color: #f2f2f2;
+      align-self: flex-start;
+      width: 100%;
+      padding: 10% 0 5% 0; }
+      .App .dashboard .convo-card .convo-card--header h3 {
+        margin-left: 5%; }
+      .App .dashboard .convo-card .convo-card--header .convo-card--avatars {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 30%; }
+        .App .dashboard .convo-card .convo-card--header .convo-card--avatars .avatar {
+          width: 16px;
+          height: 16px; }
+    .App .dashboard .convo-card .convo-card--snippet {
+      width: 80%;
+      text-align: left;
+      padding: 10% 0;
+      padding-left: 10px; }
+
+.App .message-container {
+  display: flex;
+  flex-flow: column;
+  -webkit-transform: translateX(-200px); }
+  .App .message-container .message-bubble--yours .message-bubble--flexbox {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 3px; }
+    .App .message-container .message-bubble--yours .message-bubble--flexbox p {
+      display: inline-block;
+      word-wrap: break-word;
+      max-width: 50ch;
+      margin: 2.5% 2px;
+      padding: 0.5em 0.75em;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      color: #333; }
+    .App .message-container .message-bubble--yours .message-bubble--flexbox strong {
+      margin-right: 10px; }
+
+.App .chat-room .chat-box {
+  position: absolute;
+  bottom: 60px; }
+.App .chat-room .chat-input {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+  border-top: 1px solid #333;
+  padding: 1% 0; }
+  .App .chat-room .chat-input textarea {
+    width: 80%;
+    border: none;
+    resize: none; }
+    .App .chat-room .chat-input textarea:focus {
+      outline: none; }
+      .App .chat-room .chat-input textarea:focus::-webkit-input-placeholder {
+        color: transparent; }
+  .App .chat-room .chat-input button {
+    text-decoration: none;
+    background: none;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 25px;
+    line-height: 32px;
+    height: auto;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid #333; }
+
+/*# sourceMappingURL=App.css.map */
