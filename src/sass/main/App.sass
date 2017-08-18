@@ -37,13 +37,14 @@
 		position: fixed
 		top: 0
 		bottom: 0
-		right: 0
 		width: 400px
 		background: $white
+		transition: all 0.1s ease-in
 
 		+flex(column nowrap)
 		justify-content: space-around
 		align-items: center
+
 
 
 //LOGIN + SIGNUP STYLES
@@ -87,8 +88,6 @@
 
 				p
 					margin-bottom: 5%
-
-
 
 				.form--button
 					width: 100%
@@ -135,6 +134,7 @@
 		.convo-card
 			width: 25%
 			margin: 2%
+			text-decoration: none
 			background: lightgray
 			box-shadow: -12px 10px 0px 0px lighten($black, 50%)
 			position: relative
@@ -170,6 +170,15 @@
 				text-align: left
 				padding: 10% 0
 				padding-left: 10px
+				color: $black
+
+				strong
+					margin-right: 5px
+
+				p
+					white-space: nowrap
+					overflow: hidden
+					text-overflow: ellipsis
 
 
 //MESSAGE BUBBLE STYLES
@@ -238,3 +247,11 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
+
+//Utility
+
+.window-hide
+	right: -400px !important
+
+.window-show
+	right: 0 !important

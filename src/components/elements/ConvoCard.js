@@ -21,9 +21,9 @@ class ConvoCard extends React.Component {
 				<div className="convo-card--header" >
 					<h3>{this.props.name}</h3>
 					<ul className="convo-card--avatars">
-						{this.props.users.map(user => {
+						{this.props.users[0].map(user => {
 							return(
-								<Avatar image="{user.avatarUrl}"/>
+								<Avatar image={user.avatarUrl}/>
 							)
 						})}
 					</ul>

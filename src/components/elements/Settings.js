@@ -4,7 +4,7 @@ import LanguageForm from '../assets/LanguageForm.js';
 class Settings extends React.Component {
 	render() {
 		return(
-			<section id="settings" className={!!this.props.open ? "show" : "hide"} >
+			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
 				<ul>
 					<li className="settings--language">
 						<p>Change Language</p>
