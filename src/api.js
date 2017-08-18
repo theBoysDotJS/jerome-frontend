@@ -21,7 +21,7 @@ class Api {
 	//login an existing user
 	requestLogin = (username, password) => (
 		superagent
-			.post(`${API_HOST}/auth/sessions`)
+			.post(`${API_HOST}/auth/session`)
 			.send({username, password})
 	)
 
@@ -52,13 +52,13 @@ class Api {
 	getAllConvos = (token) => (
 		superagent
 			.get(`${API_HOST}/conversation/`)
-			.set('authentication', token)
+			.set('authorization', token)
 	)
 
 	//create a new room
 	createRoom = (name, admin, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/`)
+			.post(`${API_HOST}/conversation/create`)
 			.send(name, admin)
 			.set('authorization', token)
 	)

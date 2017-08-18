@@ -6,7 +6,8 @@ class CreateConvo extends React.Component {
   _submit = (e) => {
     e.preventDefault();
     this.props.close
-    Api.createRoom();
+    Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token);
+    Api.joinRoom(this.refs.friendInput.value, localStorage.token );
   }
 	render() {
 		return(
@@ -14,8 +15,8 @@ class CreateConvo extends React.Component {
       <button onClick={this.props.close}>x</button>
       <h2>Create a Conversation</h2>
         <form onSubmit={this._submit}>
-        <input placeholder="name" type="text"/>
-        <input placeholder="who do you want to chat with?" type="text"/>
+        <input ref="name" placeholder="name" type="text"/>
+        <input ref="friendInput" placeholder="who do you want to chat with?" type="text"/>
         <button type="submit">create!</button>
         </form>
 
