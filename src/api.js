@@ -7,21 +7,21 @@ class Api {
 	//signup a new user
 	requestSignup = (userInfo) => (
 		superagent
-			.post(`${API_HOST}/auth/users`)
+			.post(`${API_HOST}/auth/user`)
 			.send(
 				{username: userInfo.username,
 				 password: userInfo.password,
 				 email: userInfo.email,
 				 firstName: userInfo.firstName,
 				 lastName: userInfo.lastName,
-				 language: userInfo.language
+				 language: 'de'
 			 	})
 	)
 
 	//login an existing user
 	requestLogin = (username, password) => (
 		superagent
-			.post(`${API_HOST}/auth/sessions`)
+			.post(`${API_HOST}/auth/session`)
 			.send({username, password})
 	)
 
@@ -52,7 +52,7 @@ class Api {
 	getAllConvos = (token) => (
 		superagent
 			.get(`${API_HOST}/conversation/`)
-			.set('authentication', token)
+			.set('authorization', token)
 	)
 
 	//create a new room
