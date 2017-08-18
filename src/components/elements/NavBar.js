@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
 import Api from '../../api.js';
+import Auth from '../../auth.js';
 
 class ChatBox extends Component {
   constructor() {
@@ -16,20 +17,32 @@ class ChatBox extends Component {
 	  Api.getMe(localStorage.token)
 	  	.then(res => res.body)
 		.then(user => {
+			console.log(user, 'user obj in getMe')
 			this.setState({
-				username: user.username,
-				user_id: user.id,
-				avatar: user.avatarUrl
+				username: user[0].username,
+				user_id: user[0].id,
+				avatar: user[0].avatarUrl
 			})
 		})
   }
 
-  toggleSettings = (e) => {
+  _toggleSettings = (e) => {
 	  e.preventDefault();
 
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
+  }
+
+  _logout = (e) => {
+	e.preventDefault();
+
+	Auth.logout()
+		.then(res => {
+			if(res === true) {
+				browserHistory.push('/login')
+			}
+		})
   }
 
   componentDidMount() {
@@ -55,7 +68,7 @@ class ChatBox extends Component {
 				<a href="/">Dashboard</a>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-			{!!this.state.settingsOpen ? <Settings close={this.toggleSettings}/> : null}
+			<Settings close={this._toggleSettings} logout={this._logout}/>
 		</div>
       </nav>
     );

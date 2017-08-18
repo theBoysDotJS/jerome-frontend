@@ -35,7 +35,8 @@ class Api {
 	//requests logout for user
 	deleteSession = (token) => (
 		superagent
-			.post(`${API_HOST}/auth/sessions`)
+			.delete(`${API_HOST}/auth/session`)
+			.send({token})
 			.set('authorization', token)
 	)
 

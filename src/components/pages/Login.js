@@ -14,8 +14,7 @@ class Login extends React.Component {
 		e.preventDefault();
 		return auth.login(this.refs.email.value, this.refs.password.value)
 			.then(res => {
-				console.log(res, 'this is login response')
-				if(res) {
+				if(res === true) {
 					browserHistory.push('/')
 				}
 			})

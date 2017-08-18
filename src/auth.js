@@ -24,7 +24,7 @@ class auth {
   }
 
   logout() {
-    return Api.requestLogout(localStorage.token)
+    return Api.deleteSession(localStorage.token)
     .then(res => delete localStorage.token)
   }
 
