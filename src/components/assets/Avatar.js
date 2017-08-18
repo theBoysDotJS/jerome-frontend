@@ -4,6 +4,7 @@ import React from 'react';
 
 class Avatar extends React.Component {
   render() {
+	console.log(this.props.image, 'inside the avatar obj')
     return (
       <div className="avatar">
       	<img className="avatar--image" alt="avatar" src={this.props.image}/>

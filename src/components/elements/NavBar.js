@@ -70,7 +70,9 @@ class ChatBox extends Component {
 				<a href="/">Dashboard</a>
 			</div>
 	        <Avatar image={this.state.avatar}/>
+
 			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
+
 		</div>
       </nav>
     );
