@@ -59,7 +59,7 @@ class Api {
 	//create a new room
 	createRoom = (name, admin, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/`)
+			.post(`${API_HOST}/conversation/create`)
 			.send(name, admin)
 			.set('authorization', token)
 	)

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
+import CreateConvo from "./CreateConvo.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
 
@@ -9,7 +10,8 @@ class ChatBox extends Component {
   constructor() {
 	  super();
 	  this.state = {
-		  settingsOpen: false
+		  settingsOpen: false,
+      createOpen: false
 	  }
   }
 
@@ -31,6 +33,14 @@ class ChatBox extends Component {
 	  console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
+	  })
+  }
+  
+  toggleCreate = (e) => {
+	  e.preventDefault();
+
+	  this.setState({
+		  createOpen: !this.state.createOpen
 	  })
   }
 
@@ -66,12 +76,12 @@ class ChatBox extends Component {
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 			<div>
-		        <p onClick={this._toggleSettings}>{this.state.username}</p>
-				<a href="/">Dashboard</a>
+		        <p onClick={this.toggleSettings}>{this.state.username}</p>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-
+          <p onClick={this.toggleCreate}>+</p>
 			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
+      <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
 
 		</div>
       </nav>
