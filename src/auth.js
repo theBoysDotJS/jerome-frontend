@@ -10,7 +10,11 @@ class auth {
       return Api.requestLogin(email, pass)
       .then(res => {
 		  console.log(res, 'this is it')
-		  localStorage.token = res.body.token
+		  localStorage.token = res.body.token;
+		  return true;
+	  })
+	  .catch(err => {
+		  return false;
 	  })
     }
   }

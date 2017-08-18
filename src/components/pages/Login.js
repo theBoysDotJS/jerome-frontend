@@ -12,8 +12,9 @@ class Login extends React.Component {
 
 	_handleLogin = (e) => {
 		e.preventDefault();
-		auth.login(this.refs.email.value, this.refs.password.value)
+		return auth.login(this.refs.email.value, this.refs.password.value)
 			.then(res => {
+				console.log(res, 'this is login response')
 				if(res) {
 					browserHistory.push('/')
 				}
