@@ -1,6 +1,6 @@
 import React from 'react';
-import Api from '../../api';
-import auth from '../../auth';
+import Api from '../../api.js';
+import auth from '../../auth.js';
 
 class CreateConvo extends React.Component {
 
@@ -12,22 +12,17 @@ class CreateConvo extends React.Component {
 	}
 
 	_isAdmin = () => {
-
-	return auth.isLoggedIn()
-		.then(res => {
-			if(res === true && localStorage.user === this.props.owner) {
-				return true;
-			}
-
-			return false;
-		});
+		console.log('its working')
+		if (auth.isLoggedIn() === true && +localStorage.user === 2) {
+			return true;
+		}
+		return false;
 	}
 
 	_handleNewUser = () => {
-		Api.joinRoom(this.refs.addUser.value)
-			.then(res => {
-				console.log(res)
-			})
+		Api.joinRoom(this.refs.addUser.value).then(res => {
+			console.log(res)
+		})
 	}
 
 	render() {
@@ -43,13 +38,13 @@ class CreateConvo extends React.Component {
 					<button type="submit">create!</button>
 				</form>
 
-				{!!auth.isLoggedIn ?
-					<form action="">
-						<p>Add a user</p>
-						<input ref="addUser" type="text" name="username" placeholder="add a user"/>
-						<button onClick={e => this._handleNewUser(e)}></button>
-					</form>
-				: null }
+				{!!this._isAdmin()
+					? <form action="">
+							<p>Add a user</p>
+							<input ref="addUser" type="text" name="username" placeholder="add a user"/>
+							<button onClick={e => this._handleNewUser(e)}></button>
+						</form>
+					: null}
 
 			</section>
 		);

@@ -35,7 +35,7 @@ class ChatBox extends Component {
 		  settingsOpen: !this.state.settingsOpen
 	  })
   }
-  
+
   toggleCreate = (e) => {
 	  e.preventDefault();
 
@@ -81,7 +81,7 @@ class ChatBox extends Component {
 	        <Avatar image={this.state.avatar}/>
           <p onClick={this.toggleCreate}>+</p>
 			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
-      <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
+      	  <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
 
 		</div>
       </nav>
