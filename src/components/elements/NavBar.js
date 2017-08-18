@@ -35,9 +35,8 @@ class ChatBox extends Component {
 		  settingsOpen: !this.state.settingsOpen
 	  })
   }
-  
-  toggleCreate = (e) => {
-	  e.preventDefault();
+
+  toggleCreate = () => {
 
 	  this.setState({
 		  createOpen: !this.state.createOpen
