@@ -11,17 +11,17 @@ messageSlide(){ anime({
 cardSwipe(cb){
   anime({
   targets: '.convo-card',
-  translateX: -2000,
-  duration: 500,
+  translateY: 2000,
+  duration: 250,
   easing: "easeOutQuad"
 })
- cb
+ cb();
 };
 chatSwipe(){
   anime({
     targets: '.chat-input',
-    translateX: [2000, 0],
-    duration: 5000,
+    translateY: [2000, 0],
+    duration: 1500,
     easing: "easeInOutQuad"
   });
 };
