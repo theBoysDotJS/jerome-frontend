@@ -28,7 +28,7 @@ class ChatBox extends Component {
 
   _toggleSettings = (e) => {
 	  e.preventDefault();
-
+	  console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
@@ -43,6 +43,8 @@ class ChatBox extends Component {
 				browserHistory.push('/login')
 			}
 		})
+
+	this._toggleSettings();
   }
 
   componentDidMount() {
@@ -64,11 +66,11 @@ class ChatBox extends Component {
         <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 			<div>
-		        <p onClick={this.toggleSettings}>{this.state.username}</p>
+		        <p onClick={this._toggleSettings}>{this.state.username}</p>
 				<a href="/">Dashboard</a>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-			<Settings close={this._toggleSettings} logout={this._logout}/>
+			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
 		</div>
       </nav>
     );
