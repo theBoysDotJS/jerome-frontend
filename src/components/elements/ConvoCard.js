@@ -14,10 +14,16 @@ class ConvoCard extends React.Component {
 	componentDidMount(){
 
 	}
+
+	_cardSwipe = (e) => {
+		e.preventDefault();
+		Anime.cardSwipe();
+		Anime.titleSwipe();
+	}
 	//This component renders a square card with information about the chatroom that it links to
 	render() {
 		return(
-			<Link to={`/conversation/${this.props.convoId}`} className="convo-card">
+			<Link onClick={this._cardSwipe}to={`/conversation/${this.props.convoId}`} className="convo-card">
 				<div className="convo-card--header" >
 					<h3>{this.props.name}</h3>
 					<ul className="convo-card--avatars">

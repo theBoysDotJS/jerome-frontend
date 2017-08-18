@@ -48,7 +48,7 @@ class ChatBox extends Component {
         	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
 		</Link>
 
-        <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
+        <h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		<div className="nav-bar--user-card">
 			<div>
 		        <p onClick={this.toggleSettings}>{this.state.username}</p>
