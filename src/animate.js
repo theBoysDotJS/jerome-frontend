@@ -11,9 +11,10 @@ messageSlide(){ anime({
 cardSwipe(cb){
   anime({
   targets: '.convo-card',
-  translateY: 2000,
-  duration: 250,
-  easing: "easeOutQuad"
+  rotate: "-25deg",
+  translateX: -2000,
+  // duration: 500,
+  easing: "easeOutCirc"
 })
  cb();
 };

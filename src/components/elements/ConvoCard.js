@@ -20,8 +20,8 @@ class ConvoCard extends React.Component {
 			setTimeout(function(){ browserHistory.push(`/conversation/${this.props.convoId}`)}.bind(this), 500)
 		}
 		e.preventDefault();
+		Anime.cardSwipe(cardCallBack.bind(this));
 		Anime.titleSwipe();
-		setTimeout(function(){ browserHistory.push(`/conversation/${this.props.convoId}`)}.bind(this), 500)
 
 	}
 	//This component renders a square card with information about the chatroom that it links to
