@@ -162,8 +162,14 @@ td, th {
     border-bottom: 2px #333 solid;
     background: #f2f2f2;
     z-index: 20; }
+    .App .nav-bar .nav-bar--flex {
+      width: 33%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-content: center;
+      margin: auto; }
     .App .nav-bar .nav-bar--user-card {
-      width: 12%;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
@@ -344,13 +350,17 @@ td, th {
   width: 100%;
   border-top: 1px solid #333;
   padding: 1% 0; }
-  .App .chat-room .chat-input textarea {
+  .App .chat-room .chat-input #text-input {
     width: 80%;
+    height: 100%;
     border: none;
-    resize: none; }
-    .App .chat-room .chat-input textarea:focus {
-      outline: none; }
-      .App .chat-room .chat-input textarea:focus::-webkit-input-placeholder {
+    resize: none;
+    align-self: center; }
+    .App .chat-room .chat-input #text-input:focus {
+      outline: none;
+      border: 1px solid transparent;
+      outline-offset: 0; }
+      .App .chat-room .chat-input #text-input:focus::-webkit-input-placeholder {
         color: transparent; }
   .App .chat-room .chat-input button {
     text-decoration: none;

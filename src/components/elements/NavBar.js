@@ -69,12 +69,17 @@ class ChatBox extends Component {
     return (
       <nav className="nav-bar">
 
-	  	<Link to={'/'}>
-        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-		</Link>
+		<div className="nav-bar--flex">
+		  	<Link to={'/'}>
+	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+			</Link>
+		</div>
 
-        <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
-		<div className="nav-bar--user-card">
+		<div className="nav-bar--flex nav-bar--center">
+        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
+		</div>
+
+		<div className="nav-bar--flex nav-bar--user-card">
 			<div>
 		        <p onClick={this.toggleSettings}>{this.state.username}</p>
 			</div>
