@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
 import CreateConvo from "./CreateConvo.js"
 import Api from '../../api.js';
+import Auth from '../../auth.js';
 
 class ChatBox extends Component {
   constructor() {
@@ -18,21 +19,23 @@ class ChatBox extends Component {
 	  Api.getMe(localStorage.token)
 	  	.then(res => res.body)
 		.then(user => {
+			console.log(user, 'user obj in getMe')
 			this.setState({
-				username: user.username,
-				user_id: user.id,
-				avatar: user.avatarUrl
+				username: user[0].username,
+				user_id: user[0].id,
+				avatar: user[0].avatarUrl
 			})
 		})
   }
 
-  toggleSettings = (e) => {
+  _toggleSettings = (e) => {
 	  e.preventDefault();
-
+	  console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
   }
+  
   toggleCreate = (e) => {
 	  e.preventDefault();
 
@@ -40,6 +43,20 @@ class ChatBox extends Component {
 		  createOpen: !this.state.createOpen
 	  })
   }
+
+  _logout = (e) => {
+	e.preventDefault();
+
+	Auth.logout()
+		.then(res => {
+			if(res === true) {
+				browserHistory.push('/login')
+			}
+		})
+
+	this._toggleSettings();
+  }
+
   componentDidMount() {
 	  this._getUser();
   }
@@ -63,8 +80,9 @@ class ChatBox extends Component {
 			</div>
 	        <Avatar image={this.state.avatar}/>
           <p onClick={this.toggleCreate}>+</p>
-			<Settings close={this.toggleSettings} isOpen={this.state.settingsOpen}/>
+			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
       <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
+
 		</div>
       </nav>
     );

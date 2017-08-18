@@ -7,6 +7,7 @@ class Socket {
 	sendMessage = (message) => {
 		socket.emit('chat', message);
 	}
+
 	receiveMessage = () => {
 		socket.on('chat', data => data)
 	}

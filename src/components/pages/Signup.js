@@ -20,7 +20,7 @@ class SignUp extends React.Component {
 			username: this.refs.username.value,
 			email: this.refs.email.value,
 			password: this.refs.password.value,
-			language: this.refs.language.value,
+			// language: this.refs.language.value,
 			firstName: this.refs.firstName.value,
 			lastName: this.refs.lastName.value
 		}
@@ -28,7 +28,6 @@ class SignUp extends React.Component {
 		//sends request object to src/api.js with form values for signup
 		api.requestSignup(signupObj)
 			.then(res => {
-				//figure out what we're doing here
 				console.log(res)
 			})
 			.then(res => {
