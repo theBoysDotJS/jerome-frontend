@@ -60,7 +60,7 @@ class Api {
 	createRoom = (name, admin, token) => (
 		superagent
 			.post(`${API_HOST}/conversation/create`)
-			.send(name, admin)
+			.send({name, admin})
 			.set('authorization', token)
 	)
 
@@ -68,7 +68,7 @@ class Api {
 	joinRoom = (username, token) => (
 		superagent
 			.post(`${API_HOST}/conversation/:id`)
-			.send(username)
+			.send({username})
 			.set('authorization', token)
 	)
 
@@ -76,7 +76,7 @@ class Api {
 	deleteRoom = (token, leavingUserId) => {
 		superagent
 			.patch(`${API_HOST}/conversation/:id`)
-			.send(leavingUserId)
+			.send({leavingUserId})
 			.set('authorization', token)
 	}
 
@@ -93,7 +93,7 @@ class Api {
 	sendMessage = (author, type, message, token) => {
 		superagent
 			.post(`${API_HOST}/messages`)
-			.send(author, type, message)
+			.send({author, type, message})
 			.set('authorization', token)
 	}
 
@@ -101,7 +101,7 @@ class Api {
 	editMessage = (message, token) => {
 		superagent
 			.patch(`${API_HOST}/messages/:id`)
-			.send(message)
+			.send({message})
 			.set('authorization', token)
 	}
 

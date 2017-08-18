@@ -11,6 +11,7 @@ class auth {
       .then(res => {
 		  console.log(res, 'this is it')
 		  localStorage.token = res.body.token;
+		  localStorage.user = res.body.user;
 		  return true;
 	  })
 	  .catch(err => {
@@ -25,7 +26,10 @@ class auth {
 
   logout() {
     return Api.deleteSession(localStorage.token)
-    .then(res => delete localStorage.token)
+    .then(res => {
+		delete localStorage.token
+		delete localStorage.user
+	})
   }
 
   isLoggedIn() {
