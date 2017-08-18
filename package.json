@@ -1,6 +1,7 @@
 {
-  "name": "chat",
+  "name": "chat-application-front-end",
   "version": "0.1.0",
+  "description": "react front-end for chat-application",
   "private": true,
   "dependencies": {
     "animejs": "^2.0.2",
