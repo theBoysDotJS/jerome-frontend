@@ -25,6 +25,13 @@ class CreateConvo extends React.Component {
 		})
 	}
 
+	_handleKickUser = () => {
+		Api.deleteFromRoom(this.refs.removeUser.value)
+			.then(res => {
+				console.log(res)
+			})
+	}
+
 	render() {
 		return (
 			<section id="settings" className={this.props.isOpen === true
@@ -43,7 +50,11 @@ class CreateConvo extends React.Component {
 							<p>Add a user</p>
 							<input ref="addUser" type="text" name="username" placeholder="add a user"/>
 							<button onClick={e => this._handleNewUser(e)}></button>
-						</form>
+
+							<p>Remove a user</p>
+							<input ref="removeUser" type="text" name="username" placeholder="add a user"/>
+							<button onClick={e => this._handleKickUser(e)}></button>
+					  </form>
 					: null}
 
 			</section>

@@ -73,9 +73,9 @@ class Api {
 	)
 
 	//request to leave or kick a user from a chatroom
-	deleteRoom = (token, leavingUserId) => {
+	deleteFromRoom = (token, leavingUserId) => {
 		superagent
-			.patch(`${API_HOST}/conversation/:id`)
+			.put(`${API_HOST}/conversation/:id/leave`)
 			.send({leavingUserId})
 			.set('authorization', token)
 	}
