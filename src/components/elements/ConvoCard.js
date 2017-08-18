@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Avatar from '../assets/Avatar.js';
 import {Link} from 'react-router';
 import Anime from '../../animate.js';
-
+import {browserHistory} from 'react-router';
 class ConvoCard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -17,8 +17,9 @@ class ConvoCard extends React.Component {
 
 	_cardSwipe = (e) => {
 		e.preventDefault();
-		Anime.cardSwipe();
+		Anime.cardSwipe(browserHistory.push(`/conversation/${this.props.convoId}`));
 		Anime.titleSwipe();
+
 	}
 	//This component renders a square card with information about the chatroom that it links to
 	render() {

@@ -8,13 +8,14 @@ messageSlide(){ anime({
     });
 
   };
-cardSwipe(){
+cardSwipe(cb){
   anime({
   targets: '.convo-card',
   translateX: -2000,
   duration: 500,
   easing: "easeOutQuad"
-});
+})
+ cb
 };
 chatSwipe(){
   anime({
