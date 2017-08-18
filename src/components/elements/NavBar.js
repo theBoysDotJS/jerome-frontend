@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
@@ -7,85 +7,76 @@ import Api from '../../api.js';
 import Auth from '../../auth.js';
 
 class ChatBox extends Component {
-  constructor() {
-	  super();
-	  this.state = {
-		  settingsOpen: false,
-      createOpen: false
-	  }
-  }
+	constructor() {
+		super();
+		this.state = {
+			settingOpen: false,
+			creteOpen: false
+		}
+	}
 
-  _getUser = () => {
-	  Api.getMe(localStorage.token)
-	  	.then(res => res.body)
-		.then(user => {
+	_getUser = () => {
+		Api.getMe(localStorage.token).then(res => res.body).then(user => {
 			console.log(user, 'user obj in getMe')
-			this.setState({
-				username: user[0].username,
-				user_id: user[0].id,
-				avatar: user[0].avatarUrl
-			})
+			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl})
 		})
-  }
+	}
 
-  _toggleSettings = (e) => {
-	  e.preventDefault();
-	  console.log(this.state.settingsOpen)
-	  this.setState({
-		  settingsOpen: !this.state.settingsOpen
-	  })
-  }
+	_toggleSetting = (e) => {
+		e.preventDefault();
+		this.setState({
+			settingOpen: !this.state.settingOpen
+		})
+	}
 
-  toggleCreate = () => {
+	_toggleCreate = (e) => {
+		e.preventDefault();
+		this.setState({
+			createOpen: !this.state.createOpen
+		})
+	}
 
-	  this.setState({
-		  createOpen: !this.state.createOpen
-	  })
-  }
+	_logout = (e) => {
+		e.preventDefault();
 
-  _logout = (e) => {
-	e.preventDefault();
-
-	Auth.logout()
-		.then(res => {
-			if(res === true) {
+		Auth.logout().then(res => {
+			if (res === true) {
 				browserHistory.push('/login')
 			}
 		})
 
-	this._toggleSettings();
-  }
+		this._toggleSettings();
+	}
 
-  componentDidMount() {
-	  this._getUser();
-  }
+	componentDidMount() {
+		this._getUser();
+	}
 
-  componentDidUpdate() {
-  //add function here to reset user info on logout/login
-  }
+	componentDidUpdate() {
+		//add function here to reset user info on logout/login
+	}
 
-  render() {
-    return (
-      <nav className="nav-bar">
+	render() {
+		return (
+			<nav className="nav-bar">
 
-	  	<Link to={'/'}>
-        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-		</Link>
+				<Link to={'/'}>
+					<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+				</Link>
 
-        <h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
-		<div className="nav-bar--user-card">
-			<div>
-		        <p onClick={this.toggleSettings}>{this.state.username}</p>
-			</div>
-	        <Avatar image={this.state.avatar}/>
-          <p onClick={this.toggleCreate}>+</p>
-			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
-      <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
-
-		</div>
-      </nav>
-    );
-  }
+				<h1>{this.state.convoname
+						? this.state.convoname
+						: 'Dashboard'}</h1>
+				<div className="nav-bar--user-card">
+					<p onClick={e => this._toggleSetting(e)}>{this.state.username}</p>
+					<Avatar image={this.state.avatar}/>
+					<p onClick={e => this._toggleCreate(e)}>+</p>
+					<Settings close={this._toggleSetting} isOpen={!!this.state.settingOpen} logout={this._logout}/>
+					<CreateConvo close={this._toggleCreate} isOpen={!!this.state.createOpen}/>
+				</div>
+			</nav>
+		);
+	}
 }
 
 export default ChatBox;
