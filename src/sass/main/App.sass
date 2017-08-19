@@ -19,8 +19,14 @@
 		background: $white
 		z-index: 20
 
+		.nav-bar--flex
+			width: 33%
+			+flex(row nowrap)
+			justify-content: center
+			align-content: center
+			margin: auto
+
 		.nav-bar--user-card
-			width: 12%
 			+flex(row nowrap)
 			justify-content: space-between
 			align-items: center
@@ -224,13 +230,17 @@
 			border-top: 1px solid $black
 			padding: 1% 0
 
-			textarea
+			#text-input
 				width: 80%
+				height: 100%
 				border: none
 				resize: none
+				align-self: center
 
 				&:focus
 					outline: none
+					border: 1px solid transparent
+					outline-offset: 0
 
 					&::-webkit-input-placeholder
 						color: transparent

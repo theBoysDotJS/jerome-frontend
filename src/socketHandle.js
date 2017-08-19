@@ -1,5 +1,5 @@
 import openSocket from 'socket.io-client';
-export const socket = openSocket('http://a24628e4.ngrok.io');
+export const socket = openSocket('http://localhost:3001');
 
 
 class Socket {

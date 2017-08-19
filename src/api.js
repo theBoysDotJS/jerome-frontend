@@ -68,15 +68,15 @@ class Api {
 	joinRoom = (username, token) => (
 		superagent
 			.post(`${API_HOST}/conversation/:id`)
-			.send(username)
+			.send({username})
 			.set('authorization', token)
 	)
 
 	//request to leave or kick a user from a chatroom
-	deleteRoom = (token, leavingUserId) => {
+	deleteFromRoom = (token, leavingUserId) => {
 		superagent
-			.patch(`${API_HOST}/conversation/:id`)
-			.send(leavingUserId)
+			.put(`${API_HOST}/conversation/:id/leave`)
+			.send({leavingUserId})
 			.set('authorization', token)
 	}
 
@@ -93,7 +93,7 @@ class Api {
 	sendMessage = (author, type, message, token) => {
 		superagent
 			.post(`${API_HOST}/messages`)
-			.send(author, type, message)
+			.send({author, type, message})
 			.set('authorization', token)
 	}
 
@@ -101,7 +101,7 @@ class Api {
 	editMessage = (message, token) => {
 		superagent
 			.patch(`${API_HOST}/messages/:id`)
-			.send(message)
+			.send({message})
 			.set('authorization', token)
 	}
 
