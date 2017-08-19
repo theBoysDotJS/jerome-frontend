@@ -6,7 +6,8 @@ class CreateConvo extends React.Component {
 
 	_submit = (e) => {
 		e.preventDefault();
-		this.props.close
+		console.log('hello')
+		this.props.close(e);
 		Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token);
 		Api.joinRoom(this.refs.friendInput.value, localStorage.token);
 	}
@@ -20,7 +21,7 @@ class CreateConvo extends React.Component {
 				: "window-hide"}>
 				<button onClick={this.props.close}>x</button>
 				<h2>Create a Conversation</h2>
-				<form onSubmit={this._submit}>
+				<form onSubmit={e => this._submit(e)}>
 					<input ref="name" placeholder="name" type="text"/>
 					<input ref="friendInput" placeholder="who do you want to chat with?" type="text"/>
 					<button type="submit">create!</button>

@@ -78,10 +78,10 @@ class ChatBox extends Component {
 
 		<div className="nav-bar--flex nav-bar--user-card">
 			<div>
-		        <p onClick={this._toggleSettings}>{this.state.username}</p>
+		        <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-          <p onClick={this._toggleCreate}>+</p>
+          <p onClick={e => this._toggleCreate(e)}>+</p>
 			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
       	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
 			</div>
