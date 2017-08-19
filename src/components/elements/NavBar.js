@@ -10,8 +10,8 @@ class ChatBox extends Component {
 	constructor() {
 		super();
 		this.state = {
-			settingOpen: false,
-			creteOpen: false
+			settingsOpen: false,
+			createOpen: false
 		}
 	}
 
@@ -23,7 +23,7 @@ class ChatBox extends Component {
 	}
 
 
-  _toggleSetting = (e) => {
+  _toggleSettings = (e) => {
 	  e.preventDefault();
 	  console.log(this.state.settingsOpen)
 	  this.setState({
@@ -35,6 +35,7 @@ class ChatBox extends Component {
 
 	_toggleCreate = (e) => {
 		e.preventDefault();
+		console.log(this.state.createOpen)
 		this.setState({
 			createOpen: !this.state.createOpen
 		})
@@ -50,6 +51,7 @@ class ChatBox extends Component {
 		})
 
 		this._toggleSettings();
+
 	}
 
 	componentDidMount() {
@@ -76,14 +78,15 @@ class ChatBox extends Component {
 
 		<div className="nav-bar--flex nav-bar--user-card">
 			<div>
-		        <p onClick={this.toggleSettings}>{this.state.username}</p>
+		        <p onClick={this._toggleSettings}>{this.state.username}</p>
 			</div>
 	        <Avatar image={this.state.avatar}/>
-          <p onClick={this.toggleCreate}>+</p>
-			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
-      	  <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
-			
+          <p onClick={this._toggleCreate}>+</p>
+			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+      	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
+			</div>
 			</nav>
+
 		);
 	}
 }

@@ -11,26 +11,7 @@ class CreateConvo extends React.Component {
 		Api.joinRoom(this.refs.friendInput.value, localStorage.token);
 	}
 
-	_isAdmin = () => {
-		console.log('its working')
-		if (auth.isLoggedIn() === true && +localStorage.user === 2) {
-			return true;
-		}
-		return false;
-	}
 
-	_handleNewUser = () => {
-		Api.joinRoom(this.refs.addUser.value).then(res => {
-			console.log(res)
-		})
-	}
-
-	_handleKickUser = () => {
-		Api.deleteFromRoom(this.refs.removeUser.value)
-			.then(res => {
-				console.log(res)
-			})
-	}
 
 	render() {
 		return (
@@ -45,22 +26,13 @@ class CreateConvo extends React.Component {
 					<button type="submit">create!</button>
 				</form>
 
-				{!!this._isAdmin()
-					? <form action="">
-							<p>Add a user</p>
-							<input ref="addUser" type="text" name="username" placeholder="add a user"/>
-							<button onClick={e => this._handleNewUser(e)}></button>
 
-							<p>Remove a user</p>
-							<input ref="removeUser" type="text" name="username" placeholder="add a user"/>
-							<button onClick={e => this._handleKickUser(e)}></button>
-					  </form>
-					: null}
 
 			</section>
 
 		);
 	}
 }
+
 
 export default CreateConvo;
