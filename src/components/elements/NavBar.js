@@ -6,7 +6,7 @@ import CreateConvo from "./CreateConvo.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
 
-class ChatBox extends Component {
+class NavBar extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -22,16 +22,13 @@ class ChatBox extends Component {
 		})
 	}
 
-
-  _toggleSetting = (e) => {
-	  e.preventDefault();
-	  console.log(this.state.settingsOpen)
-	  this.setState({
-		  settingsOpen: !this.state.settingsOpen
-	  })
-  }
-
-
+	_toggleSetting = (e) => {
+		e.preventDefault();
+		console.log(this.state.settingsOpen)
+		this.setState({
+			settingsOpen: !this.state.settingsOpen
+		})
+	}
 
 	_toggleCreate = (e) => {
 		e.preventDefault();
@@ -65,27 +62,31 @@ class ChatBox extends Component {
 			<nav className="nav-bar">
 
 				<div className="nav-bar--flex">
-		  	<Link to={'/'}>
-	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-			</Link>
-		</div>
+					<Link to={'/'}>
+						<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+					</Link>
+				</div>
 
-		<div className="nav-bar--flex nav-bar--center">
-        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
-		</div>
+				<div className="nav-bar--flex nav-bar--center">
+					<h1>{this.state.convoname
+							? this.state.convoname
+							: 'Dashboard'}</h1>
+				</div>
 
-		<div className="nav-bar--flex nav-bar--user-card">
-			<div>
-		        <p onClick={this.toggleSettings}>{this.state.username}</p>
-			</div>
-	        <Avatar image={this.state.avatar}/>
-          <p onClick={this.toggleCreate}>+</p>
-			{!!this.state.settingsOpen ? <Settings close={this._toggleSettings} logout={this._logout}/> : null}
-      	  <CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
-			
+				<div className="nav-bar--flex nav-bar--user-card">
+					<div>
+						<p onClick={this.toggleSettings}>{this.state.username}</p>
+					</div>
+					<Avatar image={this.state.avatar}/>
+					<p onClick={this.toggleCreate}>+</p>
+					{!!this.state.settingsOpen
+						? <Settings close={this._toggleSettings} logout={this._logout}/>
+						: null}
+					<CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
+				</div>
 			</nav>
 		);
 	}
 }
 
-export default ChatBox;
+export default NavBar;

@@ -22,17 +22,16 @@ class ChatInput extends Component {
     e.preventDefault();
     var formData = {
       text: this.state.currentInput,
-      user: 10,
-      convoId: 12,
+      user: localStorage.user,
+      convoId: 1, //FIX THIS SET ONLY FOR TESTING
       type: "text"
     }
 
-    console.log(formData);
+	console.log('message sent')
     Socket.sendMessage(formData);
   }
   render() {
     return (
-
        <div className="chat-input">
         <input id="text-input" contentEditable placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></input>
         <button onClick={e => this._handleSend(e)}>SEND</button>
