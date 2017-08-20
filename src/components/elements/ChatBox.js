@@ -29,17 +29,28 @@ class ChatBox extends Component {
 			// var newMsg = [ ...this.state.messages, data];
 			console.log(this.state.messages, "these messages")
 		})
-		Api.getMessages(this.props.id).then(data => {
-			this.setState({
-				messages: [
-					{
-						user: 'mike',
-						text: 'goodbye my dudes',
-						id: 13
-					}
-				] //switch this to data once we have DB up
-			})
-		})
+		Api.getMessages(this.props.id)
+			.then(data => JSON.parse(data.text))
+			.then(data => {
+
+			let messages = data.messages
+
+			messages.forEach(currVal => {
+
+				let newMsg = {
+					user: currVal.author,
+					text: currVal.message_body,
+					id: currVal.id
+				}
+
+				this.setState({
+					messages: [
+						...this.state.messages,
+						newMsg
+					]
+				}) //end setState
+			}) // end forEach
+		}) // end Promise
 	}
 
 	createMessage = (curVal) => {
@@ -64,3 +75,4 @@ class ChatBox extends Component {
 }
 
 export default ChatBox;
+

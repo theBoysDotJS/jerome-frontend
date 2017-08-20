@@ -6,7 +6,7 @@ import CreateConvo from "./CreateConvo.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
 
-class ChatBox extends Component {
+class NavBar extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -30,6 +30,7 @@ class ChatBox extends Component {
 		  settingsOpen: !this.state.settingsOpen
 	  })
   }
+
 
 
 
@@ -67,6 +68,7 @@ class ChatBox extends Component {
 			<nav className="nav-bar">
 
 				<div className="nav-bar--flex">
+
 		  	<Link to={'/'}>
 	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
 			</Link>
@@ -85,10 +87,11 @@ class ChatBox extends Component {
 			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
       	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
 			</div>
+
 			</nav>
 
 		);
 	}
 }
 
-export default ChatBox;
+export default NavBar;
