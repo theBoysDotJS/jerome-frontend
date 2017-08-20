@@ -18,7 +18,7 @@ class ChatRoom extends React.Component {
 
 			<div className="chat-room">
 				<ChatBox  id={this.props.params.id} users={this.state.users}></ChatBox>
-				<ChatInput users={this.state.users}></ChatInput>
+				<ChatInput id={this.props.params.id} users={this.state.users}></ChatInput>
 			</div>
 		);
 	}

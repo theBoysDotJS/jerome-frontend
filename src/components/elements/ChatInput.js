@@ -23,11 +23,11 @@ class ChatInput extends Component {
     var formData = {
       text: this.state.currentInput,
       user: localStorage.user,
-      convoId: 1, //FIX THIS SET ONLY FOR TESTING
+      convoId: this.props.id,
       type: "text"
     }
 
-	console.log('message sent')
+	console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
   render() {
