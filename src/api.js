@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 
-var API_HOST = process.env.HOST;
+var API_HOST = `https://theboyschatapp.herokuapp.com`;
 
 class Api {
 	//AUTH REQUESTS
