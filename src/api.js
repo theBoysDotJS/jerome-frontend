@@ -14,7 +14,7 @@ class Api {
 				 email: userInfo.email,
 				 firstName: userInfo.firstName,
 				 lastName: userInfo.lastName,
-				 language: 'de'
+				 language: userInfo.language
 			 	})
 	)
 

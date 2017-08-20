@@ -22,8 +22,8 @@ class ChatInput extends Component {
     e.preventDefault();
     var formData = {
       text: this.state.currentInput,
-      user: 10,
-      convoId: 12,
+      user: localStorage.user,
+      convoId: 1,
       type: "text"
     }
 
