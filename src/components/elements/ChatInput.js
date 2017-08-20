@@ -15,7 +15,7 @@ class ChatInput extends Component {
     this.setState({
       currentInput: e.target.value
     })
-    console.log(this.state.currentInput);
+    // console.log(this.state.currentInput);
   }
 
   _handleSend = (e) => {

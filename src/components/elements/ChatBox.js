@@ -15,7 +15,7 @@ class ChatBox extends Component {
 
 	}
 	componentDidMount() {
-		console.log('mounted')
+		// console.log('mounted')
 		socket.on('chat', data => {
 			console.log(data, 'this is the message response')
 			this.setState({
@@ -25,29 +25,31 @@ class ChatBox extends Component {
 				]
 
 			})
-			// var newMsg = [ ...this.state.messages, data];
-			console.log(this.state.messages, "these messages")
 		})
-		Api.getMessages(this.props.id).then(data => {
-			this.setState({
-				messages: [
-					{
-						user: 'mike',
-						text: 'goodbye my dudes',
-						id: 13
-					}
-				] //switch this to data once we have DB up
-			})
-		})
-	}
-	// componentDidUpdate(prevProps, prevState){
-	//   var newComp = (<p>i'm rendering</p>)
-	//   console.log
-	//   if(prevState !== this.state){
-	//     console.log('yaaaaar')
-	//   ReactDOM.render(newComp, document.getElementById('messages') );
-	//   }
-	// }
+
+		Api.getMessages(this.props.id)
+			.then(data => JSON.parse(data.text))
+			.then(data => {
+
+			let messages = data.messages
+
+			messages.forEach(currVal => {
+
+				let newMsg = {
+					user: currVal.author,
+					text: currVal.message_body,
+					id: currVal.id
+				}
+
+				this.setState({
+					messages: [
+						...this.state.messages,
+						newMsg
+					]
+				}) //end setState
+			}) // end forEach
+		}) // end Promise
+	} // end Component Did Mount
 
 	createMessage = (curVal) => {
 		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.id}/>);
