@@ -10,8 +10,8 @@ class NavBar extends Component {
 	constructor() {
 		super();
 		this.state = {
-			settingOpen: false,
-			creteOpen: false
+			settingsOpen: false,
+			createOpen: false
 		}
 	}
 
@@ -22,16 +22,21 @@ class NavBar extends Component {
 		})
 	}
 
-	_toggleSetting = (e) => {
-		e.preventDefault();
-		console.log(this.state.settingsOpen)
-		this.setState({
-			settingsOpen: !this.state.settingsOpen
-		})
-	}
+
+  _toggleSettings = (e) => {
+	  e.preventDefault();
+	  console.log(this.state.settingsOpen)
+	  this.setState({
+		  settingsOpen: !this.state.settingsOpen
+	  })
+  }
+
+
+
 
 	_toggleCreate = (e) => {
 		e.preventDefault();
+		console.log(this.state.createOpen)
 		this.setState({
 			createOpen: !this.state.createOpen
 		})
@@ -47,6 +52,7 @@ class NavBar extends Component {
 		})
 
 		this._toggleSettings();
+
 	}
 
 	componentDidMount() {
@@ -62,29 +68,28 @@ class NavBar extends Component {
 			<nav className="nav-bar">
 
 				<div className="nav-bar--flex">
-					<Link to={'/'}>
-						<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-					</Link>
-				</div>
 
-				<div className="nav-bar--flex nav-bar--center">
-					<h1>{this.state.convoname
-							? this.state.convoname
-							: 'Dashboard'}</h1>
-				</div>
+		  	<Link to={'/'}>
+	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+			</Link>
+		</div>
 
-				<div className="nav-bar--flex nav-bar--user-card">
-					<div>
-						<p onClick={this.toggleSettings}>{this.state.username}</p>
-					</div>
-					<Avatar image={this.state.avatar}/>
-					<p onClick={this.toggleCreate}>+</p>
-					{!!this.state.settingsOpen
-						? <Settings close={this._toggleSettings} logout={this._logout}/>
-						: null}
-					<CreateConvo close={this.toggleCreate} isOpen={this.state.createOpen}/>
-				</div>
+		<div className="nav-bar--flex nav-bar--center">
+        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
+		</div>
+
+		<div className="nav-bar--flex nav-bar--user-card">
+			<div>
+		        <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
+			</div>
+	        <Avatar image={this.state.avatar}/>
+          <p onClick={e => this._toggleCreate(e)}>+</p>
+			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+      	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
+			</div>
+
 			</nav>
+
 		);
 	}
 }

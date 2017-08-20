@@ -14,10 +14,11 @@ class ChatBox extends Component {
 		}
 
 	}
+
 	componentDidMount() {
-		// console.log('mounted')
+		console.log('mounted')
 		socket.on('chat', data => {
-			console.log(data, 'this is the message response')
+			console.log(data, 'thedata')
 			this.setState({
 				messages: [
 					...this.state.messages,
@@ -25,8 +26,9 @@ class ChatBox extends Component {
 				]
 
 			})
+			// var newMsg = [ ...this.state.messages, data];
+			console.log(this.state.messages, "these messages")
 		})
-
 		Api.getMessages(this.props.id)
 			.then(data => JSON.parse(data.text))
 			.then(data => {
@@ -49,7 +51,7 @@ class ChatBox extends Component {
 				}) //end setState
 			}) // end forEach
 		}) // end Promise
-	} // end Component Did Mount
+	}
 
 	createMessage = (curVal) => {
 		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.id}/>);
@@ -73,3 +75,4 @@ class ChatBox extends Component {
 }
 
 export default ChatBox;
+

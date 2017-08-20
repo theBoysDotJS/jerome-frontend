@@ -1,4 +1,5 @@
 import openSocket from 'socket.io-client';
+
 // export const socket = openSocket('https://theboyschatapp.herokuapp.com');
 export const socket = openSocket('http://localhost:3001');
 

@@ -23,7 +23,9 @@ class ChatInput extends Component {
     var formData = {
       text: this.state.currentInput,
       user: localStorage.user,
+
       convoId: this.props.id,
+
       type: "text"
     }
 
