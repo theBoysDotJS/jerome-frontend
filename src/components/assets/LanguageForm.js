@@ -1,7 +1,6 @@
 import React from 'react';
 
 class LanguageForm extends React.Component {
-
 	render() {
 	 return (<select name="languageForm" id="langaugeForm">
 				<option value="en">English</option>
