@@ -54,7 +54,8 @@ class ChatBox extends Component {
 	}
 
 	createMessage = (curVal) => {
-		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.id}/>);
+		console.log(curVal.user);
+		return (<MessageBubble  user={curVal.user} text={curVal.text} key={curVal.id}/>);
 	}
 	displayMessages = () => {
 		return this.state.messages.map(this.createMessage);
@@ -66,7 +67,7 @@ class ChatBox extends Component {
 
 			<div className="chat-box">
 				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-				<Infinite useWindowAsScrollContainer elementHeight={30} containerHeight={90} displayBottomUpwards>
+				<Infinite className="infinite" elementHeight={30} containerHeight={700} displayBottomUpwards>
 					{this.displayMessages()}
 				</Infinite>
 			</div>
@@ -75,4 +76,3 @@ class ChatBox extends Component {
 }
 
 export default ChatBox;
-
