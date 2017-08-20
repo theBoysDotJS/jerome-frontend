@@ -1,5 +1,6 @@
 import superagent from 'superagent';
-import API_HOST from './.config.js'
+
+let API_HOST = process.env.HOST;
 
 class Api {
 	//AUTH REQUESTS
