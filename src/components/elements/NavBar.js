@@ -11,7 +11,8 @@ class NavBar extends Component {
 		super();
 		this.state = {
 			settingsOpen: false,
-			createOpen: false
+			createOpen: false,
+			avatarReload: localStorage.token
 		}
 	}
 
@@ -31,9 +32,6 @@ class NavBar extends Component {
 	  })
   }
 
-
-
-
 	_toggleCreate = (e) => {
 		e.preventDefault();
 		console.log(this.state.createOpen)
@@ -51,7 +49,8 @@ class NavBar extends Component {
 			}
 		})
 
-		this._toggleSettings();
+		this._toggleSettings(e);
+		browserHistory.push('/login')
 
 	}
 
@@ -59,8 +58,11 @@ class NavBar extends Component {
 		this._getUser();
 	}
 
-	componentDidUpdate() {
-		//add function here to reset user info on logout/login
+	componentDidUpdate(prevProps, prevState) {
+		console.log(this.state.avatarReload, prevState.avatarReload)
+		if(this.state.avatarReload !== prevState.avatarReload) {
+			this._getUser();
+		}
 	}
 
 	render() {
@@ -78,6 +80,8 @@ class NavBar extends Component {
         	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
 		</div>
 
+		{!!Auth.isLoggedIn() ?
+
 		<div className="nav-bar--flex nav-bar--user-card">
 			<div>
 		        <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
@@ -88,6 +92,7 @@ class NavBar extends Component {
       	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
 			</div>
 
+			: null}
 			</nav>
 
 		);

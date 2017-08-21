@@ -1,6 +1,7 @@
 import React from 'react';
 import Api from '../../api.js';
 import auth from '../../auth.js';
+import {browserHistory} from 'react-router'
 
 class CreateConvo extends React.Component {
 
@@ -8,8 +9,12 @@ class CreateConvo extends React.Component {
 		e.preventDefault();
 		console.log('hello')
 		this.props.close(e);
-		Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token);
-		Api.joinRoom(this.refs.friendInput.value, localStorage.token);
+		Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token)
+			.then(res => {
+				console.log(res.body, 'response from convo')
+				Api.joinRoom(this.refs.friendInput.value, localStorage.token);
+				browserHistory.push(`/conversation/${res.body.id}`)
+			});
 	}
 
 
