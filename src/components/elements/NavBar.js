@@ -67,7 +67,6 @@ class NavBar extends Component {
 	render() {
 		return (
 			<nav className="nav-bar">
-
 				<div className="nav-bar--flex">
 
 		  	<Link to={'/'}>
