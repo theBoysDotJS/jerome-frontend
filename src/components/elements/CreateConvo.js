@@ -8,8 +8,11 @@ class CreateConvo extends React.Component {
 		e.preventDefault();
 		console.log('hello')
 		this.props.close(e);
-		Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token);
-		Api.joinRoom(this.refs.friendInput.value, localStorage.token);
+		Api.createRoom(this.refs.name.value, localStorage.user, localStorage.token)
+			.then(resp => {
+				console.log(resp, 'this is create room response')
+				Api.joinRoom(this.refs.friendInput.value, localStorage.token);
+			});
 	}
 
 
