@@ -18,19 +18,7 @@ class Api {
 			 	})
 	)
 	
-	requestSignup2(userInfo) {
-		console.log("userINfo", userInfo);
-		return 		superagent
-		.post(`${API_HOST}/auth/user`)
-		.send(
-			{username: userInfo.username,
-			 password: userInfo.password,
-			 email: userInfo.email,
-			 firstName: userInfo.firstName,
-			 lastName: userInfo.lastName,
-			 language: userInfo.language
-			 });
-	}
+
 	//login an existing user
 	requestLogin = (username, password) => (
 		superagent

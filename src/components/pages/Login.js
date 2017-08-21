@@ -31,7 +31,7 @@ const responseFacebook=(response)=>{
 	
 			console.log(signupObj, 'the object')
 			//sends request object to src/api.js with form values for signup
-			api.requestSignup2(signupObj)
+			api.requestSignup(signupObj)
 				.then(res => {
 					console.log("res", res)
 					browserHistory.push('/login')
