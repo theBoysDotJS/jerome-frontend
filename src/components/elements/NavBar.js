@@ -58,12 +58,12 @@ class NavBar extends Component {
 		this._getUser();
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		console.log(this.state.avatarReload, prevState.avatarReload)
-		if(this.state.avatarReload !== prevState.avatarReload) {
-			this._getUser();
-		}
-	}
+	// componentDidUpdate(prevProps, prevState) {
+	// 	console.log(this.state.avatarReload, prevState.avatarReload)
+	// 	if(this.state.avatarReload !== prevState.avatarReload) {
+	// 		this._getUser();
+	// 	}
+	// }
 
 	render() {
 		return (

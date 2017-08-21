@@ -23,7 +23,7 @@ class ConvoCard extends React.Component {
 					<ul className="convo-card--avatars">
 						{this.props.users.map(user => {
 							return(
-								<Avatar image="{user.avatarUrl}"/>
+								<Avatar image={user.avatarUrl}/>
 							)
 						})}
 					</ul>
