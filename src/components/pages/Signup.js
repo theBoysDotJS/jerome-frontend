@@ -40,6 +40,7 @@ class SignUp extends React.Component {
 			})
 			.catch(err  => {
 				var errors = err.response.body.error;
+				console.log(errors)
 					this.setState({
 						error : errors
 					})
