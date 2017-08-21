@@ -26,9 +26,10 @@ class Api {
 	)
 
 
-	getMessages = (convoId) => (
+	getMessages = (convoId, token) => (
 		superagent
 			.get(`${API_HOST}/conversation/${convoId}`)
+			.set('authorization', token)
 	)
 
 
@@ -68,7 +69,9 @@ class Api {
 	joinRoom = (userId, token) => (
 		superagent
 			.post(`${API_HOST}/conversation/:id/join`)
+
 			.send({userId})
+
 			.set('authorization', token)
 	)
 
