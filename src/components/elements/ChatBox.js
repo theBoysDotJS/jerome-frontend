@@ -29,7 +29,7 @@ class ChatBox extends Component {
 			// var newMsg = [ ...this.state.messages, data];
 			console.log(this.state.messages, "these messages")
 		})
-		Api.getMessages(this.props.id)
+		Api.getMessages(this.props.id, localStorage.token)
 			.then(data => JSON.parse(data.text))
 			.then(data => {
 
@@ -75,4 +75,3 @@ class ChatBox extends Component {
 }
 
 export default ChatBox;
-

@@ -26,9 +26,10 @@ class Api {
 	)
 
 
-	getMessages = (convoId) => (
+	getMessages = (convoId, token) => (
 		superagent
 			.get(`${API_HOST}/conversation/${convoId}`)
+			.set('authorization', token)
 	)
 
 
