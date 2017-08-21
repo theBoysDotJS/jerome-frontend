@@ -50,8 +50,7 @@ class NavBar extends Component {
 		})
 
 		this._toggleSettings(e);
-		browserHistory.push('/login')
-
+		browserHistory.push('/login');
 	}
 
 	componentDidMount() {
