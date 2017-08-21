@@ -177,6 +177,7 @@
 				padding: 10% 0
 				padding-left: 10px
 				color: $black
+				+flex(column nowrap)
 
 				strong
 					margin-right: 5px
@@ -185,6 +186,10 @@
 					white-space: nowrap
 					overflow: hidden
 					text-overflow: ellipsis
+					order: 2
+
+					&:last-of-type
+						order: 1
 
 
 //MESSAGE BUBBLE STYLES
