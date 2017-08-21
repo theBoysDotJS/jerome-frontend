@@ -7,7 +7,7 @@ class Api {
 	//signup a new user
 	requestSignup = (userInfo) => (
 		superagent
-			.post(`${API_HOST}/auth/users`)
+			.post(`${API_HOST}/auth/user`)
 			.send(
 				{username: userInfo.username,
 				 password: userInfo.password,
@@ -21,21 +21,23 @@ class Api {
 	//login an existing user
 	requestLogin = (username, password) => (
 		superagent
-			.post(`${API_HOST}/auth/sessions`)
+			.post(`${API_HOST}/auth/session`)
 			.send({username, password})
 	)
 
 
-	getMessages = (convoId) => (
+	getMessages = (convoId, token) => (
 		superagent
 			.get(`${API_HOST}/conversation/${convoId}`)
+			.set('authorization', token)
 	)
 
 
 	//requests logout for user
 	deleteSession = (token) => (
 		superagent
-			.post(`${API_HOST}/auth/sessions`)
+			.delete(`${API_HOST}/auth/session`)
+			.send({token})
 			.set('authorization', token)
 	)
 
@@ -52,30 +54,32 @@ class Api {
 	getAllConvos = (token) => (
 		superagent
 			.get(`${API_HOST}/conversation/`)
-			.set('authentication', token)
+			.set('authorization', token)
 	)
 
 	//create a new room
 	createRoom = (name, admin, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/`)
-			.send(name, admin)
+			.post(`${API_HOST}/conversation/create`)
+			.send({name, admin})
 			.set('authorization', token)
 	)
 
 	//request for a user to join a room
-	joinRoom = (username, token) => (
+	joinRoom = (userId, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/:id`)
-			.send(username)
+			.post(`${API_HOST}/conversation/:id/join`)
+
+			.send({userId})
+
 			.set('authorization', token)
 	)
 
 	//request to leave or kick a user from a chatroom
-	deleteRoom = (token, leavingUserId) => {
+	deleteFromRoom = (token, leavingUserId) => {
 		superagent
-			.patch(`${API_HOST}/conversation/:id`)
-			.send(leavingUserId)
+			.put(`${API_HOST}/conversation/:id/leave`)
+			.send({leavingUserId})
 			.set('authorization', token)
 	}
 
@@ -92,7 +96,7 @@ class Api {
 	sendMessage = (author, type, message, token) => {
 		superagent
 			.post(`${API_HOST}/messages`)
-			.send(author, type, message)
+			.send({author, type, message})
 			.set('authorization', token)
 	}
 
@@ -100,7 +104,7 @@ class Api {
 	editMessage = (message, token) => {
 		superagent
 			.patch(`${API_HOST}/messages/:id`)
-			.send(message)
+			.send({message})
 			.set('authorization', token)
 	}
 

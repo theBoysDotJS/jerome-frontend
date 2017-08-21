@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../../api.js'
+import auth from '../../auth.js'
 import { browserHistory } from 'react-router'
 
 //https://www.npmjs.com/package/react-facebook-login
@@ -8,18 +8,24 @@ import FacebookLogin from 'react-facebook-login';
 class Login extends React.Component {
 	constructor(props) {
 		super();
+		this.state = {
+			error : ''
+		}
 	}
 
 	_handleLogin = (e) => {
 		e.preventDefault();
-
-		api.requestLogin(this.refs.email.value, this.refs.password.value)
+		console.log("start of function,,,")
+		return auth.login(this.refs.email.value, this.refs.password.value)
 			.then(res => {
-				res = true
-				console.log(res)
 				if(res === true) {
 					browserHistory.push('/')
 				}
+			})
+			.catch( err => {
+				this.setState({
+					error : err.errors
+				})
 			})
 	}
 
@@ -40,8 +46,10 @@ class Login extends React.Component {
 							fields="name,email,picture"/>
 						</div>*/}
 					</div>
-					<p className="disclaimer">Don't have an account?<a href="/signup"> Signup here</a></p>
+					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
+					<div><p>{this.state.error}</p></div>
 				</form>
+
 			</div>
 		)
 	}

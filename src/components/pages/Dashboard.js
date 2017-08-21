@@ -21,23 +21,20 @@ class Dashboard extends Component {
 			.then(res => res.body).then(cardData => {
 				console.log(cardData, 'this is card data')
 				this.setState({
-					cardInfo: cardData[0]
+					cardInfo: cardData
 				})
 		})
 	}
 
 	render() {
+		console.log(this.state.cardInfo)
 		return (
 			<div className="dashboard">
-
 				{this.state.cardInfo.map(c => {
 					console.log(c, 'this is c');
-
-					return (<ConvoCard className="convoCard" convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages[0]} handle={c.handle}/>);
-
-
-				})}
-
+						return (<ConvoCard className="convoCard" convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages} handle={c.handle}/>);
+					})
+				}
 			</div>
 		);
 	}

@@ -3,8 +3,9 @@ import LanguageForm from '../assets/LanguageForm.js';
 
 class Settings extends React.Component {
 	render() {
+		console.log(this.props, 'setting props')
 		return(
-			<section id="settings" className={!!this.props.open ? "show" : "hide"} >
+			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
 				<ul>
 					<li className="settings--language">
 						<p>Change Language</p>
@@ -21,7 +22,8 @@ class Settings extends React.Component {
 						</div>
 					</li>
 				</ul>
-				<p onClick={this.props.close}>Close Settings</p>
+				<p onClick={e => this.props.close(e)}>Close Settings</p>
+				<p onClick={e => this.props.logout(e)}>Logout :(</p>
 			</section>
 		);
 	}

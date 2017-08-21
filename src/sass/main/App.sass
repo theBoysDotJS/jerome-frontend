@@ -13,16 +13,22 @@
 		left: 0
 		right: 0
 		+flex(row nowrap)
-		justify-content: space-around
+		justify-content: space-evenly
 		align-items: center
 		border-bottom: 2px $black solid
 		background: $white
 		z-index: 20
 
-		.nav-bar--user-card
-			width: 12%
+		.nav-bar--flex
+			width: 33%
 			+flex(row nowrap)
-			justify-content: space-between
+			justify-content: center
+			align-content: center
+			margin: auto
+
+		.nav-bar--user-card
+			+flex(row nowrap)
+			justify-content: space-evenly
 			align-items: center
 
 			a
@@ -37,13 +43,14 @@
 		position: fixed
 		top: 0
 		bottom: 0
-		right: 0
 		width: 400px
 		background: $white
+		transition: all 0.1s ease-in
 
 		+flex(column nowrap)
 		justify-content: space-around
 		align-items: center
+
 
 
 //LOGIN + SIGNUP STYLES
@@ -87,8 +94,6 @@
 
 				p
 					margin-bottom: 5%
-
-
 
 				.form--button
 					width: 100%
@@ -135,6 +140,7 @@
 		.convo-card
 			width: 25%
 			margin: 2%
+			text-decoration: none
 			background: lightgray
 			box-shadow: -12px 10px 0px 0px lighten($black, 50%)
 			position: relative
@@ -171,6 +177,15 @@
 				text-align: left
 				padding: 10% 0
 				padding-left: 10px
+				color: $black
+
+				strong
+					margin-right: 5px
+
+				p
+					white-space: nowrap
+					overflow: hidden
+					text-overflow: ellipsis
 
 
 //MESSAGE BUBBLE STYLES
@@ -180,6 +195,33 @@
 		display: flex
 		flex-flow: column
 		-webkit-transform: translateX(-200px)
+
+		.message-bubble--mine
+			.message-bubble--flexbox
+				width: 100vw
+				display: flex
+				flex-flow: row nowrap
+
+				justify-content: flex-end
+				align-items: center
+				margin-right: 6em
+				.avatar
+					order: 2
+				p
+					order: 1
+					display: inline-block
+					word-wrap: break-word
+					max-width: 50ch
+					margin: 2.5% 2px
+					padding: 0.5em 0.75em
+					border-style: solid
+					border-width: 1px
+					border-radius: 10px
+					color: #333
+
+				strong
+					margin-right: 10px
+
 		.message-bubble--yours
 			.message-bubble--flexbox
 				display: flex
@@ -207,6 +249,11 @@
 		.chat-box
 			position: absolute
 			bottom: 60px
+			.infinite
+				width: 100vw
+				&::-webkit-scrollbar
+					width: 0px
+					background: transparent
 		.chat-input
 			position: fixed
 			bottom: 0
@@ -216,13 +263,17 @@
 			border-top: 1px solid $black
 			padding: 1% 0
 
-			textarea
+			#text-input
 				width: 80%
+				height: 100%
 				border: none
 				resize: none
+				align-self: center
 
 				&:focus
 					outline: none
+					border: 1px solid transparent
+					outline-offset: 0
 
 					&::-webkit-input-placeholder
 						color: transparent
@@ -239,3 +290,11 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
+
+//Utility
+
+.window-hide
+	right: -400px !important
+
+.window-show
+	right: 0 !important

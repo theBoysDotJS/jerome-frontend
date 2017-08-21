@@ -33,14 +33,14 @@ class ConvoCard extends React.Component {
 					<ul className="convo-card--avatars">
 						{this.props.users.map(user => {
 							return(
-								<Avatar image="{user.avatarUrl}"/>
+								<Avatar image={user.avatarUrl}/>
 							)
 						})}
 					</ul>
 				</div>
 				<div className="convo-card--snippet">
 					{this.props.message.map(message => {
-						return(<p><strong>{message.author}:</strong>{message.message}</p>)
+						return(<p><strong>{message.author}:</strong>{message.message_body}</p>)
 					})}
 				</div>
 			</Link>

@@ -157,16 +157,22 @@ td, th {
     right: 0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     border-bottom: 2px #333 solid;
     background: #f2f2f2;
     z-index: 20; }
-    .App .nav-bar .nav-bar--user-card {
-      width: 12%;
+    .App .nav-bar .nav-bar--flex {
+      width: 33%;
       display: flex;
       flex-flow: row nowrap;
-      justify-content: space-between;
+      justify-content: center;
+      align-content: center;
+      margin: auto; }
+    .App .nav-bar .nav-bar--user-card {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
       align-items: center; }
       .App .nav-bar .nav-bar--user-card a {
         text-align: center; }
@@ -177,9 +183,9 @@ td, th {
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 0;
     width: 400px;
     background: #f2f2f2;
+    transition: all 0.1s ease-in;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -267,6 +273,7 @@ td, th {
   .App .dashboard .convo-card {
     width: 25%;
     margin: 2%;
+    text-decoration: none;
     background: lightgray;
     box-shadow: -12px 10px 0px 0px #b3b3b3;
     position: relative;
@@ -299,12 +306,41 @@ td, th {
       width: 80%;
       text-align: left;
       padding: 10% 0;
-      padding-left: 10px; }
+      padding-left: 10px;
+      color: #333; }
+      .App .dashboard .convo-card .convo-card--snippet strong {
+        margin-right: 5px; }
+      .App .dashboard .convo-card .convo-card--snippet p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
 
 .App .message-container {
   display: flex;
   flex-flow: column;
   -webkit-transform: translateX(-200px); }
+  .App .message-container .message-bubble--mine .message-bubble--flexbox {
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 6em; }
+    .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
+      order: 2; }
+    .App .message-container .message-bubble--mine .message-bubble--flexbox p {
+      order: 1;
+      display: inline-block;
+      word-wrap: break-word;
+      max-width: 50ch;
+      margin: 2.5% 2px;
+      padding: 0.5em 0.75em;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      color: #333; }
+    .App .message-container .message-bubble--mine .message-bubble--flexbox strong {
+      margin-right: 10px; }
   .App .message-container .message-bubble--yours .message-bubble--flexbox {
     display: flex;
     flex-flow: row nowrap;
@@ -327,6 +363,11 @@ td, th {
 .App .chat-room .chat-box {
   position: absolute;
   bottom: 60px; }
+  .App .chat-room .chat-box .infinite {
+    width: 100vw; }
+    .App .chat-room .chat-box .infinite::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; }
 .App .chat-room .chat-input {
   position: fixed;
   bottom: 0;
@@ -336,13 +377,17 @@ td, th {
   width: 100%;
   border-top: 1px solid #333;
   padding: 1% 0; }
-  .App .chat-room .chat-input textarea {
+  .App .chat-room .chat-input #text-input {
     width: 80%;
+    height: 100%;
     border: none;
-    resize: none; }
-    .App .chat-room .chat-input textarea:focus {
-      outline: none; }
-      .App .chat-room .chat-input textarea:focus::-webkit-input-placeholder {
+    resize: none;
+    align-self: center; }
+    .App .chat-room .chat-input #text-input:focus {
+      outline: none;
+      border: 1px solid transparent;
+      outline-offset: 0; }
+      .App .chat-room .chat-input #text-input:focus::-webkit-input-placeholder {
         color: transparent; }
   .App .chat-room .chat-input button {
     text-decoration: none;
@@ -356,5 +401,11 @@ td, th {
     text-align: center;
     border-radius: 50px;
     border: 1px solid #333; }
+
+.window-hide {
+  right: -400px !important; }
+
+.window-show {
+  right: 0 !important; }
 
 /*# sourceMappingURL=App.css.map */

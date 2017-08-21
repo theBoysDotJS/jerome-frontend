@@ -17,26 +17,27 @@ class ChatInput extends Component {
     this.setState({
       currentInput: e.target.value
     })
-    console.log(this.state.currentInput);
+    // console.log(this.state.currentInput);
   }
 
   _handleSend = (e) => {
     e.preventDefault();
     var formData = {
       text: this.state.currentInput,
-      user: 10,
-      convoId: 12,
+      user: localStorage.user,
+
+      convoId: this.props.id,
+
       type: "text"
     }
 
-    console.log(formData);
+	console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
   render() {
     return (
-
        <div className="chat-input">
-        <textarea placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></textarea>
+        <input id="text-input" contentEditable placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></input>
         <button onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );
