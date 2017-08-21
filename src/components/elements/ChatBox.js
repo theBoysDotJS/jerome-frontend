@@ -34,7 +34,7 @@ class ChatBox extends Component {
 				messageArray.push(newMsg)
 
 			}) // end forEach
-			
+
 			this.setState({
 				messages: messageArray
 			}) //end setState
@@ -66,9 +66,9 @@ class ChatBox extends Component {
 
 			<div className="chat-box">
 				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-				<Infinite className="infinite" elementHeight={30} containerHeight={700} displayBottomUpwards>
+				<div className="infinite">
 					{this.displayMessages()}
-				</Infinite>
+				</div>
 			</div>
 		);
 	}

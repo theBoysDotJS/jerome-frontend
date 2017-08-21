@@ -361,10 +361,11 @@ td, th {
       margin-right: 10px; }
 
 .App .chat-room .chat-box {
-  position: absolute;
   bottom: 60px; }
   .App .chat-room .chat-box .infinite {
-    width: 100vw; }
+    width: 100vw;
+    overflow: scroll;
+    position: absolute; }
     .App .chat-room .chat-box .infinite::-webkit-scrollbar {
       width: 0px;
       background: transparent; }

@@ -28,7 +28,6 @@ class CreateConvo extends React.Component {
 				<h2>Create a Conversation</h2>
 				<form onSubmit={e => this._submit(e)}>
 					<input ref="name" placeholder="name" type="text"/>
-					<input ref="friendInput" placeholder="who do you want to chat with?" type="text"/>
 					<button type="submit">create!</button>
 				</form>
 

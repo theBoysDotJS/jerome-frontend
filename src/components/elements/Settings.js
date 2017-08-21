@@ -6,6 +6,7 @@ class Settings extends React.Component {
 		console.log(this.props, 'setting props')
 		return(
 			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
+			<strong>Your Id: {this.props.id}</strong>
 				<ul>
 					<li className="settings--language">
 						<p>Change Language</p>
