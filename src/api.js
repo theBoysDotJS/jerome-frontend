@@ -66,10 +66,12 @@ class Api {
 	)
 
 	//request for a user to join a room
-	joinRoom = (username, token) => (
+	joinRoom = (userId, token) => (
 		superagent
 			.post(`${API_HOST}/conversation/:id/join`)
-			.send({username})
+
+			.send({userId})
+
 			.set('authorization', token)
 	)
 
