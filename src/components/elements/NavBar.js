@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Api from '../../api.js';
-import {Link} from 'react-router';
+
 
 class ChatBox extends Component {
   constructor() {
