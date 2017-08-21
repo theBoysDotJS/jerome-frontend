@@ -22,8 +22,8 @@ class Settings extends React.Component {
 						</div>
 					</li>
 				</ul>
-				<p onClick={this.props.close}>Close Settings</p>
-				<p onClick={this.props.logout}>Logout :(</p>
+				<p onClick={e => this.props.close(e)}>Close Settings</p>
+				<p onClick={e => this.props.logout(e)}>Logout :(</p>
 			</section>
 		);
 	}

@@ -194,6 +194,33 @@
 		display: flex
 		flex-flow: column
 		-webkit-transform: translateX(-200px)
+
+		.message-bubble--mine
+			.message-bubble--flexbox
+				width: 100vw
+				display: flex
+				flex-flow: row nowrap
+
+				justify-content: flex-end
+				align-items: center
+				margin-right: 6em
+				.avatar
+					order: 2
+				p
+					order: 1
+					display: inline-block
+					word-wrap: break-word
+					max-width: 50ch
+					margin: 2.5% 2px
+					padding: 0.5em 0.75em
+					border-style: solid
+					border-width: 1px
+					border-radius: 10px
+					color: #333
+
+				strong
+					margin-right: 10px
+
 		.message-bubble--yours
 			.message-bubble--flexbox
 				display: flex
@@ -221,6 +248,11 @@
 		.chat-box
 			position: absolute
 			bottom: 60px
+			.infinite
+				width: 100vw
+				&::-webkit-scrollbar
+					width: 0px
+					background: transparent
 		.chat-input
 			position: fixed
 			bottom: 0
