@@ -58,6 +58,11 @@
 				height: 48px
 
 	#settings
+		color: $black
+		h2
+			color: $white
+		.lang-headline
+			color: $white
 		position: fixed
 		top: 0
 		bottom: 0
@@ -66,8 +71,47 @@
 		transition: all 0.1s ease-in
 
 		+flex(column nowrap)
-		justify-content: space-around
+		justify-content: flex-start
 		align-items: center
+		padding-top: 1%
+		padding-bottom: 1%
+
+		.language-wrap
+			+flex(column nowrap)
+			width: 80%
+
+
+		.convo-form
+			color: $black
+			+flex(column nowrap)
+			width: 80%
+
+			input
+				border: 1px solid $black
+				background: $white
+				font-size: 2rem
+				margin-bottom: 2%
+				padding: 1% 3%
+				position: relative
+
+				&:focus::-webkit-input-placeholder
+					color: transparent
+
+				&:focus
+					outline: none
+
+			.form--button-container
+				+flex(column nowrap)
+
+				.form--button
+					width: 100%
+					font-size: 1.4em
+					padding: 0.5em 0.7em
+					background: $white
+					border: 1px solid $black
+					margin: 3% 0
+					text-align: center
+
 
 
 

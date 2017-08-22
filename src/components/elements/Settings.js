@@ -22,8 +22,9 @@ class Settings extends React.Component {
 				</div>
 				<form className="convo-form">
 					<div className="form--button-container">
-						<button className="close-convo form--button" onClick={this.props.close}>close</button>
 						<button className="close-convo form--button" onClick={e => this.props.logout(e)}>logout</button>
+						<button className="close-convo form--button" onClick={this.props.close}>close</button>
+
 					</div>
 				</form>
 
