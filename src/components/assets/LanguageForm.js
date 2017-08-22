@@ -48,7 +48,6 @@ class LanguageForm extends React.Component {
 					<option value="ar">Arabic</option>
 					<option value="ru">Russian</option>
 				</select>
-				<p>{this.state.value}</p>
 			</div>
 		)
 	}
