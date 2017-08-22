@@ -106,7 +106,7 @@ class NavBar extends Component {
 		</div>
 
 		<div className="nav-bar--flex nav-bar--center">
-        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
+        	<h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Home'}</h1>
 		</div>
 
 		{!!Auth.isLoggedIn() ?
