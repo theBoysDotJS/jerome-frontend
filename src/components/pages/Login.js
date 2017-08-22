@@ -14,39 +14,34 @@ const responseFacebook=(response)=>{
 	auth.login(response.email, response.id)
 	.then(res => {
 		console.log(res, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-		if(res === true) {
-			browserHistory.push('/')
-		}
-		else {
-			// if no user found, sign them up
-			let nameArr = response.name.split(" ");
-			
-			let signupObj = {
-				username: response.email,
-				email: response.email,
-				password: response.id,
-				language: 'en',
-				firstName: nameArr[0],
-				lastName: nameArr[1]
-			}
-	
-			console.log(signupObj, 'sign up object')
-			//sends request object to src/api.js with form values for signup
-			api.requestSignup(signupObj)
-				.then(res => {
-					console.log("res", res)
-					browserHistory.push('/login')
-					// after sign up logen them in
-				})
-				.catch(err  => {
-					console.log("NO GO !!!!!!!!")
-				})
-
-		}
-	}).catch(err => {
-		console.log("ALREADY LOGGED IN");
-		console.log(err);
 		
+			browserHistory.push('/')
+		
+	}).catch(err => {
+		
+		let nameArr = response.name.split(" ");
+		
+		let signupObj = {
+			username: response.email,
+			email: response.email,
+			password: response.id,
+			language: 'en',
+			firstName: nameArr[0],
+			lastName: nameArr[1]
+			// avatarUrl: "https://placeimg.com/100/100/animals"
+		}
+
+		console.log(signupObj, 'sign up object')
+		//sends request object to src/api.js with form values for signup
+		api.requestSignup(signupObj)
+			.then(res => {
+				console.log("signup response", res)
+				browserHistory.push('/login')
+				// after sign up logen them in
+			})
+			.catch(err  => {
+				console.log("NO GO !!!!!!!!")
+			})
 	});
 
 }
