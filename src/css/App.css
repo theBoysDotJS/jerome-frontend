@@ -388,8 +388,7 @@ td, th {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    align-items: center;
-    margin-right: 6em !important; }
+    align-items: center; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
       height: 40px;
       width: 40px;

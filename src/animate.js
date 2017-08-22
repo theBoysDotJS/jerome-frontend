@@ -19,7 +19,7 @@ class Anime {
   };
 messageSlideMine(){ anime({
     targets: '.message-bubble--flexbox',
-    translateX: -200,
+    translateX: -12,
 
       });
 
