@@ -1,7 +1,15 @@
 import React from 'react';
 import LanguageForm from '../assets/LanguageForm.js';
+import onClickOutside from 'react-onclickoutside'
 
 class Settings extends React.Component {
+
+	handleClickOutside = (e) => {
+		if(this.props.isOpen){
+			this.props.close(e)
+		}
+  }
+	
 	render() {
 		console.log(this.props, 'setting props')
 		return(
@@ -29,4 +37,4 @@ class Settings extends React.Component {
 	}
 }
 
-export default Settings;
+export default onClickOutside(Settings);

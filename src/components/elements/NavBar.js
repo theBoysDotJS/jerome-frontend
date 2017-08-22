@@ -86,7 +86,7 @@ class NavBar extends Component {
 			</div>
 	        <Avatar image={this.state.avatar}/>
           <p onClick={e => this._toggleCreate(e)}>+</p>
-			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+					<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>
       	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
 			</div>
 
