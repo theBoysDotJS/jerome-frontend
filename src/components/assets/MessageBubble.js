@@ -15,8 +15,9 @@ _getUser = () => {
 	})
 }
 componentDidMount(){
-	if(this.props.user === localStorage.user){
+	if(+this.props.user === +localStorage.user){
 	Anime.messageSlideMine();
+	console.log('its mine')
 }
  	else {
  		Anime.messageSlide();
