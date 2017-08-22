@@ -13,26 +13,16 @@ class ChatBox extends Component {
 			messages: []
 		}
 
-  }
-
+	}
 	componentDidMount() {
-		socket.on('chat', data => {
-			console.log(data, 'thedata')
-			this.setState({
-				messages: [
-					...this.state.messages,
-					data
-				]
+		// console.log('mounted')
 
-			})
-			// var newMsg = [ ...this.state.messages, data];
-			console.log(this.state.messages, "these messages")
-		})
-		Api.getMessages(this.props.id, localStorage.token)
+		Api.getMessages(this.props.id)
 			.then(data => JSON.parse(data.text))
 			.then(data => {
 
 			let messages = data.messages
+			let messageArray = []
 
 			messages.forEach(currVal => {
 
@@ -41,16 +31,22 @@ class ChatBox extends Component {
 					text: currVal.message_body,
 					id: currVal.id
 				}
+				messageArray.push(newMsg)
 
-				this.setState({
-					messages: [
-						...this.state.messages,
-						newMsg
-					]
-				}) //end setState
 			}) // end forEach
 		}) // end Promise
-	}
+
+		socket.on('chat', data => {
+			console.log(data, 'this is the message response')
+			this.setState({
+				messages: [
+					...this.state.messages,
+					data
+				]
+
+			})
+		})
+	} // end Component Did Mount
 
 	createMessage = (curVal) => {
 		console.log(curVal.user);
@@ -65,10 +61,11 @@ class ChatBox extends Component {
 		return (
 
 			<div className="chat-box">
-				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-				<Infinite className="infinite" elementHeight={30} containerHeight={700} displayBottomUpwards>
-					{this.displayMessages()}
-				</Infinite>
+				<div>
+          <div className="infinite">
+            {this.displayMessages()}
+          </div>
+			  </div>
 			</div>
 		);
 	}

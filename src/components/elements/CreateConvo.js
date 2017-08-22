@@ -38,18 +38,30 @@ class CreateConvo extends React.Component {
 			<section id="settings" className={this.props.isOpen === true
 				? "window-show"
 				: "window-hide"}>
-				<button className="close-convo" onClick={this.props.close}><i className="fa fa-close" aria-hidden="false"></i></button>
+
+				<button onClick={this.props.close}>x</button>
+				<h2>Create a Conversation</h2>
+				<form onSubmit={e => this._submit(e)}>
+					<input ref="name" placeholder="name" type="text"/>
+					<button type="submit">create!</button>
+				</form>
+
+
+
 				<h2>Create a Conversation</h2>
 					<form className="convo-form" onSubmit={e => this._submit(e)}>
 						<input ref="name" placeholder="name" type="text"/>
 						<div className="form--button-container">
-							<button className="form--button" type="submit">create!</button>
+							<button className="form--button" type="submit">create</button>
+							<button className="close-convo form--button" onClick={this.props.close}>cancel</button>
 						</div>
 					</form>
+
 			</section>
+
 		);
 	}
 }
 
-export default onClickOutside(CreateConvo);
 
+export default onClickOutside(CreateConvo);

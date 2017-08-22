@@ -16,11 +16,6 @@ class ConvoCard extends React.Component {
 	}
 
 	_cardSwipe = (e) => {
-		let cardCallBack = function(){
-			setTimeout(function(){ browserHistory.push(`/conversation/${this.props.convoId}`)}.bind(this), 500)
-		}
-		e.preventDefault();
-		Anime.cardSwipe(cardCallBack.bind(this));
 		Anime.titleSwipe();
 
 	}

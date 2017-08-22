@@ -15,8 +15,12 @@ _getUser = () => {
 	})
 }
 componentDidMount(){
+	if("message-bubble-yours"){
 	Anime.messageSlide();
-	console.log(this.state.avatar, "the avatar")
+}
+	else if("message-bubble-mine"){
+		Anime.messageSlideMine();
+	}
 	this._getUser();
 
 }

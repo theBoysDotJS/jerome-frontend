@@ -8,6 +8,13 @@ messageSlide(){ anime({
     });
 
   };
+messageSlideMine(){ anime({
+    targets: '.message-bubble--flexbox',
+    translateX: -200,
+
+      });
+
+    };
 cardSwipe(cb){
   anime({
   targets: '.convo-card',
@@ -26,6 +33,8 @@ chatSwipe(){
     easing: "easeInOutQuad"
   });
 };
+
+
 
 titleSwipe(){
   anime({

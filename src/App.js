@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-	  	<NavBar />
+	  	<NavBar user={localStorage.user} params={this.props.params}/>
         {this.props.children}
       </div>
     );

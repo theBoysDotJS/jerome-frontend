@@ -3,6 +3,7 @@ import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
 import CreateConvo from "./CreateConvo.js"
+import AddUser from "./addUser.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
 
@@ -10,6 +11,7 @@ class NavBar extends Component {
 	constructor() {
 		super();
 		this.state = {
+			inConvo: false,
 			settingsOpen: false,
 			createOpen: false,
 			avatarReload: localStorage.token
@@ -63,14 +65,42 @@ class NavBar extends Component {
 
 	componentDidMount() {
 		this._getUser();
-	}
+		if(this.props.params.id){
+			this.setState({
+				inConvo: true
+			})
+		} else{
+			this.setState({
+				inConvo: false
+			})
+		}
 
-	// componentDidUpdate(prevProps, prevState) {
-	// 	console.log(this.state.avatarReload, prevState.avatarReload)
-	// 	if(this.state.avatarReload !== prevState.avatarReload) {
-	// 		this._getUser();
-	// 	}
-	// }
+		if(this.state.inConvo){
+			this.setState({
+				convoname: "chat"
+			})
+
+	}
+}
+
+	componentWillReceiveProps(nextProps) {
+		console.log(nextProps, "the next props")
+			if(!!nextProps.params.id){
+				console.log("look here guys")
+				this.setState({
+					inConvo: true,
+					convoname: 'chat'
+				})
+			} else if(nextProps.params.id === {}){
+				this.setState({
+					inConvo: false,
+					convoname: false
+				})
+			}
+
+		}
+
+
 
 	render() {
 		return (
@@ -83,7 +113,7 @@ class NavBar extends Component {
 		</div>
 
 		<div className="nav-bar--flex nav-bar--center">
-        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
+        	<h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Home'}</h1>
 		</div>
 
 		{!!Auth.isLoggedIn() ?
@@ -94,8 +124,11 @@ class NavBar extends Component {
 			</div>
 	        <Avatar image={this.state.avatar}/>
           <p onClick={e => this._toggleCreate(e)}>+</p>
-			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
-      	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
+
+						{<Settings id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+						{this.state.convoname ? <AddUser close={this._toggleCreate} isOpen={this.state.createOpen} /> :
+							<CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>}
+
 			</div>
 
 			: null}
