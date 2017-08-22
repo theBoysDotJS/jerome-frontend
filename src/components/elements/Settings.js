@@ -18,7 +18,7 @@ class Settings extends React.Component {
 				<h2>Settings</h2>
 				<div className="language-wrap">
 					<p className="lang-headline">Change Language</p>
-					<LanguageForm />
+					<LanguageForm user={this.props.userObj} />
 				</div>
 				<form className="convo-form">
 					<div className="form--button-container">

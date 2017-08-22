@@ -22,7 +22,7 @@ class NavBar extends Component {
 		console.log(this.props.params, "look here at the params!!")
 		Api.getMe(localStorage.token).then(res => res.body).then(user => {
 			console.log(user, 'user obj in getMe')
-			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl})
+			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl, userObj: user[0]})
 		})
 	}
 
@@ -118,7 +118,7 @@ class NavBar extends Component {
 	        <Avatar image={this.state.avatar}/>
           <p onClick={e => this._toggleCreate(e)}>+</p>
 
-						{<Settings id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+						{<Settings userObj={this.state.userObj} id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
 						{this.state.convoname ? <AddUser close={this._toggleCreate} isOpen={this.state.createOpen} /> :
 							<CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>}
 

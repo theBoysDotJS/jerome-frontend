@@ -1,4 +1,5 @@
 import React from 'react';
+import Api from '../../api.js';
 
 class LanguageForm extends React.Component {
 	constructor() {
@@ -9,20 +10,34 @@ class LanguageForm extends React.Component {
 	}
 
 	change = (e) => {
-		this.setState({ value : e.target.value })
+		this.setState({ value : e.target.value });
+		this.saveUserLanguage(e.target.value);
 	}
 
 	saveUserLanguage = (lang) => {
-		fetch()
-		.then()
-		.catch()
+
+		 var x = Api.changeLanguage(localStorage.token, lang)
+		.then(result => {
+			console.log("result: ", result)
+			window.location.reload()
+		})
+		.catch(err => {
+			console.log(err)
+		})
 	}
 
 	render() {
+		var lang = 'en';
+		if (this.props.user &&  this.props.user.language) {
+			lang = this.props.user.language
+		} else {
+			lang = 'en'
+		}
 
+		console.log(">>>>>>>>>>", this.props.user)
 		return (
 			<div>
-				<select onChange={this.change} value={this.state.value} name="languageForm" id="langaugeForm">
+				<select onChange={this.change} value={lang} name="languageForm" id="langaugeForm">
 					<option value="en">English</option>
 					<option value="fr">French</option>
 					<option value="es">Spanish</option>
