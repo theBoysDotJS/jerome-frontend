@@ -5,6 +5,7 @@ import ChatBox from '../elements/ChatBox.js';
 import ChatInput from '../elements/ChatInput.js';
 
 
+
 class ChatRoom extends React.Component {
 	constructor(props) {
 		super(props);

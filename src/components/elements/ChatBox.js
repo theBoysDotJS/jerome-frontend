@@ -13,16 +13,26 @@ class ChatBox extends Component {
 			messages: []
 		}
 
-	}
-	componentDidMount() {
-		// console.log('mounted')
+  }
 
-		Api.getMessages(this.props.id)
+	componentDidMount() {
+		socket.on('chat', data => {
+			console.log(data, 'thedata')
+			this.setState({
+				messages: [
+					...this.state.messages,
+					data
+				]
+
+			})
+			// var newMsg = [ ...this.state.messages, data];
+			console.log(this.state.messages, "these messages")
+		})
+		Api.getMessages(this.props.id, localStorage.token)
 			.then(data => JSON.parse(data.text))
 			.then(data => {
 
 			let messages = data.messages
-			let messageArray = []
 
 			messages.forEach(currVal => {
 
@@ -31,26 +41,17 @@ class ChatBox extends Component {
 					text: currVal.message_body,
 					id: currVal.id
 				}
-				messageArray.push(newMsg)
 
+				this.setState({
+					messages: [
+						...this.state.messages,
+						newMsg
+					]
+				}) //end setState
 			}) // end forEach
 
-			this.setState({
-				messages: messageArray
-			}) //end setState
 		}) // end Promise
-
-		socket.on('chat', data => {
-			console.log(data, 'this is the message response')
-			this.setState({
-				messages: [
-					...this.state.messages,
-					data
-				]
-
-			})
-		})
-	} // end Component Did Mount
+	}
 
 	createMessage = (curVal) => {
 		console.log(curVal.user);
