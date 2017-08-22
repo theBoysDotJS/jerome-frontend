@@ -98,7 +98,6 @@ class NavBar extends Component {
 	render() {
 		return (
 			<nav className="nav-bar">
-
 				<div className="nav-bar--flex">
 
 		  	<Link to={'/'}>
@@ -114,13 +113,15 @@ class NavBar extends Component {
 
 		<div className="nav-bar--flex nav-bar--user-card">
 			<div>
-		        <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
+		      <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
 			</div>
 	        <Avatar image={this.state.avatar}/>
           <p onClick={e => this._toggleCreate(e)}>+</p>
+
 						{<Settings id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
 						{this.state.convoname ? <AddUser close={this._toggleCreate} isOpen={this.state.createOpen} /> :
 							<CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>}
+
 			</div>
 
 			: null}
