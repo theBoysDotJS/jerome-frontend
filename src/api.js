@@ -14,9 +14,11 @@ class Api {
 				 email: userInfo.email,
 				 firstName: userInfo.firstName,
 				 lastName: userInfo.lastName,
-				 language: userInfo.language
+				 language: userInfo.language,
+				 avatarUrl: userInfo.avatarUrl
 			 	})
 	)
+	
 
 	//login an existing user
 	requestLogin = (username, password) => (
