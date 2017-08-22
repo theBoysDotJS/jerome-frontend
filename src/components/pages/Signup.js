@@ -17,7 +17,6 @@ class SignUp extends React.Component {
 
 		e.preventDefault();
 
-
 		let signupObj = {
 			username: this.refs.username.value,
 			email: this.refs.email.value,
@@ -39,6 +38,13 @@ class SignUp extends React.Component {
 					browserHistory.push('/login')
 				}
 			})
+			.catch(err  => {
+				var errors = err.response.body.error;
+				console.log(errors)
+					this.setState({
+						error : errors
+					})
+			})
 	}
 
 	_handleLanguage = (e, lang) => {
@@ -52,7 +58,7 @@ class SignUp extends React.Component {
 	}
 
 	render() {
-
+		console.log(this.state.error)
 		return (
 			<section className="sign-up">
 				<form className="form sign-up--form" onSubmit={e => this._handleSignup(e)}>
@@ -72,7 +78,8 @@ class SignUp extends React.Component {
 						<button className="form--button" type="submit">Sign Up</button>
 					</div>
 					<p>Already have an account? <a href="/login">Login Here</a> </p>
-					<p className="sign-up--error">{this.state.error}</p>
+					<div className="sign-up--error">{this.state.error && Object.keys(this.state.error).map(err => <p><strong>{err}</strong>: {this.state.error[err]}</p>)}</div>
+
 				</form>
 			</section>
 		);

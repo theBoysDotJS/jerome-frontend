@@ -10,8 +10,8 @@ class ChatBox extends Component {
 			messages: []
 		}
 	}
-
 	componentDidMount() {
+
 		console.log('mounted')
 		socket.on('chat', data => {
 			// console.log(data, this.props.id, 'thedata')
@@ -40,10 +40,12 @@ class ChatBox extends Component {
 		// })
 
 		Api.getMessages(this.props.id, localStorage.token)
+
 			.then(data => JSON.parse(data.text))
 			.then(data => {
 
 			let messages = data.messages
+			let messageArray = []
 
 			messages.forEach(currVal => {
 
@@ -52,19 +54,26 @@ class ChatBox extends Component {
 					text: currVal.message_body,
 					id: currVal.id
 				}
+				messageArray.push(newMsg)
 
-				this.setState({
-					messages: [
-						...this.state.messages,
-						newMsg
-					]
-				}) //end setState
 			}) // end forEach
 		}) // end Promise
-	}
+
+		socket.on('chat', data => {
+			console.log(data, 'this is the message response')
+			this.setState({
+				messages: [
+					...this.state.messages,
+					data
+				]
+
+			})
+		})
+	} // end Component Did Mount
 
 	createMessage = (curVal) => {
-		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.id}/>);
+		console.log(curVal.user);
+		return (<MessageBubble  user={curVal.user} text={curVal.text} key={curVal.id}/>);
 	}
 	displayMessages = () => {
 		return this.state.messages.map(this.createMessage);
@@ -74,6 +83,7 @@ class ChatBox extends Component {
 
 		return (
 			<div className="chat-box">
+
 				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
 				<div >
 					{this.displayMessages()}
@@ -81,6 +91,7 @@ class ChatBox extends Component {
 				<div>
 					<p>{!!this.props.typing ? `Someone is typing` : null}</p>
 				</div>
+
 			</div>
 		);
 	}

@@ -22,5 +22,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #SASS
-/.sass-cache
+/src/.sass-cache
 *.css.map

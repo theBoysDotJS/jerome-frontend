@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Socket from '../../socketHandle.js'
-
+import Anime from '../../animate.js';
 class ChatInput extends Component {
   constructor(){
     super()
@@ -9,7 +9,9 @@ class ChatInput extends Component {
       user: ""
     }
   }
-
+  componentDidMount(){
+    Anime.chatSwipe();
+  }
   _handleInput = (e) => {
     e.preventDefault();
 
