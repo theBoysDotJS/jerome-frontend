@@ -34,7 +34,7 @@ class ChatInput extends Component {
       type: "text"
     }
 
-	// console.log('message sent', formData)
+	console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
 
