@@ -10,6 +10,9 @@ class ChatBox extends Component {
 			messages: []
 		}
 	}
+	componentWillMount(){
+		Anime.titleSwipe();
+	}
 	componentDidMount() {
 
 		console.log('mounted')
@@ -57,6 +60,10 @@ class ChatBox extends Component {
 				messageArray.push(newMsg)
 
 			}) // end forEach
+			.then
+				this.setState({
+					messages: messageArray
+				})
 		}) // end Promise
 
 		socket.on('chat', data => {
