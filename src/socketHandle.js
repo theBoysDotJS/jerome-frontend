@@ -13,6 +13,22 @@ class Socket {
 	receiveMessage = () => {
 		socket.on('chat', data => data)
 	}
+
+	sendTyping = (author) => {
+		socket.emit('typing', author)
+	}
+
+	recieveTyping = () => {
+		socket.on('typing', data => {
+			let typeObj = {
+				status: true,
+				data: data
+			}
+
+			return typeObj;
+		})
+	}
+
 }
 
 export default new Socket();

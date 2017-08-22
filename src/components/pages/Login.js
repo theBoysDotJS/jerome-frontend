@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 
 
 //https://www.npmjs.com/package/react-facebook-login
-import FacebookLogin from 'react-facebook-login';
+// import FacebookLogin from 'react-facebook-login';
 
 const responseFacebook=(response)=>{
 	console.log("responseFacebook", response)
