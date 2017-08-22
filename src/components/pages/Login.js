@@ -9,7 +9,7 @@ import { browserHistory } from 'react-router'
 import FacebookLogin from 'react-facebook-login';
 
 const responseFacebook=(response)=>{
-	console.log(response)
+	console.log("responseFacebook", response)
 	// Try and login user (using user id as password)
 	auth.login(response.email, response.id)
 	.then(res => {
@@ -19,17 +19,18 @@ const responseFacebook=(response)=>{
 		}
 		else {
 			// if no user found, sign them up
-
+			let nameArr = response.name.split(" ");
+			
 			let signupObj = {
 				username: response.email,
 				email: response.email,
 				password: response.id,
 				language: 'en',
-				firstName: response.name,
-				lastName: response.name
+				firstName: nameArr[0],
+				lastName: nameArr[1]
 			}
 	
-			console.log(signupObj, 'the object')
+			console.log(signupObj, 'sign up object')
 			//sends request object to src/api.js with form values for signup
 			api.requestSignup(signupObj)
 				.then(res => {
@@ -42,7 +43,11 @@ const responseFacebook=(response)=>{
 				})
 
 		}
-	})
+	}).catch(err => {
+		console.log("ALREADY LOGGED IN");
+		console.log(err);
+		browserHistory.push('/');
+	});
 
 }
 
