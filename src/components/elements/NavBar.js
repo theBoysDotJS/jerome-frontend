@@ -17,10 +17,18 @@ class NavBar extends Component {
 	}
 
 	_getUser = () => {
-		Api.getMe(localStorage.token).then(res => res.body).then(user => {
+		Api.getMe(localStorage.token)
+		.then(res => {
+			let user = res.body;
 			console.log(user, 'user obj in getMe')
-			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl})
-		})
+			this.setState({
+				username: user[0].username,
+				user_id: user[0].id,
+				avatar: user[0].avatarUrl
+			})
+		}).catch(err => {
+			console.log("NavBar error...", err);
+		});
 	}
 
 
