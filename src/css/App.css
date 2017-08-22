@@ -1,3 +1,6 @@
+* {
+  font-family: "Lato"; }
+
 /*! normalize.sass v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -150,6 +153,8 @@ td, th {
 .App {
   width: 100vw; }
   .App .nav-bar {
+    background: #333;
+    color: #f2f2f2;
     width: 100%;
     position: fixed;
     top: 0;
@@ -160,7 +165,6 @@ td, th {
     justify-content: space-evenly;
     align-items: center;
     border-bottom: 2px #333 solid;
-    background: #f2f2f2;
     z-index: 20; }
     .App .nav-bar .nav-bar--flex {
       width: 33%;
@@ -184,7 +188,7 @@ td, th {
     top: 0;
     bottom: 0;
     width: 400px;
-    background: #f2f2f2;
+    background: #333;
     transition: all 0.1s ease-in;
     display: flex;
     flex-flow: column nowrap;
@@ -326,15 +330,18 @@ td, th {
       .App .dashboard .convo-card .convo-card--header h3 {
         margin-left: 5%; }
       .App .dashboard .convo-card .convo-card--header .convo-card--avatars {
+        padding-left: 15px;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         width: 30%; }
         .App .dashboard .convo-card .convo-card--header .convo-card--avatars .avatar {
           width: 16px;
-          height: 16px; }
+          height: 16px;
+          margin: 1px; }
     .App .dashboard .convo-card .convo-card--snippet {
+      height: 115px;
       width: 80%;
       text-align: left;
       padding: 10% 0;
@@ -349,16 +356,17 @@ td, th {
 
 .App .message-container {
   display: flex;
-  flex-flow: column;
-  -webkit-transform: translateX(-200px); }
+  flex-flow: column; }
   .App .message-container .message-bubble--mine .message-bubble--flexbox {
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 6em; }
+    margin-right: 6em !important; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
+      height: 40px;
+      width: 40px;
       order: 2; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox p {
       order: 1;
@@ -373,24 +381,29 @@ td, th {
       color: #333; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox strong {
       margin-right: 10px; }
-  .App .message-container .message-bubble--yours .message-bubble--flexbox {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 3px; }
-    .App .message-container .message-bubble--yours .message-bubble--flexbox p {
-      display: inline-block;
-      word-wrap: break-word;
-      max-width: 50ch;
-      margin: 2.5% 2px;
-      padding: 0.5em 0.75em;
-      border-style: solid;
-      border-width: 1px;
-      border-radius: 10px;
-      color: #333; }
-    .App .message-container .message-bubble--yours .message-bubble--flexbox strong {
-      margin-right: 10px; }
+  .App .message-container .message-bubble--yours {
+    -webkit-transform: translateX(-200px); }
+    .App .message-container .message-bubble--yours .message-bubble--flexbox {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 3px; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox .avatar {
+        height: 40px;
+        width: 40px; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox p {
+        display: inline-block;
+        word-wrap: break-word;
+        max-width: 50ch;
+        margin: 2.5% 2px;
+        padding: 0.5em 0.75em;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px;
+        color: #333; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox strong {
+        margin-right: 10px; }
 
 .App .chat-room .chat-box {
   position: absolute;
