@@ -11,7 +11,6 @@ class Settings extends React.Component {
   }
 
 	render() {
-		console.log(this.props, 'setting props')
 		return(
 			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
         <strong>Your Id: {this.props.id}</strong>

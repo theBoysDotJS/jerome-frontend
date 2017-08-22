@@ -3,7 +3,7 @@ import auth from '../../auth.js'
 import { browserHistory } from 'react-router'
 
 //https://www.npmjs.com/package/react-facebook-login
-import FacebookLogin from 'react-facebook-login';
+// import FacebookLogin from 'react-facebook-login';
 
 class Login extends React.Component {
 	constructor(props) {

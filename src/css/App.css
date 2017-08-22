@@ -367,13 +367,18 @@ td, th {
       text-align: left;
       padding: 10% 0;
       padding-left: 10px;
-      color: #333; }
+      color: #333;
+      display: flex;
+      flex-flow: column nowrap; }
       .App .dashboard .convo-card .convo-card--snippet strong {
         margin-right: 5px; }
       .App .dashboard .convo-card .convo-card--snippet p {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; }
+        text-overflow: ellipsis;
+        order: 2; }
+        .App .dashboard .convo-card .convo-card--snippet p:last-of-type {
+          order: 1; }
 
 .App .message-container {
   display: flex;

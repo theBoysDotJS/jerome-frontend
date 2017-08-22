@@ -21,7 +21,7 @@ class NavBar extends Component {
 	_getUser = () => {
 		console.log(this.props.params, "look here at the params!!")
 		Api.getMe(localStorage.token).then(res => res.body).then(user => {
-			console.log(user, 'user obj in getMe')
+			// console.log(user, 'user obj in getMe')
 			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl})
 		})
 	}
@@ -29,7 +29,7 @@ class NavBar extends Component {
 
   _toggleSettings = (e) => {
 	  e.preventDefault();
-	  console.log(this.state.settingsOpen)
+	//   console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
@@ -37,7 +37,7 @@ class NavBar extends Component {
 
 	_toggleCreate = (e) => {
 		e.preventDefault();
-		console.log(this.state.createOpen)
+		// console.log(this.state.createOpen)
 		this.setState({
 			createOpen: !this.state.createOpen
 		})
