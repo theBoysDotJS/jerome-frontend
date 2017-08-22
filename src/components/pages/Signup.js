@@ -26,12 +26,19 @@ class SignUp extends React.Component {
 			lastName: this.refs.lastName.value
 		}
 
-		console.log(signupObj, 'the object')
+		// console.log(signupObj, 'the object')
 		//sends request object to src/api.js with form values for signup
 		api.requestSignup(signupObj)
 			.then(res => {
-				console.log("res", res)
-				browserHistory.push('/login')
+
+				// console.log(res)
+			})
+			.then(res => {
+				res = true
+				if(res === true) {
+					browserHistory.push('/login')
+				}
+
 			})
 			.catch(err  => {
 				var errors = err.response.body.error;

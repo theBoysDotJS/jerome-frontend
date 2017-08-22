@@ -19,6 +19,7 @@ class NavBar extends Component {
 	}
 
 	_getUser = () => {
+
 		Api.getMe(localStorage.token)
 		.then(res => {
 			let user = res.body;
@@ -31,12 +32,13 @@ class NavBar extends Component {
 		}).catch(err => {
 			console.log("NavBar error...", err);
 		});
+
 	}
 
 
   _toggleSettings = (e) => {
 	  e.preventDefault();
-	  console.log(this.state.settingsOpen)
+	//   console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
@@ -44,7 +46,7 @@ class NavBar extends Component {
 
 	_toggleCreate = (e) => {
 		e.preventDefault();
-		console.log(this.state.createOpen)
+		// console.log(this.state.createOpen)
 		this.setState({
 			createOpen: !this.state.createOpen
 		})

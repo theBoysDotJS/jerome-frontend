@@ -1,11 +1,20 @@
 import anime from 'animejs';
 
 class Anime {
-messageSlide(){ anime({
-  targets: '.message-bubble--flexbox',
-  translateX: 200,
+	messageSlide() {
+		anime({targets: '.message-bubble--flexbox', translateX: 200});
 
-    });
+	};
+	cardExpand() {
+		var logo_anim_in = anime({
+			targets: ['.convo-card'],
+			rotate: 10,
+			duration: 400,
+			autoplay: false,
+			easing: 'easeInOutSine',
+			loop: false
+		});
+
 
   };
 messageSlideMine(){ anime({
