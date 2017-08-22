@@ -11,7 +11,6 @@ class Settings extends React.Component {
   }
 
 	render() {
-		console.log(this.props, 'setting props')
 		return(
 			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
         <strong>Your Id: {this.props.id}</strong>
@@ -22,8 +21,9 @@ class Settings extends React.Component {
 				</div>
 				<form className="convo-form">
 					<div className="form--button-container">
-						<button className="close-convo form--button" onClick={this.props.close}>close</button>
 						<button className="close-convo form--button" onClick={e => this.props.logout(e)}>logout</button>
+						<button className="close-convo form--button" onClick={this.props.close}>close</button>
+
 					</div>
 				</form>
 

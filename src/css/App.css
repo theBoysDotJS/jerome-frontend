@@ -166,6 +166,21 @@ td, th {
     align-items: center;
     border-bottom: 2px #333 solid;
     z-index: 20; }
+    .App .nav-bar .form--button {
+      width: 100%;
+      font-size: 1.4em;
+      padding: 0.5em 0.7em;
+      background: #f2f2f2;
+      border: 1px solid #333;
+      margin: 3% 0;
+      text-align: center; }
+    .App .nav-bar input {
+      border: 1px solid #333;
+      background: #f2f2f2;
+      font-size: 2rem;
+      margin-bottom: 2%;
+      padding: 1% 3%;
+      position: relative; }
     .App .nav-bar .nav-bar--flex {
       width: 33%;
       display: flex;
@@ -184,6 +199,7 @@ td, th {
         width: 48px;
         height: 48px; }
   .App #settings {
+    color: #333;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -196,11 +212,16 @@ td, th {
     align-items: center;
     padding-top: 1%;
     padding-bottom: 1%; }
+    .App #settings h2 {
+      color: #f2f2f2; }
+    .App #settings .lang-headline {
+      color: #f2f2f2; }
     .App #settings .language-wrap {
       display: flex;
       flex-flow: column nowrap;
       width: 80%; }
     .App #settings .convo-form {
+      color: #333;
       display: flex;
       flex-flow: column nowrap;
       width: 80%; }
@@ -346,13 +367,18 @@ td, th {
       text-align: left;
       padding: 10% 0;
       padding-left: 10px;
-      color: #333; }
+      color: #333;
+      display: flex;
+      flex-flow: column nowrap; }
       .App .dashboard .convo-card .convo-card--snippet strong {
         margin-right: 5px; }
       .App .dashboard .convo-card .convo-card--snippet p {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; }
+        text-overflow: ellipsis;
+        order: 2; }
+        .App .dashboard .convo-card .convo-card--snippet p:last-of-type {
+          order: 1; }
 
 .App .message-container {
   display: flex;
@@ -362,8 +388,7 @@ td, th {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    align-items: center;
-    margin-right: 6em !important; }
+    align-items: center; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
       height: 40px;
       width: 40px;
@@ -406,11 +431,11 @@ td, th {
         margin-right: 10px; }
 
 .App .chat-room .chat-box {
+  position: absolute;
   bottom: 60px; }
   .App .chat-room .chat-box .infinite {
     width: 100vw;
-    overflow: scroll;
-    position: absolute; }
+    height: 100vw; }
     .App .chat-room .chat-box .infinite::-webkit-scrollbar {
       width: 0px;
       background: transparent; }
