@@ -11,9 +11,7 @@ class ChatBox extends Component {
 			messages: []
 		}
 	}
-	componentWillMount(){
-		Anime.titleSwipe();
-	}
+
 	componentDidMount() {
 
 		console.log('mounted')
@@ -69,6 +67,7 @@ class ChatBox extends Component {
 
 		socket.on('chat', data => {
 			console.log(data, 'this is the message response')
+			if(this.props.convoId === data.convoId){
 			this.setState({
 				messages: [
 					...this.state.messages,
@@ -76,6 +75,7 @@ class ChatBox extends Component {
 				]
 
 			})
+		}
 		})
 	} // end Component Did Mount
 
