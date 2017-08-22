@@ -50,15 +50,13 @@
 		+flex(column nowrap)
 		justify-content: flex-start
 		align-items: center
-		padding-top: 6%
+		padding-top: 1%
+		padding-bottom: 1%
 
-		.close-convo
-			position: absolute
-			margin: 2.5% 6%
-			top: 0
-			right: 0
-			padding: 3.7% 4.2%
-			border-radius: 50%
+		.language-wrap
+			+flex(column nowrap)
+			width: 80%
+
 
 		.convo-form
 			+flex(column nowrap)
@@ -79,7 +77,7 @@
 					outline: none
 
 			.form--button-container
-				+flex(row nowrap)
+				+flex(column nowrap)
 
 				.form--button
 					width: 100%
@@ -89,6 +87,8 @@
 					border: 1px solid $black
 					margin: 3% 0
 					text-align: center
+
+
 
 
 
@@ -187,7 +187,7 @@
 			justify-content: center
 			align-content: center
 			transition: all 0.2s ease-in-out
-		
+
 			&:hover
 				transform: translate(5px, -5px)
 				box-shadow: -17px 11px 2px 0px lighten($black, 45%)
