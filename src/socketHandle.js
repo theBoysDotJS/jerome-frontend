@@ -1,7 +1,7 @@
 import openSocket from 'socket.io-client';
 
-export const socket = openSocket('https://theboyschatapp.herokuapp.com');
-// export const socket = openSocket('http://localhost:3001');
+// export const socket = openSocket('https://theboyschatapp.herokuapp.com');
+export const socket = openSocket('http://localhost:3001');
 
 
 class Socket {
@@ -28,7 +28,6 @@ class Socket {
 			return typeObj;
 		})
 	}
-
 }
 
 export default new Socket();
