@@ -47,10 +47,9 @@ class CreateConvo extends React.Component {
 						</div>
 					</form>
 			</section>
-
 		);
 	}
 }
 
-
 export default onClickOutside(CreateConvo);
+
