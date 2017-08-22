@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MessageBubble from '../assets/MessageBubble';
 import Api from '../../api';
 import {socket} from '../../socketHandle';
+import Anime from '../../animate.js'
 
 class ChatBox extends Component {
 	constructor() {
