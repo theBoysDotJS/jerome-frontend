@@ -9,16 +9,22 @@ class ChatRoom extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			users: []
+			users: [],
+			typing: false
 		};
+	}
+
+	handleTyping = (bool) => {
+		this.setState({
+			typing: bool
+		})
 	}
 
 	render() {
 		return (
-
 			<div className="chat-room">
-				<ChatBox  id={this.props.params.id} users={this.state.users}></ChatBox>
-				<ChatInput id={this.props.params.id} users={this.state.users}></ChatInput>
+				<ChatBox  id={this.props.params.id} users={this.state.users} typing={this.state.typing} setTyping={this.handleTyping}></ChatBox>
+				<ChatInput id={this.props.params.id} users={this.state.users} typing={this.state.typing} setTyping={this.handleTyping}></ChatInput>
 			</div>
 		);
 	}

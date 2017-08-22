@@ -12,10 +12,15 @@ class ChatInput extends Component {
 
   _handleInput = (e) => {
     e.preventDefault();
+
     this.setState({
       currentInput: e.target.value
     })
-    // console.log(this.state.currentInput);
+
+
+	if(this.props.typing === false) {
+		Socket.sendTyping(localStorage.user)		
+	}
   }
 
   _handleSend = (e) => {
@@ -23,15 +28,14 @@ class ChatInput extends Component {
     var formData = {
       text: this.state.currentInput,
       user: localStorage.user,
-
       convoId: this.props.id,
-
       type: "text"
     }
 
 	console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
+
   render() {
     return (
        <div className="chat-input">
