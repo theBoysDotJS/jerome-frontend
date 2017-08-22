@@ -192,40 +192,8 @@ td, th {
     transition: all 0.1s ease-in;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 1%;
-    padding-bottom: 1%; }
-    .App #settings .language-wrap {
-      display: flex;
-      flex-flow: column nowrap;
-      width: 80%; }
-    .App #settings .convo-form {
-      display: flex;
-      flex-flow: column nowrap;
-      width: 80%; }
-      .App #settings .convo-form input {
-        border: 1px solid #333;
-        background: #f2f2f2;
-        font-size: 2rem;
-        margin-bottom: 2%;
-        padding: 1% 3%;
-        position: relative; }
-        .App #settings .convo-form input:focus::-webkit-input-placeholder {
-          color: transparent; }
-        .App #settings .convo-form input:focus {
-          outline: none; }
-      .App #settings .convo-form .form--button-container {
-        display: flex;
-        flex-flow: column nowrap; }
-        .App #settings .convo-form .form--button-container .form--button {
-          width: 100%;
-          font-size: 1.4em;
-          padding: 0.5em 0.7em;
-          background: #f2f2f2;
-          border: 1px solid #333;
-          margin: 3% 0;
-          text-align: center; }
+    justify-content: space-around;
+    align-items: center; }
 
 .App .login,
 .App .sign-up {
@@ -406,11 +374,11 @@ td, th {
         margin-right: 10px; }
 
 .App .chat-room .chat-box {
+  position: absolute;
   bottom: 60px; }
   .App .chat-room .chat-box .infinite {
     width: 100vw;
-    overflow: scroll;
-    position: absolute; }
+    height: 100vw; }
     .App .chat-room .chat-box .infinite::-webkit-scrollbar {
       width: 0px;
       background: transparent; }
