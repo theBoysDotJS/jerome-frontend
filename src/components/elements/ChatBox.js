@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import MessageBubble from '../assets/MessageBubble';
-import Infinite from 'react-infinite';
 import Api from '../../api';
-import Socket, {socket} from '../../socketHandle';
-import ReactDOM from 'react-dom';
-import Anime from '../../animate.js';
+import {socket} from '../../socketHandle';
 
 class ChatBox extends Component {
 	constructor() {
@@ -17,7 +14,7 @@ class ChatBox extends Component {
 	componentDidMount() {
 		console.log('mounted')
 		socket.on('chat', data => {
-			console.log(data, this.props.id, 'thedata')
+			// console.log(data, this.props.id, 'thedata')
 			if(data.convoId === this.props.id) {
 			this.setState({
 				messages: [
@@ -28,7 +25,7 @@ class ChatBox extends Component {
 			})
 		} // end if
 			// var newMsg = [ ...this.state.messages, data];
-			console.log(this.state.messages, "these messages")
+			// console.log(this.state.messages, "these messages")
 		})
 
 		// socket.on('typing', data => {

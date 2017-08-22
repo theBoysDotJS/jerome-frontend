@@ -1,8 +1,7 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from '../assets/Avatar.js';
 import {Link} from 'react-router';
-import Anime from '../../animate.js';
 
 class ConvoCard extends React.Component {
 	constructor(props) {

@@ -19,7 +19,7 @@ class ChatInput extends Component {
 
 
 	if(this.props.typing === false) {
-		Socket.sendTyping(localStorage.user)		
+		Socket.sendTyping(localStorage.user)
 	}
   }
 
@@ -32,7 +32,7 @@ class ChatInput extends Component {
       type: "text"
     }
 
-	console.log('message sent', formData)
+	// console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
 
