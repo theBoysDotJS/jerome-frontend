@@ -299,10 +299,12 @@
 .App
 	.chat-room
 		.chat-box
-			position: absolute
+			// position: absolute
 			bottom: 60px
 			.infinite
 				width: 100vw
+				overflow: scroll
+				position: absolute
 				&::-webkit-scrollbar
 					width: 0px
 					background: transparent

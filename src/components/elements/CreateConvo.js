@@ -39,6 +39,15 @@ class CreateConvo extends React.Component {
 				? "window-show"
 				: "window-hide"}>
 
+				<button onClick={this.props.close}>x</button>
+				<h2>Create a Conversation</h2>
+				<form onSubmit={e => this._submit(e)}>
+					<input ref="name" placeholder="name" type="text"/>
+					<button type="submit">create!</button>
+				</form>
+
+
+
 				<h2>Create a Conversation</h2>
 					<form className="convo-form" onSubmit={e => this._submit(e)}>
 						<input ref="name" placeholder="name" type="text"/>

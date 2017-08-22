@@ -34,10 +34,6 @@ class ChatBox extends Component {
 				messageArray.push(newMsg)
 
 			}) // end forEach
-
-			this.setState({
-				messages: messageArray
-			}) //end setState
 		}) // end Promise
 
 		socket.on('chat', data => {
@@ -66,10 +62,10 @@ class ChatBox extends Component {
 
 			<div className="chat-box">
 				<div>
-				<div className="infinite">
-					{this.displayMessages()}
-				</div>
-			</div>
+          <div className="infinite">
+            {this.displayMessages()}
+          </div>
+			  </div>
 			</div>
 		);
 	}

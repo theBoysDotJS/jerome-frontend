@@ -14,6 +14,7 @@ class Settings extends React.Component {
 		console.log(this.props, 'setting props')
 		return(
 			<section id="settings" className={this.props.isOpen === true ? "window-show" : "window-hide"} >
+        <strong>Your Id: {this.props.id}</strong>
 				<h2>Settings</h2>
 				<div className="language-wrap">
 					<p className="lang-headline">Change Language</p>
@@ -25,6 +26,7 @@ class Settings extends React.Component {
 						<button className="close-convo form--button" onClick={e => this.props.logout(e)}>logout</button>
 					</div>
 				</form>
+
 			</section>
 		);
 	}
