@@ -91,7 +91,7 @@ class Login extends React.Component {
 					<div id="fb">
 						<FacebookLogin
 						appId="1311437462287493"
-						autoLoad={true}
+						autoLoad={false}
 						fields="name,email,picture"
 						callback={responseFacebook} />
 					</div>
