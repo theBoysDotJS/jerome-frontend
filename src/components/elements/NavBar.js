@@ -19,12 +19,14 @@ class NavBar extends Component {
 	}
 
 	_getUser = () => {
+
 		console.log(this.props.params, "look here at the params!!")
-		Api.getMe(localStorage.token).then(res => res.body).then(user => {
+		Api.getMe(localStorage.token).then(res => res.body[0]).then(user => {
 			console.log(user, 'user obj in getMe')
-			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl, userObj: user[0]})
+			this.setState({username: user.username, user_id: user.id, avatar: user.avatarUrl, userObj: user})
 
 		})
+
 	}
 
 
@@ -80,7 +82,6 @@ class NavBar extends Component {
 	componentWillReceiveProps(nextProps) {
 		console.log(nextProps, "the next props")
 			if(!!nextProps.params.id){
-				console.log("look here guys")
 				this.setState({
 					inConvo: true,
 					convoname: 'chat'
@@ -101,23 +102,23 @@ class NavBar extends Component {
 			<nav className="nav-bar">
 				<div className="nav-bar--flex">
 
-		  	<Link to={'/'}>
+		  		<Link to={'/'}>
 	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-			</Link>
-		</div>
+					</Link>
+				</div>
 
-		<div className="nav-bar--flex nav-bar--center">
+				<div className="nav-bar--flex nav-bar--center">
         	<h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Home'}</h1>
-		</div>
+				</div>
 
-		{!!Auth.isLoggedIn() ?
+				{!!Auth.isLoggedIn() ?
 
-		<div className="nav-bar--flex nav-bar--user-card">
-			<div>
-		      <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
-			</div>
-	        <Avatar image={this.state.avatar}/>
-          <p onClick={e => this._toggleCreate(e)}>+</p>
+				<div className="nav-bar--flex nav-bar--user-card">
+					<div onClick={e => this._toggleSettings(e)} className="nav-bar-user-flex">
+		      	<Avatar image={this.state.avatar}/>
+						<p>{this.state.username}</p>
+					</div>
+          <i id="nav-bar--icon" className="fa fa-user-plus fa-2x" onClick={e => this._toggleCreate(e)}></i>
 
 						{<Settings userObj={this.state.userObj} id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
 						{this.state.convoname ? <AddUser close={this._toggleCreate} isOpen={this.state.createOpen} /> :
