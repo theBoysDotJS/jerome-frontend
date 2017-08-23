@@ -166,6 +166,21 @@ td, th {
     align-items: center;
     border-bottom: 2px #333 solid;
     z-index: 20; }
+    .App .nav-bar .nav-bar--user-card {
+      display: flex;
+      justify-content: flex-end; }
+      .App .nav-bar .nav-bar--user-card .nav-bar-user-flex {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer; }
+        .App .nav-bar .nav-bar--user-card .nav-bar-user-flex p {
+          margin: 0;
+          font-size: 1.2rem; }
+      .App .nav-bar .nav-bar--user-card #nav-bar--icon {
+        margin-left: 50%;
+        cursor: pointer; }
     .App .nav-bar .form--button {
       width: 100%;
       font-size: 1.4em;
