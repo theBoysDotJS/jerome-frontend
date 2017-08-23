@@ -166,6 +166,21 @@ td, th {
     align-items: center;
     border-bottom: 2px #333 solid;
     z-index: 20; }
+    .App .nav-bar .nav-bar--user-card {
+      display: flex;
+      justify-content: flex-end; }
+      .App .nav-bar .nav-bar--user-card .nav-bar-user-flex {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer; }
+        .App .nav-bar .nav-bar--user-card .nav-bar-user-flex p {
+          margin: 0;
+          font-size: 1.2rem; }
+      .App .nav-bar .nav-bar--user-card #nav-bar--icon {
+        margin-left: 50%;
+        cursor: pointer; }
     .App .nav-bar .form--button {
       width: 100%;
       font-size: 1.4em;
@@ -306,6 +321,10 @@ td, th {
         width: 20%;
         font-size: 16px;
         text-transform: capitalize; }
+    .App .login .form .error--margin-login,
+    .App .sign-up .form .error--margin-login {
+      margin-right: 10px;
+      margin-left: 10px; }
     .App .login .form .disclaimer,
     .App .sign-up .form .disclaimer {
       text-align: center; }
@@ -388,8 +407,7 @@ td, th {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    align-items: center;
-    margin-right: 6em !important; }
+    align-items: center; }
     .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
       height: 40px;
       width: 40px;
@@ -479,5 +497,8 @@ td, th {
 
 .window-show {
   right: 0 !important; }
+
+.error--margin {
+  margin-right: 10px; }
 
 /*# sourceMappingURL=App.css.map */

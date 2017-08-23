@@ -11,9 +11,7 @@ class ChatBox extends Component {
 			messages: []
 		}
 	}
-	componentWillMount(){
-		Anime.titleSwipe();
-	}
+
 	componentDidMount() {
 
 		console.log('mounted')
@@ -50,25 +48,28 @@ class ChatBox extends Component {
 
 			let messages = data.messages
 			let messageArray = []
+			if(messages.length > 0) {
+				messages.forEach(currVal => {
 
-			messages.forEach(currVal => {
+					let newMsg = {
+						user: currVal.author,
+						text: currVal.message_body,
+						id: currVal.id
+					}
 
-				let newMsg = {
-					user: currVal.author,
-					text: currVal.message_body,
-					id: currVal.id
-				}
-				messageArray.push(newMsg)
-
-			}) // end forEach
-			.then
-				this.setState({
-					messages: messageArray
+					messageArray.push(newMsg)
 				})
+			}
+			this.setState({
+				messages: messageArray
+			})
+
 		}) // end Promise
+
 
 		socket.on('chat', data => {
 			console.log(data, 'this is the message response')
+			if(this.props.convoId === data.convoId){
 			this.setState({
 				messages: [
 					...this.state.messages,
@@ -76,6 +77,7 @@ class ChatBox extends Component {
 				]
 
 			})
+		}
 		})
 	} // end Component Did Mount
 

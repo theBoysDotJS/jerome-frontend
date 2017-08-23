@@ -20,6 +20,23 @@
 		border-bottom: 2px $black solid
 		z-index: 20
 
+
+		.nav-bar--user-card
+			display: flex
+			justify-content: flex-end
+			.nav-bar-user-flex
+				display: flex
+				flex-flow: column
+				align-items: center
+				justify-content: flex-end
+				cursor: pointer
+				p
+					margin: 0
+					font-size: 1.2rem
+			#nav-bar--icon
+				margin-left: 50%
+				cursor: pointer
+
 		.form--button
 			width: 100%
 			font-size: 1.4em
@@ -171,6 +188,11 @@
 					width: 20%
 					font-size: 16px
 					text-transform: capitalize
+					
+			// cant get it to work......
+			.error--margin-login
+				margin-right: 10px
+				margin-left: 10px
 
 			.disclaimer
 				text-align: center
@@ -179,6 +201,8 @@
 					text-decoration: none
 					font-weight: bold
 					color: $black
+
+
 
 //AVATAR STYLES
 
@@ -267,14 +291,15 @@
 
 		.message-bubble--mine
 				-webkit-transform: translateX(200px)
+				overflow-y: hidden
 			.message-bubble--flexbox
 				width: 100vw
 				display: flex
 				flex-flow: row nowrap
 
+
 				justify-content: flex-end
 				align-items: center
-				margin-right: 6em!important
 				.avatar
 					height: 40px
 					width: 40px
@@ -377,3 +402,7 @@
 
 .window-show
 	right: 0 !important
+
+// for erros on signup and login page
+.error--margin
+	margin-right: 10px

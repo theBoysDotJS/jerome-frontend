@@ -15,15 +15,16 @@ _getUser = () => {
 	})
 }
 componentDidMount(){
-	if("message-bubble-yours"){
-	Anime.messageSlide();
-}
-	else if("message-bubble-mine"){
-		Anime.messageSlideMine();
-	}
-	this._getUser();
+// 	if(+this.props.user === +localStorage.user){
+// 	Anime.messageSlideMine();
+// 	console.log('its mine')
+// }
+//  	else {
+//  		Anime.messageSlide();
+//  	}
+  	this._getUser();
 
-}
+ }
 	render() {
 
 

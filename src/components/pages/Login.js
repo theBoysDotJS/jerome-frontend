@@ -50,24 +50,26 @@ class Login extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			error : ''
+			error : '',
+			icon: ''
 		}
 	}
 
 	_handleLogin = (e) => {
 		
 		e.preventDefault();
-		console.log("start of function,,,")
+		console.log("start of function...")
 		return auth.login(this.refs.email.value, this.refs.password.value)
 			.then(res => {
-				console.log(res)
+
 				if(res === true) {
 					browserHistory.push('/')
 				}
 			})
 			.catch( err => {
 				this.setState({
-					error : err.errors
+					error : err.errors,
+					icon : <i className="fa fa-exclamation-triangle some--margin-login" aria-hidden="true"></i>
 				})
 			})
 	}
@@ -88,6 +90,7 @@ class Login extends React.Component {
 					</div>
 				
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
+
 					<div id="fb">
 						<FacebookLogin
 						appId="1311437462287493"
@@ -95,7 +98,9 @@ class Login extends React.Component {
 						fields="name,email,picture"
 						callback={responseFacebook} />
 					</div>
-					<div><p>{this.state.error}</p></div>
+
+					<div className="some--margin-login">{this.state.icon}<span className="some--margin-login">{this.state.error}</span></div>
+
 				</form>
 
 			</div>

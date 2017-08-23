@@ -21,7 +21,7 @@ class CreateConvo extends React.Component {
 			.then(res => {
 
 				// console.log(res.body, 'response from convo')
-				Api.joinRoom(this.refs.friendInput.value, localStorage.token);
+		
 
 				browserHistory.push(`/conversation/${res.body.id}`)
 			});

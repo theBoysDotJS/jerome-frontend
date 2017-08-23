@@ -117,6 +117,14 @@ class Api {
 			.set('authorization', token)
 	}
 
+
+	changeLanguage = (token, language) => (
+		superagent
+			.put(`${API_HOST}/auth/update`)
+			.send({language})
+			.set('authorization', token)
+	)
+
 }
 
 export default new Api();
