@@ -321,6 +321,10 @@ td, th {
         width: 20%;
         font-size: 16px;
         text-transform: capitalize; }
+    .App .login .form .error--margin-login,
+    .App .sign-up .form .error--margin-login {
+      margin-right: 10px;
+      margin-left: 10px; }
     .App .login .form .disclaimer,
     .App .sign-up .form .disclaimer {
       text-align: center; }
@@ -493,5 +497,8 @@ td, th {
 
 .window-show {
   right: 0 !important; }
+
+.error--margin {
+  margin-right: 10px; }
 
 /*# sourceMappingURL=App.css.map */

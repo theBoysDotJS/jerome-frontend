@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import ConvoCard from "../elements/ConvoCard.js";
 import Api from "../../api.js"
+import auth from "../../auth.js"
+import { browserHistory } from 'react-router'
+
 
 
 class Dashboard extends Component {
@@ -39,6 +42,7 @@ class Dashboard extends Component {
 			</div>
 		);
 	}
+
 }
 
 
