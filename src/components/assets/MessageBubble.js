@@ -9,11 +9,13 @@ constructor(){
 		avatar: ''
 	}
 }
+
 _getUser = () => {
 	Api.getMe(localStorage.token).then(res => res.body).then(user => {
 		this.setState({avatar: user[0].avatarUrl})
 	})
 }
+
 componentDidMount(){
 	if(this.props.user === localStorage.user){
 	Anime.messageSlideMine();
@@ -22,11 +24,12 @@ componentDidMount(){
  		Anime.messageSlide();
  	}
  	this._getUser();
+	console.log(this.props.text, 'this is whats in the message')
 
  }
 	render() {
 
-
+		// console.log(this.props, 'the message bubbles text')
 		return(
 			<div className='message-container'>
 
@@ -34,7 +37,6 @@ componentDidMount(){
 						<div className="message-bubble--flexbox">
 							<Avatar className="message-bubble--avatar" image={this.state.avatar} />
 							<p>{this.props.text}</p>
-
 						</div>
 					</div>
 				</div>
