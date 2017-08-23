@@ -292,26 +292,26 @@
 
 
 		.message-bubble--mine
-				-webkit-transform: translateX(200px)
-				overflow-y: hidden
 			.message-bubble--flexbox
 				width: 100vw
 				display: flex
 				flex-flow: row nowrap
-
+				vertical-align: bottom
 
 				justify-content: flex-end
 				align-items: center
 				.avatar
+					display: none
 					height: 40px
 					width: 40px
 					order: 2
 				p
+					box-shadow: -3px 3px 0px 0px lighten($black, 50%)
 					order: 1
 					display: inline-block
 					word-wrap: break-word
 					max-width: 50ch
-					margin: 2.5% 2px
+					margin: 1% 3%
 					padding: 0.5em 0.75em
 					border-style: solid
 					border-width: 1px
@@ -319,23 +319,26 @@
 					color: #333
 
 
-				strong
-					margin-right: 10px
 
 		.message-bubble--yours
-			-webkit-transform: translateX(-200px)
 			.message-bubble--flexbox
+				width: 100vw
 				display: flex
 				flex-flow: row nowrap
 				justify-content: flex-start
 				align-items: center
-				margin-left: 3px
+				margin-left: 6px
 
 				.avatar
 					height: 40px
 					width: 40px
+					margin-right: 5px
+					margin-left: 10px
+					img
+						box-shadow: 2.5px 3px 0px 0px lighten($black, 50%)
 
 				p
+					box-shadow: 3px 3px 0px 0px lighten($black, 50%)
 					display: inline-block
 					word-wrap: break-word
 					max-width: 50ch
@@ -350,18 +353,27 @@
 					margin-right: 10px
 
 .App
+	::-webkit-scrollbar
+		display: none!important
 	.chat-room
 		.chat-box
-			position: absolute
-			bottom: 60px
+			bottom: 1000px
+			Infinite
+				overflow-x: scroll
+			#typeChecker
+				height: 30px
 			.infinite
 				width: 100vw
-				height: 100vw
+				height: 100%
+				display: flex
+				flex-flow: column
+				overflow: scroll
 				&::-webkit-scrollbar
 					width: 0px
 					background: transparent
 		.chat-input
 			position: fixed
+			background: white
 			bottom: 0
 			+flex(row nowrap)
 			justify-content: space-around
@@ -396,6 +408,14 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
+				transition: all 0.2s ease-in-out
+				&:hover
+					transform: scale(1.1)
+					color: $highlight
+					border-color: $highlight
+
+
+
 
 //Utility
 
