@@ -19,12 +19,14 @@ class NavBar extends Component {
 	}
 
 	_getUser = () => {
+
 		console.log(this.props.params, "look here at the params!!")
 		Api.getMe(localStorage.token).then(res => res.body[0]).then(user => {
 			console.log(user, 'user obj in getMe')
 			this.setState({username: user.username, user_id: user.id, avatar: user.avatarUrl, userObj: user})
 
 		})
+
 	}
 
 

@@ -17,15 +17,14 @@ _getUser = () => {
 }
 
 componentDidMount(){
-	if(this.props.user === localStorage.user){
+	if(+this.props.user !== +localStorage.user){
 	Anime.messageSlideMine();
+	console.log('its mine')
 }
- 	else {
- 		Anime.messageSlide();
- 	}
- 	this._getUser();
-	console.log(this.props.text, 'this is whats in the message')
-
+//  	else {
+//  		Anime.messageSlide();
+//  	}
+  	this._getUser();
  }
 	render() {
 

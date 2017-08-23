@@ -30,13 +30,8 @@ class SignUp extends React.Component {
 		//sends request object to src/api.js with form values for signup
 		api.requestSignup(signupObj)
 			.then(res => {
-				// console.log(res)
-			})
-			.then(res => {
-				res = true
-				if(res === true) {
-					browserHistory.push('/login')
-				}
+				console.log("res", res)
+				browserHistory.push('/login')
 			})
 			.catch(err  => {
 				var errors = err.response.body.error;
@@ -78,7 +73,7 @@ class SignUp extends React.Component {
 						<button className="form--button" type="submit">Sign Up</button>
 					</div>
 					<p>Already have an account? <a href="/login">Login Here</a> </p>
-					<div className="sign-up--error">{this.state.error && Object.keys(this.state.error).map(err => <p><i className="fa fa-exclamation-triangle some--margin" aria-hidden="true"></i>{this.state.error[err]}</p>)}</div>
+					<div className="sign-up--error">{this.state.error && Object.keys(this.state.error).map(err => <p><i className="fa fa-exclamation-triangle error--margin" aria-hidden="true"></i>{this.state.error[err]}</p>)}</div>
 
 				</form>
 			</section>
