@@ -91,6 +91,9 @@ class Login extends React.Component {
 				
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
 
+					<div className="error--margin">{this.state.icon}{this.state.error}</div>
+
+
 					<div id="fb">
 						<FacebookLogin
 						appId="1311437462287493"
@@ -100,7 +103,6 @@ class Login extends React.Component {
 					</div>
 
 					<div className="some--margin-login">{this.state.icon}<span className="some--margin-login">{this.state.error}</span></div>
-
 				</form>
 
 			</div>
