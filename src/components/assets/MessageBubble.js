@@ -28,13 +28,13 @@ componentDidMount(){
  }
 	render() {
 
-		// console.log(this.props, 'the message bubbles text')
+		console.log(this.props.avatar, 'the message bubbles text')
 		return(
 			<div className='message-container'>
 
 					<div className={+this.props.user === +localStorage.user ? "message-bubble--mine" : "message-bubble--yours"} id="message-bubble">
 						<div className="message-bubble--flexbox">
-							<Avatar className="message-bubble--avatar" image={this.state.avatar} />
+							<Avatar className="message-bubble--avatar" image={this.props.avatar} />
 							<p>{this.props.text}</p>
 						</div>
 					</div>
