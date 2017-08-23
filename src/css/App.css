@@ -168,18 +168,27 @@ td, th {
     z-index: 20; }
     .App .nav-bar .nav-bar--user-card {
       display: flex;
-      justify-content: flex-end; }
+      justify-content: flex-end !important; }
       .App .nav-bar .nav-bar--user-card .nav-bar-user-flex {
         display: flex;
         flex-flow: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         cursor: pointer; }
+        .App .nav-bar .nav-bar--user-card .nav-bar-user-flex .avatar {
+          display: flex;
+          justify-content: center;
+          height: 32px;
+          width: 32px; }
+          .App .nav-bar .nav-bar--user-card .nav-bar-user-flex .avatar img {
+            height: 32px;
+            width: 32px; }
         .App .nav-bar .nav-bar--user-card .nav-bar-user-flex p {
           margin: 0;
-          font-size: 1.2rem; }
+          font-size: 1rem; }
       .App .nav-bar .nav-bar--user-card #nav-bar--icon {
-        margin-left: 50%;
+        margin-left: 15%;
+        margin-right: 5%;
         cursor: pointer; }
     .App .nav-bar .form--button {
       width: 100%;
@@ -333,6 +342,12 @@ td, th {
         text-decoration: none;
         font-weight: bold;
         color: #333; }
+
+.login .error--margin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .App .avatar .avatar--image {
   max-width: 100%;

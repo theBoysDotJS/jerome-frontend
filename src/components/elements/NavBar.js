@@ -118,7 +118,7 @@ class NavBar extends Component {
 		      	<Avatar image={this.state.avatar}/>
 						<p>{this.state.username}</p>
 					</div>
-          <i id="nav-bar--icon" className="fa fa-user-plus fa-2x" onClick={e => this._toggleCreate(e)}></i>
+          <i id="nav-bar--icon" className="fa fa-comments fa-3x" onClick={e => this._toggleCreate(e)}></i>
 
 						{<Settings userObj={this.state.userObj} id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
 						{this.state.convoname ? <AddUser close={this._toggleCreate} isOpen={this.state.createOpen} /> :
