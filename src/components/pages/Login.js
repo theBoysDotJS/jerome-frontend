@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 
 
 //https://www.npmjs.com/package/react-facebook-login
-// import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login';
 
 const responseFacebook=(response)=>{
 	console.log("responseFacebook", response)
@@ -14,13 +14,13 @@ const responseFacebook=(response)=>{
 	auth.login(response.email, response.id)
 	.then(res => {
 		console.log(res, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-		
+
 			browserHistory.push('/')
-		
+
 	}).catch(err => {
-		
+
 		let nameArr = response.name.split(" ");
-		
+
 		let signupObj = {
 			username: response.email,
 			email: response.email,
@@ -56,7 +56,7 @@ class Login extends React.Component {
 	}
 
 	_handleLogin = (e) => {
-		
+
 		e.preventDefault();
 		console.log("start of function...")
 		return auth.login(this.refs.email.value, this.refs.password.value)
@@ -74,7 +74,7 @@ class Login extends React.Component {
 			})
 	}
 
-	
+
 
 	render() {
 		return (
@@ -86,9 +86,9 @@ class Login extends React.Component {
 					<input placeholder="password" type="password" ref="password"/>
 					<div className="form--button-container">
 						<a className="form--button" onClick={e => this._handleLogin(e)}>login</a>
-						
+
 					</div>
-				
+
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
 
 					<div className="error--margin">{this.state.icon}{this.state.error}</div>

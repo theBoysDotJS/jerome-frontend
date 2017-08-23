@@ -103,7 +103,7 @@ class NavBar extends Component {
 				<div className="nav-bar--flex">
 
 		  		<Link to={'/'}>
-	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+	        	<img className="nav-bar--logo" src="/logo-w.svg" alt="some kind of thing"/>
 					</Link>
 				</div>
 
