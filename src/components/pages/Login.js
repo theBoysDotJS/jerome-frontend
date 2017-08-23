@@ -50,7 +50,7 @@ class Login extends React.Component {
 						</div>*/}
 					</div>
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
-					<div className="some--margin-login">{this.state.icon}<span className="some--margin-login">{this.state.error}</span></div>
+					<div className="error--margin">{this.state.icon}{this.state.error}</div>
 				</form>
 
 			</div>
