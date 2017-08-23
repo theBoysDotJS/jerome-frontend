@@ -23,30 +23,17 @@ class ChatBox extends Component {
 
 		console.log('mounted')
 		socket.on('chat', data => {
-			// console.log(data, this.props.id, 'thedata')
 			if(data.convoId === this.props.id) {
-			this.setState({
-				messages: [
-					...this.state.messages,
-					data
-				]
-
-			})
-		} // end if
-			// var newMsg = [ ...this.state.messages, data];
-			// console.log(this.state.messages, "these messages")
+				data.text = data.text[localStorage.language]
+				this.setState({
+					messages: [
+						...this.state.messages,
+						data
+					]
+				})
+				// console.log(this.state.messages, 'the message state')
+			} // end if
 		})
-
-		// socket.on('typing', data => {
-		// 	console.log(this.props.typing, 'the typing state')
-		// 	this.props.setTyping(true)
-		//
-		// 	if(this.props.typing === true) {
-		// 		var typingSet = setTimeout( () => {
-		// 			this.props.setTyping(false)
-		// 		}, 4000)
-		// 	}
-		// })
 
 		Api.getMessages(this.props.id, localStorage.token)
 
@@ -72,28 +59,13 @@ class ChatBox extends Component {
 			})
 
 		}) // end Promise
-
-
-		socket.on('chat', data => {
-			console.log(data, 'this is the message response')
-			if(this.props.convoId === data.convoId){
-			this.setState({
-				messages: [
-					...this.state.messages,
-					data
-				]
-
-			})
-		}
-		})
-		this.scrollToBottom();
 	} // end Component Did Mount
 	componentDidUpdate(){
 		this.scrollToBottom();
 	}
 	createMessage = (curVal) => {
-		console.log(curVal.user);
-		return (<MessageBubble  user={curVal.user} text={curVal.text} key={curVal.id}/>);
+		console.log(curVal, 'whatever is being put into the message bubble');
+		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.messageId}/>);
 	}
 	displayMessages = () => {
 		return this.state.messages.map(this.createMessage);

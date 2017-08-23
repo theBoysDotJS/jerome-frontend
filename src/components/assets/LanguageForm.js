@@ -26,6 +26,7 @@ class LanguageForm extends React.Component {
 		 var x = Api.changeLanguage(localStorage.token, lang)
 		.then(result => {
 			console.log("result: ", result)
+			localStorage.language = lang;
 			window.location.reload()
 		})
 		.catch(err => {
