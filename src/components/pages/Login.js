@@ -9,7 +9,8 @@ class Login extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			error : ''
+			error : '',
+			icon: ''
 		}
 	}
 
@@ -25,7 +26,8 @@ class Login extends React.Component {
 			})
 			.catch( err => {
 				this.setState({
-					error : err.errors
+					error : err.errors,
+					icon : <i className="fa fa-exclamation-triangle some--margin-login" aria-hidden="true"></i>
 				})
 			})
 	}
@@ -48,7 +50,7 @@ class Login extends React.Component {
 						</div>*/}
 					</div>
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
-					<div><p>{this.state.error}</p></div>
+					<div className="some--margin-login">{this.state.icon}<span className="some--margin-login">{this.state.error}</span></div>
 				</form>
 
 			</div>
