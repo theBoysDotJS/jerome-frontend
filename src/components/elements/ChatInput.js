@@ -42,7 +42,7 @@ class ChatInput extends Component {
     return (
        <div className="chat-input">
         <input id="text-input" contentEditable placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></input>
-        <button onClick={e => this._handleSend(e)}>SEND</button>
+        <button onMouseOver={Anime.buttonPop()} className="send-button" onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );
   }

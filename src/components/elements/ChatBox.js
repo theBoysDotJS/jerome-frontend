@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import MessageBubble from '../assets/MessageBubble';
 import Api from '../../api';
 import {socket} from '../../socketHandle';
-import Anime from '../../animate.js'
+import Anime from '../../animate.js';
+import ReactDOM from 'react-dom';
+var Infinite = require('react-infinite')
+
 
 class ChatBox extends Component {
 	constructor() {
@@ -11,7 +14,11 @@ class ChatBox extends Component {
 			messages: []
 		}
 	}
-
+	scrollToBottom = () => {
+		console.log('I should be scrolling here')
+	  const node = ReactDOM.findDOMNode(document.getElementById('typeChecker'));
+	  node.scrollIntoView({ behavior: "smooth" });
+	}
 	componentDidMount() {
 
 		console.log('mounted')
@@ -79,8 +86,11 @@ class ChatBox extends Component {
 			})
 		}
 		})
+		this.scrollToBottom();
 	} // end Component Did Mount
-
+	componentDidUpdate(){
+		this.scrollToBottom();
+	}
 	createMessage = (curVal) => {
 		console.log(curVal.user);
 		return (<MessageBubble  user={curVal.user} text={curVal.text} key={curVal.id}/>);
@@ -95,10 +105,10 @@ class ChatBox extends Component {
 			<div className="chat-box">
 
 				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-				<div >
+				<Infinite displayBottomUpwards containerHeight={678.19} elementHeight={89.03}>
 					{this.displayMessages()}
-				</div>
-				<div>
+				</Infinite>
+				<div id="typeChecker">
 					<p>{!!this.props.typing ? `Someone is typing` : null}</p>
 				</div>
 

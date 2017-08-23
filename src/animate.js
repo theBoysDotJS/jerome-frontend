@@ -43,7 +43,14 @@ chatSwipe(){
   });
 };
 
+buttonPop(){
+	anime({
+		targets: '.send-button',
+		scale: 1.3,
+		duration: 500
 
+	})
+}
 
 titleSwipe(){
   anime({
