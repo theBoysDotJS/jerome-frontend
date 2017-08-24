@@ -168,19 +168,31 @@ td, th {
     z-index: 20; }
     .App .nav-bar .nav-bar--user-card {
       display: flex;
-      justify-content: flex-end; }
+      justify-content: flex-end !important; }
       .App .nav-bar .nav-bar--user-card .nav-bar-user-flex {
         display: flex;
         flex-flow: column;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         cursor: pointer; }
+        .App .nav-bar .nav-bar--user-card .nav-bar-user-flex .avatar {
+          display: flex;
+          justify-content: center;
+          height: 32px;
+          width: 32px; }
+          .App .nav-bar .nav-bar--user-card .nav-bar-user-flex .avatar img {
+            height: 32px;
+            width: 32px; }
         .App .nav-bar .nav-bar--user-card .nav-bar-user-flex p {
           margin: 0;
-          font-size: 1.2rem; }
+          font-size: 1rem; }
       .App .nav-bar .nav-bar--user-card #nav-bar--icon {
-        margin-left: 50%;
-        cursor: pointer; }
+        margin-left: 15%;
+        margin-right: 5%;
+        cursor: pointer;
+        transition: all 0.1s ease-in; }
+        .App .nav-bar .nav-bar--user-card #nav-bar--icon:hover {
+          color: #DE1E7E; }
     .App .nav-bar .form--button {
       width: 100%;
       font-size: 1.4em;
@@ -315,7 +327,8 @@ td, th {
         background: #f2f2f2;
         border: 1px solid #333;
         margin: 3% 0;
-        text-align: center; }
+        text-align: center;
+        cursor: pointer; }
       .App .login .form .form--button-container #fb,
       .App .sign-up .form .form--button-container #fb {
         width: 20%;
@@ -431,7 +444,10 @@ td, th {
       border-style: solid;
       border-width: 1px;
       border-radius: 10px;
-      color: #333; }
+      color: #333;
+      transition: all 0.1s ease-in-out; }
+      .App .message-container .message-bubble--mine .message-bubble--flexbox p:hover {
+        box-shadow: -4px 4px 0px 0px #b3b3b3; }
   .App .message-container .message-bubble--yours .message-bubble--flexbox {
     width: 100vw;
     display: flex;
@@ -456,7 +472,10 @@ td, th {
       border-style: solid;
       border-width: 1px;
       border-radius: 10px;
-      color: #333; }
+      color: #333;
+      transition: all 0.1s ease-in-out; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox p:hover {
+        box-shadow: 4px 4px 0px 0px #b3b3b3; }
     .App .message-container .message-bubble--yours .message-bubble--flexbox strong {
       margin-right: 10px; }
 
@@ -487,18 +506,6 @@ td, th {
   width: 100%;
   border-top: 1px solid #333;
   padding: 1% 0; }
-  .App .chat-room .chat-input #text-input {
-    width: 80%;
-    height: 100%;
-    border: none;
-    resize: none;
-    align-self: center; }
-    .App .chat-room .chat-input #text-input:focus {
-      outline: none;
-      border: 1px solid transparent;
-      outline-offset: 0; }
-      .App .chat-room .chat-input #text-input:focus::-webkit-input-placeholder {
-        color: transparent; }
   .App .chat-room .chat-input button {
     text-decoration: none;
     background: none;
@@ -516,6 +523,18 @@ td, th {
       transform: scale(1.1);
       color: #DE1E7E;
       border-color: #DE1E7E; }
+  .App .chat-room .chat-input #text-input {
+    width: 80%;
+    height: 100%;
+    border: none;
+    resize: none;
+    align-self: center; }
+    .App .chat-room .chat-input #text-input:focus {
+      outline: none;
+      border: 1px solid transparent;
+      outline-offset: 0; }
+      .App .chat-room .chat-input #text-input:focus::-webkit-input-placeholder {
+        color: transparent; }
 
 .window-hide {
   right: -400px !important; }

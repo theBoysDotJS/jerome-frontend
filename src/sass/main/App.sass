@@ -23,19 +23,31 @@
 
 		.nav-bar--user-card
 			display: flex
-			justify-content: flex-end
+			justify-content: flex-end!important
 			.nav-bar-user-flex
 				display: flex
 				flex-flow: column
 				align-items: center
-				justify-content: flex-end
+				justify-content: center
 				cursor: pointer
+				.avatar
+					display: flex
+					justify-content: center
+					height: 32px
+					width: 32px
+					img
+						height: 32px
+						width: 32px
 				p
 					margin: 0
-					font-size: 1.2rem
+					font-size: 1rem
 			#nav-bar--icon
-				margin-left: 50%
+				margin-left: 15%
+				margin-right: 5%
 				cursor: pointer
+				transition: all 0.1s ease-in
+				&:hover
+					color: $highlight
 
 		.form--button
 			width: 100%
@@ -182,6 +194,7 @@
 					border: 1px solid $black
 					margin: 3% 0
 					text-align: center
+					cursor: pointer
 
 
 				#fb
@@ -317,6 +330,10 @@
 					border-width: 1px
 					border-radius: 10px
 					color: #333
+					transition: all 0.1s ease-in-out
+					&:hover
+						box-shadow: -4px 4px 0px 0px lighten($black, 50%)
+
 
 
 
@@ -328,6 +345,8 @@
 				justify-content: flex-start
 				align-items: center
 				margin-left: 6px
+
+
 
 				.avatar
 					height: 40px
@@ -348,7 +367,9 @@
 					border-width: 1px
 					border-radius: 10px
 					color: #333
-
+					transition: all 0.1s ease-in-out
+					&:hover
+						box-shadow: 4px 4px 0px 0px lighten($black, 50%)
 				strong
 					margin-right: 10px
 
@@ -381,21 +402,6 @@
 			border-top: 1px solid $black
 			padding: 1% 0
 
-			#text-input
-				width: 80%
-				height: 100%
-				border: none
-				resize: none
-				align-self: center
-
-				&:focus
-					outline: none
-					border: 1px solid transparent
-					outline-offset: 0
-
-					&::-webkit-input-placeholder
-						color: transparent
-
 			button
 				text-decoration: none
 				background: none
@@ -413,6 +419,25 @@
 					transform: scale(1.1)
 					color: $highlight
 					border-color: $highlight
+
+			#text-input
+				width: 80%
+				height: 100%
+				border: none
+				resize: none
+				align-self: center
+
+
+
+
+				&:focus
+					outline: none
+					border: 1px solid transparent
+					outline-offset: 0
+
+					&::-webkit-input-placeholder
+						color: transparent
+
 
 
 
