@@ -16,8 +16,7 @@ class auth {
 		  return true;
 	  })
 	  .catch(err => {
-      console.log("auth line 18", err)
-		  return Promise.reject({errors: "Username or password is incorrect"});;
+		  return Promise.reject({errors: "Username or password is incorrect"});
 	  })
     }
   }
