@@ -49,12 +49,14 @@ class ChatBox extends Component {
 					let newMsg = {
 						user: currVal.author,
 						text: currVal.message_body,
-						id: currVal.id
+						id: currVal.id,
+						avatar: currVal.avatarUrl
 					}
 
 					messageArray.push(newMsg)
 				})
 			}
+			console.log(messageArray, '<<<<<<MSG')
 			this.setState({
 				messages: messageArray
 			})
