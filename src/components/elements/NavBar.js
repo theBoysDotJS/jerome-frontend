@@ -56,6 +56,7 @@ class NavBar extends Component {
 		})
 
 		this._toggleSettings(e);
+		this._getUser();
 		browserHistory.push('/login');
 	}
 
@@ -95,7 +96,13 @@ class NavBar extends Component {
 
 		}
 
+componentDidUpdate(prevProps, prevState){
+	if(localStorage.user !== prevProps.user){
+		console.log(this.props.user, 'look here fucko')
+		this._getUser();
+	}
 
+}
 
 	render() {
 		return (
