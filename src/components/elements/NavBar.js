@@ -6,6 +6,7 @@ import CreateConvo from "./CreateConvo.js"
 import AddUser from "./addUser.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
+import Anime from '../../animate.js'
 
 class NavBar extends Component {
 	constructor() {
@@ -80,7 +81,6 @@ class NavBar extends Component {
 }
 
 	componentWillReceiveProps(nextProps) {
-		console.log(nextProps, "the next props")
 			if(!!nextProps.params.id){
 				this.setState({
 					inConvo: true,
