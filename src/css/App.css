@@ -334,6 +334,12 @@ td, th {
         font-weight: bold;
         color: #333; }
 
+.login .error--margin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 .App .avatar .avatar--image {
   max-width: 100%;
   border: 2px #333 solid;
