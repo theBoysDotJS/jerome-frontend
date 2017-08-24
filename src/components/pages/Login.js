@@ -91,7 +91,6 @@ class Login extends React.Component {
 
 					<p className="disclaimer">Dont have an account?<a href="/signup"> Signup here</a></p>
 
-					<div className="error--margin">{this.state.icon}{this.state.error}</div>
 
 
 					<div id="fb">

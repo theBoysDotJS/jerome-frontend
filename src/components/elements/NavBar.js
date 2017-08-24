@@ -106,7 +106,7 @@ componentDidUpdate(prevProps, prevState){
 
 	render() {
 		return (
-			<nav className="nav-bar">
+						<nav className="nav-bar">
 				<div className="nav-bar--flex">
 
 		  		<Link to={'/'}>
@@ -115,12 +115,16 @@ componentDidUpdate(prevProps, prevState){
 				</div>
 
 				<div className="nav-bar--flex nav-bar--center">
+				{!!Auth.isLoggedIn() ?
         	<h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Home'}</h1>
+				: null}
 				</div>
 
-				{!!Auth.isLoggedIn() ?
+
 
 				<div className="nav-bar--flex nav-bar--user-card">
+				{!!Auth.isLoggedIn() ?
+					<div>
 					<div onClick={e => this._toggleSettings(e)} className="nav-bar-user-flex">
 		      	<Avatar image={this.state.avatar}/>
 						<p>{this.state.username}</p>
@@ -130,10 +134,11 @@ componentDidUpdate(prevProps, prevState){
 						{<Settings userObj={this.state.userObj} id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
 						{this.state.convoname ? <AddUser id={this.props.params} close={this._toggleCreate} isOpen={this.state.createOpen} /> :
 							<CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>}
-
+						</div>
+				: null}
 			</div>
 
-			: null}
+
 			</nav>
 
 		);
