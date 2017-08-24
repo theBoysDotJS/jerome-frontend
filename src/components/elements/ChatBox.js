@@ -24,6 +24,7 @@ class ChatBox extends Component {
 		console.log('mounted')
 		socket.on('chat', data => {
 			if(data.convoId === this.props.id) {
+				console.log(data, 'the data')
 				data.text = data.text[localStorage.language]
 				this.setState({
 					messages: [
@@ -48,12 +49,14 @@ class ChatBox extends Component {
 					let newMsg = {
 						user: currVal.author,
 						text: currVal.message_body,
-						id: currVal.id
+						id: currVal.id,
+						avatar: currVal.avatarUrl
 					}
 
 					messageArray.push(newMsg)
 				})
 			}
+			console.log(messageArray, '<<<<<<MSG')
 			this.setState({
 				messages: messageArray
 			})
@@ -64,8 +67,7 @@ class ChatBox extends Component {
 		this.scrollToBottom();
 	}
 	createMessage = (curVal) => {
-		console.log(curVal, 'whatever is being put into the message bubble');
-		return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.messageId}/>);
+		return (<MessageBubble user={curVal.user} text={curVal.text} avatar={curVal.avatar} key={curVal.messageId}/>);
 	}
 	displayMessages = () => {
 		return this.state.messages.map(this.createMessage);

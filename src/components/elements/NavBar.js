@@ -57,6 +57,7 @@ class NavBar extends Component {
 		})
 
 		this._toggleSettings(e);
+		this._getUser();
 		browserHistory.push('/login');
 	}
 
@@ -95,7 +96,13 @@ class NavBar extends Component {
 
 		}
 
+componentDidUpdate(prevProps, prevState){
+	if(localStorage.user !== prevProps.user){
+		console.log(this.props.user, 'look here fucko')
+		this._getUser();
+	}
 
+}
 
 	render() {
 		return (
@@ -103,7 +110,7 @@ class NavBar extends Component {
 				<div className="nav-bar--flex">
 
 		  		<Link to={'/'}>
-	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
+	        	<img className="nav-bar--logo" src="/logo-w.svg" alt="some kind of thing"/>
 					</Link>
 				</div>
 
