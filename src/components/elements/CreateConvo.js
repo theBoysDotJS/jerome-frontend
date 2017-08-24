@@ -21,9 +21,9 @@ class CreateConvo extends React.Component {
 			.then(res => {
 
 				// console.log(res.body, 'response from convo')
-		
 
-				browserHistory.push(`/conversation/${res.body.id}`)
+
+				
 			});
 	}
 
