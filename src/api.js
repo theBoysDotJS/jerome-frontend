@@ -18,7 +18,7 @@ class Api {
 				 avatarUrl: userInfo.avatarUrl
 			 	})
 	)
-	
+
 
 	//login an existing user
 	requestLogin = (username, password) => (
@@ -68,9 +68,9 @@ class Api {
 	)
 
 	//request for a user to join a room
-	joinRoom = (userId, token) => (
+	joinRoom = (userId, convoId, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/:id/join`)
+			.post(`${API_HOST}/conversation/${convoId}/join`)
 
 			.send({userId})
 
