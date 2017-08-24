@@ -5,7 +5,7 @@ class LanguageForm extends React.Component {
 	constructor() {
 		super()
 		this.state = {
-			value : ''
+			value : 'en'
 		}
 	}
 
@@ -42,7 +42,6 @@ class LanguageForm extends React.Component {
 			lang = 'en'
 		}
 
-		console.log(">>>>>>>>>>", this.state.value)
 		return (
 			<div>
 				<select onChange={this.change}  value={this.state.value} name="languageForm" id="langaugeForm">

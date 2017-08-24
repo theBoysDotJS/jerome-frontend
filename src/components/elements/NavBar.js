@@ -110,7 +110,7 @@ componentDidUpdate(prevProps, prevState){
 				<div className="nav-bar--flex">
 
 		  		<Link to={'/'}>
-	        	<img className="nav-bar--logo" src="/logo-w.svg" alt="some kind of thing"/>
+	        	<img className="nav-bar--logo" src="/jerome.png" alt="some kind of thing"/>
 					</Link>
 				</div>
 

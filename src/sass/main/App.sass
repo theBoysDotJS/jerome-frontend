@@ -73,6 +73,14 @@
 			align-content: center
 			margin: auto
 
+			&:last-of-type
+
+				#nav-bar--icon
+					margin-top: -2%
+
+			a
+				margin-top: 3%
+
 		.nav-bar--user-card
 			+flex(row nowrap)
 			justify-content: space-evenly
@@ -303,7 +311,6 @@
 		display: flex
 		flex-flow: column
 
-
 		.message-bubble--mine
 			.message-bubble--flexbox
 				width: 100vw
@@ -378,9 +385,10 @@
 		display: none!important
 	.chat-room
 		.chat-box
-			bottom: 1000px
+			position: fixed
 			Infinite
 				overflow-x: scroll
+				margin-top: 5%
 			#typeChecker
 				height: 30px
 			.infinite

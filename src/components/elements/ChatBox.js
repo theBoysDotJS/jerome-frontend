@@ -79,7 +79,7 @@ class ChatBox extends Component {
 			<div className="chat-box">
 
 				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-				<Infinite displayBottomUpwards containerHeight={678.19} elementHeight={89.03}>
+				<Infinite displayBottomUpwards containerHeight={620} elementHeight={89.03}>
 					{this.displayMessages()}
 				</Infinite>
 				<div id="typeChecker">

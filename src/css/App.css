@@ -215,6 +215,10 @@ td, th {
       justify-content: center;
       align-content: center;
       margin: auto; }
+      .App .nav-bar .nav-bar--flex:last-of-type #nav-bar--icon {
+        margin-top: -2%; }
+      .App .nav-bar .nav-bar--flex a {
+        margin-top: 3%; }
     .App .nav-bar .nav-bar--user-card {
       display: flex;
       flex-flow: row nowrap;
@@ -482,9 +486,10 @@ td, th {
 .App ::-webkit-scrollbar {
   display: none !important; }
 .App .chat-room .chat-box {
-  bottom: 1000px; }
+  position: fixed; }
   .App .chat-room .chat-box Infinite {
-    overflow-x: scroll; }
+    overflow-x: scroll;
+    margin-top: 5%; }
   .App .chat-room .chat-box #typeChecker {
     height: 30px; }
   .App .chat-room .chat-box .infinite {
