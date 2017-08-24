@@ -7,7 +7,7 @@ class AddUser extends React.Component {
 	_submit = (e) => {
 		e.preventDefault();
 		this.props.close(e);
-		Api.joinRoom(this.refs.user.value, localStorage.token)
+		Api.joinRoom(this.refs.user.value, this.props.id.id, localStorage.token)
 			.then(res => {
 				console.log(res.body)
 				});
