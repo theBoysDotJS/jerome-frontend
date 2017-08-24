@@ -20,11 +20,13 @@ class AddUser extends React.Component {
 			<section id="settings" className={this.props.isOpen === true
 				? "window-show"
 				: "window-hide"}>
-				<button onClick={this.props.close}>x</button>
 				<h2>Add a user</h2>
-				<form onSubmit={e => this._submit(e)}>
-					<input ref="user" placeholder="your friend's user id goes here" type="text"/>
-					<button type="submit">Add</button>
+				<form className="convo-form" onSubmit={e => this._submit(e)}>
+					<input ref="user" placeholder="user id" type="text"/>
+					<div classname="form--button-container">
+					<button className="form--button" type="submit">Add</button>
+					<button  className="form--button" onClick={this.props.close}>Cancel</button>
+					</div>
 				</form>
 
 
