@@ -18,6 +18,8 @@ Getting the project running on your machine is simple:
 2. `npm install`
 3. `npm start`
 
+You'll also likely need to download and run our [backend](https://github.com/theBoysDotJS/chat-backend)
+
 ### Contributing
 
 Just fork the repo and submit a PR with your changes!
@@ -49,6 +51,9 @@ from the main project directory to start compiling your sass into CSS.
 ## Authors
 
 **Hao Zheng** -- Link
+
 **Mike McDonald** -- Link
+
 **Quinn Langille** -- Link
+
 **Tim Macnamera** -- Link
