@@ -50,10 +50,10 @@ from the main project directory to start compiling your sass into CSS.
 
 ## Authors
 
-**Hao Zheng** -- Link
+**Hao Zheng**
 
-**Mike McDonald** -- Link
+**Mike McDonald**
 
-**Quinn Langille** -- Link
+**Quinn Langille**
 
-**Tim Macnamera** -- Link
+**Tim McNamara**
