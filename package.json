@@ -1,7 +1,7 @@
 {
   "name": "chat-application-front-end",
   "engines" : {
-    "node" : ">=5.12"
+    "node" : "5.4"
   },
   "version": "0.1.0",
   "description": "react front-end for chat-application",
