@@ -3,39 +3,45 @@ import {Link, browserHistory} from 'react-router'
 import Avatar from '../assets/Avatar.js';
 import Settings from "./Settings.js"
 import CreateConvo from "./CreateConvo.js"
+import AddUser from "./addUser.js"
 import Api from '../../api.js';
 import Auth from '../../auth.js';
+import Anime from '../../animate.js'
 
-class ChatBox extends Component {
+class NavBar extends Component {
 	constructor() {
 		super();
 		this.state = {
+			inConvo: false,
 			settingsOpen: false,
-			createOpen: false
+			createOpen: false,
+			avatarReload: localStorage.token
 		}
 	}
 
 	_getUser = () => {
-		Api.getMe(localStorage.token).then(res => res.body).then(user => {
+
+		console.log(this.props.params, "look here at the params!!")
+		Api.getMe(localStorage.token).then(res => res.body[0]).then(user => {
 			console.log(user, 'user obj in getMe')
-			this.setState({username: user[0].username, user_id: user[0].id, avatar: user[0].avatarUrl})
+			this.setState({username: user.username, user_id: user.id, avatar: user.avatarUrl, userObj: user})
+
 		})
+
 	}
 
 
   _toggleSettings = (e) => {
 	  e.preventDefault();
-	  console.log(this.state.settingsOpen)
+	//   console.log(this.state.settingsOpen)
 	  this.setState({
 		  settingsOpen: !this.state.settingsOpen
 	  })
   }
 
-
-
 	_toggleCreate = (e) => {
 		e.preventDefault();
-		console.log(this.state.createOpen)
+		// console.log(this.state.createOpen)
 		this.setState({
 			createOpen: !this.state.createOpen
 		})
@@ -50,45 +56,93 @@ class ChatBox extends Component {
 			}
 		})
 
-		this._toggleSettings();
-
+		this._toggleSettings(e);
+		this._getUser();
+		browserHistory.push('/login');
 	}
 
 	componentDidMount() {
 		this._getUser();
+		if(this.props.params.id){
+			this.setState({
+				inConvo: true
+			})
+		} else{
+			this.setState({
+				inConvo: false
+			})
+		}
+
+		if(this.state.inConvo){
+			this.setState({
+				convoname: "chat"
+			})
+
+	}
+}
+
+	componentWillReceiveProps(nextProps) {
+			if(!!nextProps.params.id){
+				this.setState({
+					inConvo: true,
+					convoname: 'chat'
+				})
+			} else if(nextProps.params.id === {}){
+				this.setState({
+					inConvo: false,
+					convoname: false
+				})
+			}
+
+		}
+
+componentDidUpdate(prevProps, prevState){
+	if(localStorage.user !== prevProps.user){
+		console.log(this.props.user, 'look here fucko')
+		this._getUser();
 	}
 
-	componentDidUpdate() {
-		//add function here to reset user info on logout/login
-	}
+}
 
 	render() {
 		return (
-			<nav className="nav-bar">
-
+						<nav className="nav-bar">
 				<div className="nav-bar--flex">
-		  	<Link to={'/'}>
-	        	<img className="nav-bar--logo" src="/logo.svg" alt="some kind of thing"/>
-			</Link>
-		</div>
 
-		<div className="nav-bar--flex nav-bar--center">
-        	<h1>{this.state.convoname ? this.state.convoname : 'Dashboard'}</h1>
-		</div>
+		  		<Link to={'/'}>
+	        	<img className="nav-bar--logo" src="/jerome.png" alt="some kind of thing"/>
+					</Link>
+				</div>
 
-		<div className="nav-bar--flex nav-bar--user-card">
-			<div>
-		        <p onClick={e => this._toggleSettings(e)}>{this.state.username}</p>
+				<div className="nav-bar--flex nav-bar--center">
+				{!!Auth.isLoggedIn() ?
+        	<h1 className="nav-title">{this.state.convoname ? this.state.convoname : 'Home'}</h1>
+				: null}
+				</div>
+
+
+
+				<div className="nav-bar--flex nav-bar--user-card">
+				{!!Auth.isLoggedIn() ?
+					<div>
+					<div onClick={e => this._toggleSettings(e)} className="nav-bar-user-flex">
+		      	<Avatar image={this.state.avatar}/>
+						<p>{this.state.username}</p>
+					</div>
+          <i id="nav-bar--icon" className="fa fa-comments fa-3x" onClick={e => this._toggleCreate(e)}></i>
+
+						{<Settings userObj={this.state.userObj} id={this.state.user_id} close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
+						{this.state.convoname ? <AddUser id={this.props.params} close={this._toggleCreate} isOpen={this.state.createOpen} /> :
+							<CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>}
+						</div>
+				: null}
 			</div>
-	        <Avatar image={this.state.avatar}/>
-          <p onClick={e => this._toggleCreate(e)}>+</p>
-			{<Settings close={this._toggleSettings} isOpen={this.state.settingsOpen} logout={this._logout}/>}
-      	  <CreateConvo close={this._toggleCreate} isOpen={this.state.createOpen}/>
-			</div>
+
+
 			</nav>
 
 		);
 	}
 }
 
-export default ChatBox;
+export default NavBar;

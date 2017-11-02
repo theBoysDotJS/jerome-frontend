@@ -1,3 +1,6 @@
+* {
+  font-family: "Lato"; }
+
 /*! normalize.sass v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -150,6 +153,8 @@ td, th {
 .App {
   width: 100vw; }
   .App .nav-bar {
+    background: #333;
+    color: #f2f2f2;
     width: 100%;
     position: fixed;
     top: 0;
@@ -157,11 +162,61 @@ td, th {
     right: 0;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     border-bottom: 2px #333 solid;
-    background: #f2f2f2;
     z-index: 20; }
+    .App .nav-bar .nav-bad--center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute; }
+    .App .nav-bar .nav-bar--logo {
+      margin-right: 160px; }
+    .App .nav-bar .nav-bar--user-card div {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end !important; }
+      .App .nav-bar .nav-bar--user-card div .nav-bar-user-flex {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+        .App .nav-bar .nav-bar--user-card div .nav-bar-user-flex .avatar {
+          display: flex;
+          justify-content: center;
+          height: 32px;
+          width: 32px; }
+          .App .nav-bar .nav-bar--user-card div .nav-bar-user-flex .avatar img {
+            height: 32px;
+            width: 32px; }
+        .App .nav-bar .nav-bar--user-card div .nav-bar-user-flex p {
+          margin: 0;
+          font-size: 1rem; }
+      .App .nav-bar .nav-bar--user-card div #nav-bar--icon {
+        margin-left: 15%;
+        margin-right: 5%;
+        cursor: pointer;
+        transition: all 0.1s ease-in; }
+        .App .nav-bar .nav-bar--user-card div #nav-bar--icon:hover {
+          color: #DE1E7E; }
+    .App .nav-bar .form--button {
+      width: 100%;
+      font-size: 1.4em;
+      padding: 0.5em 0.7em;
+      background: #f2f2f2;
+      border: 1px solid #333;
+      margin: 3% 0;
+      text-align: center; }
+    .App .nav-bar input {
+      border: 1px solid #333;
+      background: #f2f2f2;
+      font-size: 2rem;
+      margin-bottom: 2%;
+      padding: 1% 3%;
+      position: relative; }
     .App .nav-bar .nav-bar--flex {
       width: 33%;
       display: flex;
@@ -169,10 +224,14 @@ td, th {
       justify-content: center;
       align-content: center;
       margin: auto; }
+      .App .nav-bar .nav-bar--flex:last-of-type #nav-bar--icon {
+        margin-top: -2%; }
+      .App .nav-bar .nav-bar--flex a {
+        margin-top: 3%; }
     .App .nav-bar .nav-bar--user-card {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center; }
       .App .nav-bar .nav-bar--user-card a {
         text-align: center; }
@@ -180,16 +239,54 @@ td, th {
         width: 48px;
         height: 48px; }
   .App #settings {
+    color: #333;
     position: fixed;
     top: 0;
     bottom: 0;
     width: 400px;
-    background: #f2f2f2;
+    background: #333;
     transition: all 0.1s ease-in;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center; }
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1%;
+    padding-bottom: 1%; }
+    .App #settings h2 {
+      color: #f2f2f2; }
+    .App #settings .lang-headline {
+      color: #f2f2f2; }
+    .App #settings .language-wrap {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 80%; }
+    .App #settings .convo-form {
+      color: #333;
+      display: flex;
+      flex-flow: column nowrap;
+      width: 80%; }
+      .App #settings .convo-form input {
+        border: 1px solid #333;
+        background: #f2f2f2;
+        font-size: 2rem;
+        margin-bottom: 2%;
+        padding: 1% 3%;
+        position: relative; }
+        .App #settings .convo-form input:focus::-webkit-input-placeholder {
+          color: transparent; }
+        .App #settings .convo-form input:focus {
+          outline: none; }
+      .App #settings .convo-form .form--button-container {
+        display: flex;
+        flex-flow: column nowrap; }
+        .App #settings .convo-form .form--button-container .form--button {
+          width: 100%;
+          font-size: 1.4em;
+          padding: 0.5em 0.7em;
+          background: #f2f2f2;
+          border: 1px solid #333;
+          margin: 3% 0;
+          text-align: center; }
 
 .App .login,
 .App .sign-up {
@@ -243,12 +340,17 @@ td, th {
         background: #f2f2f2;
         border: 1px solid #333;
         margin: 3% 0;
-        text-align: center; }
+        text-align: center;
+        cursor: pointer; }
       .App .login .form .form--button-container #fb,
       .App .sign-up .form .form--button-container #fb {
         width: 20%;
         font-size: 16px;
         text-transform: capitalize; }
+    .App .login .form .error--margin-login,
+    .App .sign-up .form .error--margin-login {
+      margin-right: 10px;
+      margin-left: 10px; }
     .App .login .form .disclaimer,
     .App .sign-up .form .disclaimer {
       text-align: center; }
@@ -257,6 +359,12 @@ td, th {
         text-decoration: none;
         font-weight: bold;
         color: #333; }
+
+.login .error--margin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .App .avatar .avatar--image {
   max-width: 100%;
@@ -294,38 +402,81 @@ td, th {
       .App .dashboard .convo-card .convo-card--header h3 {
         margin-left: 5%; }
       .App .dashboard .convo-card .convo-card--header .convo-card--avatars {
+        padding-left: 15px;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         width: 30%; }
         .App .dashboard .convo-card .convo-card--header .convo-card--avatars .avatar {
           width: 16px;
-          height: 16px; }
+          height: 16px;
+          margin: 1px; }
     .App .dashboard .convo-card .convo-card--snippet {
+      height: 115px;
       width: 80%;
       text-align: left;
       padding: 10% 0;
       padding-left: 10px;
-      color: #333; }
+      color: #333;
+      display: flex;
+      flex-flow: column nowrap; }
       .App .dashboard .convo-card .convo-card--snippet strong {
         margin-right: 5px; }
       .App .dashboard .convo-card .convo-card--snippet p {
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; }
+        text-overflow: ellipsis;
+        order: 2; }
+        .App .dashboard .convo-card .convo-card--snippet p:last-of-type {
+          order: 1; }
 
 .App .message-container {
   display: flex;
-  flex-flow: column;
-  -webkit-transform: translateX(-200px); }
+  flex-flow: column; }
+  .App .message-container .message-bubble--mine .message-bubble--flexbox {
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    vertical-align: bottom;
+    justify-content: flex-end;
+    align-items: center; }
+    .App .message-container .message-bubble--mine .message-bubble--flexbox .avatar {
+      display: none;
+      height: 40px;
+      width: 40px;
+      order: 2; }
+    .App .message-container .message-bubble--mine .message-bubble--flexbox p {
+      box-shadow: -3px 3px 0px 0px #b3b3b3;
+      order: 1;
+      display: inline-block;
+      word-wrap: break-word;
+      max-width: 50ch;
+      margin: 1% 3%;
+      padding: 0.5em 0.75em;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 10px;
+      color: #333;
+      transition: all 0.1s ease-in-out; }
+      .App .message-container .message-bubble--mine .message-bubble--flexbox p:hover {
+        box-shadow: -4px 4px 0px 0px #b3b3b3; }
   .App .message-container .message-bubble--yours .message-bubble--flexbox {
+    width: 100vw;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 3px; }
+    margin-left: 6px; }
+    .App .message-container .message-bubble--yours .message-bubble--flexbox .avatar {
+      height: 40px;
+      width: 40px;
+      margin-right: 5px;
+      margin-left: 10px; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox .avatar img {
+        box-shadow: 2.5px 3px 0px 0px #b3b3b3; }
     .App .message-container .message-bubble--yours .message-bubble--flexbox p {
+      box-shadow: 3px 3px 0px 0px #b3b3b3;
       display: inline-block;
       word-wrap: break-word;
       max-width: 50ch;
@@ -334,15 +485,34 @@ td, th {
       border-style: solid;
       border-width: 1px;
       border-radius: 10px;
-      color: #333; }
+      color: #333;
+      transition: all 0.1s ease-in-out; }
+      .App .message-container .message-bubble--yours .message-bubble--flexbox p:hover {
+        box-shadow: 4px 4px 0px 0px #b3b3b3; }
     .App .message-container .message-bubble--yours .message-bubble--flexbox strong {
       margin-right: 10px; }
 
+.App ::-webkit-scrollbar {
+  display: none !important; }
 .App .chat-room .chat-box {
-  position: absolute;
-  bottom: 60px; }
+  position: fixed; }
+  .App .chat-room .chat-box Infinite {
+    overflow-x: scroll;
+    margin-top: 5%; }
+  .App .chat-room .chat-box #typeChecker {
+    height: 30px; }
+  .App .chat-room .chat-box .infinite {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    overflow: scroll; }
+    .App .chat-room .chat-box .infinite::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; }
 .App .chat-room .chat-input {
   position: fixed;
+  background: white;
   bottom: 0;
   display: flex;
   flex-flow: row nowrap;
@@ -350,6 +520,23 @@ td, th {
   width: 100%;
   border-top: 1px solid #333;
   padding: 1% 0; }
+  .App .chat-room .chat-input button {
+    text-decoration: none;
+    background: none;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 25px;
+    line-height: 32px;
+    height: auto;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid #333;
+    transition: all 0.2s ease-in-out; }
+    .App .chat-room .chat-input button:hover {
+      transform: scale(1.1);
+      color: #DE1E7E;
+      border-color: #DE1E7E; }
   .App .chat-room .chat-input #text-input {
     width: 80%;
     height: 100%;
@@ -362,23 +549,14 @@ td, th {
       outline-offset: 0; }
       .App .chat-room .chat-input #text-input:focus::-webkit-input-placeholder {
         color: transparent; }
-  .App .chat-room .chat-input button {
-    text-decoration: none;
-    background: none;
-    color: #333;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 0 25px;
-    line-height: 32px;
-    height: auto;
-    text-align: center;
-    border-radius: 50px;
-    border: 1px solid #333; }
 
 .window-hide {
   right: -400px !important; }
 
 .window-show {
   right: 0 !important; }
+
+.error--margin {
+  margin-right: 10px; }
 
 /*# sourceMappingURL=App.css.map */

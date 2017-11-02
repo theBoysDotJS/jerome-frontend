@@ -15,9 +15,11 @@ class Api {
 				 email: userInfo.email,
 				 firstName: userInfo.firstName,
 				 lastName: userInfo.lastName,
-				 language: 'de'
+				 language: userInfo.language,
+				 avatarUrl: userInfo.avatarUrl
 			 	})
 	)
+
 
 	//login an existing user
 	requestLogin = (username, password) => (
@@ -27,9 +29,10 @@ class Api {
 	)
 
 
-	getMessages = (convoId) => (
+	getMessages = (convoId, token) => (
 		superagent
 			.get(`${API_HOST}/conversation/${convoId}`)
+			.set('authorization', token)
 	)
 
 
@@ -66,10 +69,12 @@ class Api {
 	)
 
 	//request for a user to join a room
-	joinRoom = (username, token) => (
+	joinRoom = (userId, convoId, token) => (
 		superagent
-			.post(`${API_HOST}/conversation/:id`)
-			.send({username})
+			.post(`${API_HOST}/conversation/${convoId}/join`)
+
+			.send({userId})
+
 			.set('authorization', token)
 	)
 
@@ -112,6 +117,14 @@ class Api {
 			.delete(`${API_HOST}/messages/:id`)
 			.set('authorization', token)
 	}
+
+
+	changeLanguage = (token, language) => (
+		superagent
+			.put(`${API_HOST}/auth/update`)
+			.send({language})
+			.set('authorization', token)
+	)
 
 }
 

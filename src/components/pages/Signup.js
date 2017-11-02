@@ -8,7 +8,8 @@ class SignUp extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			error: ''
+			error: '',
+			language: ''
 		};
 	}
 
@@ -20,26 +21,39 @@ class SignUp extends React.Component {
 			username: this.refs.username.value,
 			email: this.refs.email.value,
 			password: this.refs.password.value,
-			// language: this.refs.language.value,
+			language: this.state.language,
 			firstName: this.refs.firstName.value,
 			lastName: this.refs.lastName.value
 		}
 
+		// console.log(signupObj, 'the object')
 		//sends request object to src/api.js with form values for signup
 		api.requestSignup(signupObj)
 			.then(res => {
-				console.log(res)
+				console.log("res", res)
+				browserHistory.push('/login')
 			})
-			.then(res => {
-				res = true
-				if(res === true) {
-					browserHistory.push('/login')
-				}
+			.catch(err  => {
+				var errors = err.response.body.error;
+				console.log(errors)
+					this.setState({
+						error : errors
+					})
 			})
 	}
 
-	render() {
+	_handleLanguage = (e, lang) => {
+		e.preventDefault();
 
+		console.log(lang, 'this is what the form is doing')
+
+		this.setState({
+			language: lang
+		})
+	}
+
+	render() {
+		console.log(this.state.error)
 		return (
 			<section className="sign-up">
 				<form className="form sign-up--form" onSubmit={e => this._handleSignup(e)}>
@@ -54,12 +68,13 @@ class SignUp extends React.Component {
 					</div>
 					<input placeholder="E-mail" type="text" name="email" ref="email"/>
 
-					<LanguageForm />
+					<LanguageForm language={this._handleLanguage}/>
 					<div className="form--button-container">
 						<button className="form--button" type="submit">Sign Up</button>
 					</div>
 					<p>Already have an account? <a href="/login">Login Here</a> </p>
-					<p className="sign-up--error">{this.state.error}</p>
+					<div className="sign-up--error">{this.state.error && Object.keys(this.state.error).map(err => <p><i className="fa fa-exclamation-triangle error--margin" aria-hidden="true"></i>{this.state.error[err]}</p>)}</div>
+
 				</form>
 			</section>
 		);

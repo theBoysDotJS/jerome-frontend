@@ -11,11 +11,12 @@ class auth {
       .then(res => {
 		  console.log(res, 'this is it')
 		  localStorage.token = res.body.token;
-		  localStorage.user = res.body.user;
+		  localStorage.user = res.body.user
+		  localStorage.language = res.body.language
 		  return true;
 	  })
 	  .catch(err => {
-		  return false;
+		  return Promise.reject({errors: "Username or password is incorrect"});
 	  })
     }
   }

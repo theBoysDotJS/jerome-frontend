@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import Infinite from 'react-infinite';
 import ConvoCard from "../elements/ConvoCard.js";
 import Api from "../../api.js"
+import auth from "../../auth.js"
+import { browserHistory } from 'react-router'
+
 
 
 class Dashboard extends Component {
@@ -19,7 +21,7 @@ class Dashboard extends Component {
 	_fetchConvos = () => {
 		Api.getAllConvos(localStorage.token) //may need to be document.cookie
 			.then(res => res.body).then(cardData => {
-				console.log(cardData, 'this is card data')
+				// console.log(cardData, 'this is card data')
 				this.setState({
 					cardInfo: cardData
 				})
@@ -32,12 +34,15 @@ class Dashboard extends Component {
 			<div className="dashboard">
 				{this.state.cardInfo.map(c => {
 					console.log(c, 'this is c');
-						return (<ConvoCard className="convoCard" convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages} handle={c.handle}/>);
+						return (
+							<ConvoCard className="convoCard" convoId={c.id} users={c.users} avatar={c.users.avatarUrl} name={c.name} message={c.messages}/>
+						);
 					})
 				}
 			</div>
 		);
 	}
+
 }
 
 

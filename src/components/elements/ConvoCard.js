@@ -1,8 +1,8 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import Avatar from '../assets/Avatar.js';
 import {Link} from 'react-router';
-import Anime from '../../animate.js';
+import Anime from '../../animate.js'
 
 class ConvoCard extends React.Component {
 	constructor(props) {
@@ -14,6 +14,8 @@ class ConvoCard extends React.Component {
 	componentDidMount(){
 
 	}
+
+	
 	//This component renders a square card with information about the chatroom that it links to
 	render() {
 		return(
@@ -23,14 +25,14 @@ class ConvoCard extends React.Component {
 					<ul className="convo-card--avatars">
 						{this.props.users.map(user => {
 							return(
-								<Avatar image="{user.avatarUrl}"/>
+								<Avatar image={user.avatarUrl}/>
 							)
 						})}
 					</ul>
 				</div>
 				<div className="convo-card--snippet">
 					{this.props.message.map(message => {
-						return(<p><strong>{message.author}:</strong>{message.message}</p>)
+						return(<p><strong>{message.username}:</strong>{message.message_body}</p>)
 					})}
 				</div>
 			</Link>

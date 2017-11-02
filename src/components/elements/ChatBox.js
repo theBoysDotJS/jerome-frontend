@@ -1,68 +1,94 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import MessageBubble from '../assets/MessageBubble';
-import Infinite from 'react-infinite';
 import Api from '../../api';
 import {socket} from '../../socketHandle';
-import ReactDOM from 'react-dom';
 import Anime from '../../animate.js';
+import ReactDOM from 'react-dom';
+var Infinite = require('react-infinite')
+
 
 class ChatBox extends Component {
-  constructor(){
-    super()
-    this.state = {
-      messages: []
-    }
-
-}
-  componentDidMount(){
-	console.log('mounted')
-    socket.on('chat', data => {
-      console.log(data, 'thedata')
-      this.setState({
-        messages: [ ...this.state.messages, data]
-
-    })
-    // var newMsg = [ ...this.state.messages, data];
-    console.log(this.state.messages, "these messages")
+	constructor() {
+		super()
+		this.state = {
+			messages: []
+		}
 	}
-	)
-    Api.getMessages(this.props.id)
-      .then(data => {
-        this.setState({
-          messages: [{user:'mike', text:'goodbye my dudes', id: 13}] //switch this to data once we have DB up
-        })
-      })
-    }
-    // componentDidUpdate(prevProps, prevState){
-    //   var newComp = (<p>i'm rendering</p>)
-    //   console.log
-    //   if(prevState !== this.state){
-    //     console.log('yaaaaar')
-    //   ReactDOM.render(newComp, document.getElementById('messages') );
-    //   }
-    // }
+	scrollToBottom = () => {
+		console.log('I should be scrolling here')
+	  const node = ReactDOM.findDOMNode(document.getElementById('typeChecker'));
+	  node.scrollIntoView({ behavior: "smooth" });
+	}
+	componentDidMount() {
 
+		console.log('mounted')
+		socket.on('chat', data => {
+			if(data.convoId === this.props.id) {
+				console.log(data, 'the data')
+				data.text = data.text[localStorage.language]
+				this.setState({
+					messages: [
+						...this.state.messages,
+						data
+					]
+				})
+				// console.log(this.state.messages, 'the message state')
+			} // end if
+		})
 
+		Api.getMessages(this.props.id, localStorage.token)
 
-  createMessage = (curVal) => {
-  return (<MessageBubble user={curVal.user} text={curVal.text} key={curVal.id}/> );
-      }
-  displayMessages = () => {
-    return  this.state.messages.map(this.createMessage);
-  }
+			.then(data => JSON.parse(data.text))
+			.then(data => {
 
-  render() {
+			let messages = data.messages
+			let messageArray = []
+			if(messages.length > 0) {
+				messages.forEach(currVal => {
 
-    return (
+					let newMsg = {
+						user: currVal.author,
+						text: currVal.message_body,
+						id: currVal.id,
+						avatar: currVal.avatarUrl
+					}
 
-      <div className="chat-box">
-	  	{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
-        <Infinite useWindowAsScrollContainer  elementHeight={30} containerHeight={90} displayBottomUpwards>
-			    {this.displayMessages()}
-        </Infinite>
-      </div>
-    );
-  }
+					messageArray.push(newMsg)
+				})
+			}
+			console.log(messageArray, '<<<<<<MSG')
+			this.setState({
+				messages: messageArray
+			})
+
+		}) // end Promise
+	} // end Component Did Mount
+	componentDidUpdate(){
+		this.scrollToBottom();
+	}
+	createMessage = (curVal) => {
+		return (<MessageBubble user={curVal.user} text={curVal.text} avatar={curVal.avatar} key={curVal.messageId}/>);
+	}
+	displayMessages = () => {
+		return this.state.messages.map(this.createMessage);
+	}
+
+	render() {
+
+		return (
+			<div className="chat-box">
+
+				{/* SET CONTAINER HEIGHT AND WINDOW SCROLL TO BYPASS RENDER ERROR, ONLY PLACEHOLDER VALUE*/}
+				<Infinite displayBottomUpwards containerHeight={620} elementHeight={89.03}>
+					{this.displayMessages()}
+				</Infinite>
+				<div id="typeChecker">
+					<p>{!!this.props.typing ? `Someone is typing` : null}</p>
+				</div>
+
+			</div>
+		);
+	}
 }
 
 export default ChatBox;

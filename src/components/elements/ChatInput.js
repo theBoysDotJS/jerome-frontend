@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Socket from '../../socketHandle.js'
-
+import Anime from '../../animate.js';
 class ChatInput extends Component {
   constructor(){
     super()
@@ -9,33 +9,40 @@ class ChatInput extends Component {
       user: ""
     }
   }
-
+  componentDidMount(){
+    Anime.chatSwipe();
+  }
   _handleInput = (e) => {
     e.preventDefault();
+
     this.setState({
       currentInput: e.target.value
     })
-    console.log(this.state.currentInput);
+
+
+	if(this.props.typing === false) {
+		Socket.sendTyping(localStorage.user)
+	}
   }
 
   _handleSend = (e) => {
     e.preventDefault();
     var formData = {
       text: this.state.currentInput,
-      user: 10,
-      convoId: 12,
+      user: localStorage.user,
+      convoId: this.props.id,
       type: "text"
     }
 
-    console.log(formData);
+	console.log('message sent', formData)
     Socket.sendMessage(formData);
   }
+
   render() {
     return (
-
        <div className="chat-input">
         <input id="text-input" contentEditable placeholder="Write something..." onInput={this._handleInput} value={this.state.currentInput}></input>
-        <button onClick={e => this._handleSend(e)}>SEND</button>
+        <button className="send-button" onClick={e => this._handleSend(e)}>SEND</button>
       </div>
     );
   }

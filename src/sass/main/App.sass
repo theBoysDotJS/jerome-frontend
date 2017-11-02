@@ -7,17 +7,74 @@
 	width: 100vw
 
 	.nav-bar
+		background: $black
+		color: $white
 		width: 100%
 		position: fixed
 		top: 0
 		left: 0
 		right: 0
 		+flex(row nowrap)
-		justify-content: space-around
+		justify-content: space-evenly
 		align-items: center
 		border-bottom: 2px $black solid
-		background: $white
 		z-index: 20
+
+		.nav-bad--center
+			+centerer
+			position: absolute
+
+
+		.nav-bar--logo
+			margin-right: 160px
+
+
+		.nav-bar--user-card
+			div
+				width: 100%
+				display: flex
+				justify-content: flex-end!important
+				.nav-bar-user-flex
+					display: flex
+					flex-flow: column
+					align-items: center
+					justify-content: center
+					cursor: pointer
+					.avatar
+						display: flex
+						justify-content: center
+						height: 32px
+						width: 32px
+						img
+							height: 32px
+							width: 32px
+					p
+						margin: 0
+						font-size: 1rem
+				#nav-bar--icon
+					margin-left: 15%
+					margin-right: 5%
+					cursor: pointer
+					transition: all 0.1s ease-in
+					&:hover
+						color: $highlight
+
+		.form--button
+			width: 100%
+			font-size: 1.4em
+			padding: 0.5em 0.7em
+			background: $white
+			border: 1px solid $black
+			margin: 3% 0
+			text-align: center
+
+		input
+			border: 1px solid $black
+			background: $white
+			font-size: 2rem
+			margin-bottom: 2%
+			padding: 1% 3%
+			position: relative
 
 		.nav-bar--flex
 			width: 33%
@@ -26,9 +83,17 @@
 			align-content: center
 			margin: auto
 
+			&:last-of-type
+
+				#nav-bar--icon
+					margin-top: -2%
+
+			a
+				margin-top: 3%
+
 		.nav-bar--user-card
 			+flex(row nowrap)
-			justify-content: space-between
+			justify-content: space-evenly
 			align-items: center
 
 			a
@@ -40,16 +105,60 @@
 				height: 48px
 
 	#settings
+		color: $black
+		h2
+			color: $white
+		.lang-headline
+			color: $white
 		position: fixed
 		top: 0
 		bottom: 0
 		width: 400px
-		background: $white
+		background: $black
 		transition: all 0.1s ease-in
 
 		+flex(column nowrap)
-		justify-content: space-around
+		justify-content: flex-start
 		align-items: center
+		padding-top: 1%
+		padding-bottom: 1%
+
+		.language-wrap
+			+flex(column nowrap)
+			width: 80%
+
+
+		.convo-form
+			color: $black
+			+flex(column nowrap)
+			width: 80%
+
+			input
+				border: 1px solid $black
+				background: $white
+				font-size: 2rem
+				margin-bottom: 2%
+				padding: 1% 3%
+				position: relative
+
+				&:focus::-webkit-input-placeholder
+					color: transparent
+
+				&:focus
+					outline: none
+
+			.form--button-container
+				+flex(column nowrap)
+
+				.form--button
+					width: 100%
+					font-size: 1.4em
+					padding: 0.5em 0.7em
+					background: $white
+					border: 1px solid $black
+					margin: 3% 0
+					text-align: center
+
 
 
 
@@ -103,12 +212,18 @@
 					border: 1px solid $black
 					margin: 3% 0
 					text-align: center
+					cursor: pointer
 
 
 				#fb
 					width: 20%
 					font-size: 16px
 					text-transform: capitalize
+
+			// cant get it to work......
+			.error--margin-login
+				margin-right: 10px
+				margin-left: 10px
 
 			.disclaimer
 				text-align: center
@@ -117,6 +232,10 @@
 					text-decoration: none
 					font-weight: bold
 					color: $black
+
+.login
+	.error--margin
+		+centerer
 
 //AVATAR STYLES
 
@@ -162,21 +281,25 @@
 					margin-left: 5%
 
 				.convo-card--avatars
+					padding-left: 15px
 					+flex(row nowrap)
-					justify-content: space-around
+					justify-content: flex-start
 					align-items: center
 					width: 30%
 
 					.avatar
 						width: 16px
 						height: 16px
+						margin: 1px
 
 			.convo-card--snippet
+				height: 115px
 				width: 80%
 				text-align: left
 				padding: 10% 0
 				padding-left: 10px
 				color: $black
+				+flex(column nowrap)
 
 				strong
 					margin-right: 5px
@@ -185,6 +308,10 @@
 					white-space: nowrap
 					overflow: hidden
 					text-overflow: ellipsis
+					order: 2
+
+					&:last-of-type
+						order: 1
 
 
 //MESSAGE BUBBLE STYLES
@@ -193,16 +320,61 @@
 	.message-container
 		display: flex
 		flex-flow: column
-		-webkit-transform: translateX(-200px)
+
+		.message-bubble--mine
+			.message-bubble--flexbox
+				width: 100vw
+				display: flex
+				flex-flow: row nowrap
+				vertical-align: bottom
+
+				justify-content: flex-end
+				align-items: center
+				.avatar
+					display: none
+					height: 40px
+					width: 40px
+					order: 2
+				p
+					box-shadow: -3px 3px 0px 0px lighten($black, 50%)
+					order: 1
+					display: inline-block
+					word-wrap: break-word
+					max-width: 50ch
+					margin: 1% 3%
+					padding: 0.5em 0.75em
+					border-style: solid
+					border-width: 1px
+					border-radius: 10px
+					color: #333
+					transition: all 0.1s ease-in-out
+					&:hover
+						box-shadow: -4px 4px 0px 0px lighten($black, 50%)
+
+
+
+
 		.message-bubble--yours
 			.message-bubble--flexbox
+				width: 100vw
 				display: flex
 				flex-flow: row nowrap
 				justify-content: flex-start
 				align-items: center
-				margin-left: 3px
+				margin-left: 6px
+
+
+
+				.avatar
+					height: 40px
+					width: 40px
+					margin-right: 5px
+					margin-left: 10px
+					img
+						box-shadow: 2.5px 3px 0px 0px lighten($black, 50%)
 
 				p
+					box-shadow: 3px 3px 0px 0px lighten($black, 50%)
 					display: inline-block
 					word-wrap: break-word
 					max-width: 50ch
@@ -212,38 +384,41 @@
 					border-width: 1px
 					border-radius: 10px
 					color: #333
-
+					transition: all 0.1s ease-in-out
+					&:hover
+						box-shadow: 4px 4px 0px 0px lighten($black, 50%)
 				strong
 					margin-right: 10px
 
 .App
+	::-webkit-scrollbar
+		display: none!important
 	.chat-room
 		.chat-box
-			position: absolute
-			bottom: 60px
+			position: fixed
+			Infinite
+				overflow-x: scroll
+				margin-top: 5%
+			#typeChecker
+				height: 30px
+			.infinite
+				width: 100vw
+				height: 100%
+				display: flex
+				flex-flow: column
+				overflow: scroll
+				&::-webkit-scrollbar
+					width: 0px
+					background: transparent
 		.chat-input
 			position: fixed
+			background: white
 			bottom: 0
 			+flex(row nowrap)
 			justify-content: space-around
 			width: 100%
 			border-top: 1px solid $black
 			padding: 1% 0
-
-			#text-input
-				width: 80%
-				height: 100%
-				border: none
-				resize: none
-				align-self: center
-
-				&:focus
-					outline: none
-					border: 1px solid transparent
-					outline-offset: 0
-
-					&::-webkit-input-placeholder
-						color: transparent
 
 			button
 				text-decoration: none
@@ -257,6 +432,33 @@
 				text-align: center
 				border-radius: 50px
 				border: 1px solid $black
+				transition: all 0.2s ease-in-out
+				&:hover
+					transform: scale(1.1)
+					color: $highlight
+					border-color: $highlight
+
+			#text-input
+				width: 80%
+				height: 100%
+				border: none
+				resize: none
+				align-self: center
+
+
+
+
+				&:focus
+					outline: none
+					border: 1px solid transparent
+					outline-offset: 0
+
+					&::-webkit-input-placeholder
+						color: transparent
+
+
+
+
 
 //Utility
 
@@ -265,3 +467,7 @@
 
 .window-show
 	right: 0 !important
+
+// for erros on signup and login page
+.error--margin
+	margin-right: 10px
